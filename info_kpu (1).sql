@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2020 at 04:01 PM
+-- Generation Time: Mar 09, 2020 at 05:01 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `berita` (
   `id_berita` int(11) NOT NULL,
-  `id_pengguna` int(11) NOT NULL,
+  `username` varchar(10) NOT NULL,
   `jenis_berita` enum('PILEG','PILPRES','PILKADA') NOT NULL,
   `isi_berita` text NOT NULL,
   `gambar_berita` text NOT NULL,
@@ -48,6 +48,14 @@ CREATE TABLE `dapil` (
   `nama_dapil` varchar(25) NOT NULL,
   `alokasi_kursi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `dapil`
+--
+
+INSERT INTO `dapil` (`id_dapil`, `nama_dapil`, `alokasi_kursi`) VALUES
+(1, 'Dapil 1', 7),
+(2, 'Dapil 2', 5);
 
 -- --------------------------------------------------------
 
@@ -179,7 +187,8 @@ CREATE TABLE `tps` (
 -- Indexes for table `berita`
 --
 ALTER TABLE `berita`
-  ADD PRIMARY KEY (`id_berita`);
+  ADD PRIMARY KEY (`id_berita`),
+  ADD KEY `username` (`username`);
 
 --
 -- Indexes for table `dapil`
@@ -262,7 +271,7 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT for table `dapil`
 --
 ALTER TABLE `dapil`
-  MODIFY `id_dapil` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dapil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `data_kecamatan`
@@ -315,6 +324,12 @@ ALTER TABLE `tps`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `berita`
+--
+ALTER TABLE `berita`
+  ADD CONSTRAINT `berita_ibfk_1` FOREIGN KEY (`username`) REFERENCES `pengguna` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `data_kecamatan`
