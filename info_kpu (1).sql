@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2020 at 09:32 AM
+-- Generation Time: Mar 13, 2020 at 11:55 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -40,14 +40,42 @@ CREATE TABLE `berita` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `calon_terpilih`
+-- Table structure for table `calon_pileg`
 --
 
-CREATE TABLE `calon_terpilih` (
-  `id_calon_terpilih` int(11) NOT NULL,
+CREATE TABLE `calon_pileg` (
+  `id_calon_pileg` int(11) NOT NULL,
   `id_dapil` int(11) NOT NULL,
   `id_parpol` int(11) NOT NULL,
-  `jumlah_suara_sah` int(11) NOT NULL
+  `no_urut` int(11) NOT NULL,
+  `nama_calon` text NOT NULL,
+  `gender` enum('Laki-laki','Perempuan') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calon_pilkada`
+--
+
+CREATE TABLE `calon_pilkada` (
+  `id_calon_pilkada` int(11) NOT NULL,
+  `nama_calon` text NOT NULL,
+  `gender` enum('Laki-laki','Perempuan') NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `alamat` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calon_pilpres`
+--
+
+CREATE TABLE `calon_pilpres` (
+  `id_calon_pilpres` int(11) NOT NULL,
+  `nama_calon` text NOT NULL,
+  `gender` enum('Laki-laki','Perempuan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -73,29 +101,15 @@ INSERT INTO `dapil` (`id_dapil`, `nama_dapil`, `alokasi_kursi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_calon_dprd`
+-- Table structure for table `jadwal_kampanye_pemilu`
 --
 
-CREATE TABLE `data_calon_dprd` (
-  `id_data_calon_dprd` int(11) NOT NULL,
-  `id_dapil` int(11) NOT NULL,
-  `id_parpol` int(11) NOT NULL,
-  `no_urut` int(11) NOT NULL,
-  `nama_calon` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `info_kampanye`
---
-
-CREATE TABLE `info_kampanye` (
-  `id_info_kampanye` int(11) NOT NULL,
-  `deskripsi` text NOT NULL,
-  `lokasi` text NOT NULL,
-  `jadwal_mulai` date NOT NULL,
-  `jadwal_selesai` date NOT NULL
+CREATE TABLE `jadwal_kampanye_pemilu` (
+  `id_jadwal_kampanye_pemilu` int(11) NOT NULL,
+  `id_kecamatan` int(11) NOT NULL,
+  `tgl_mulai` date NOT NULL,
+  `tgl_selesai` date NOT NULL,
+  `pendukung_capres` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -130,11 +144,11 @@ CREATE TABLE `komentar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lokasi_kampanye`
+-- Table structure for table `lokasi_kampanye_pemilu`
 --
 
-CREATE TABLE `lokasi_kampanye` (
-  `id_lokasi_kampanye` int(11) NOT NULL,
+CREATE TABLE `lokasi_kampanye_pemilu` (
+  `id_lokasi_kampanye_pemilu` int(11) NOT NULL,
   `id_kecamatan` int(11) NOT NULL,
   `nama_lokasi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -148,7 +162,8 @@ CREATE TABLE `lokasi_kampanye` (
 CREATE TABLE `parpol` (
   `id_parpol` int(11) NOT NULL,
   `no_urut_parpol` int(11) NOT NULL,
-  `nama_parpol` text NOT NULL
+  `nama_parpol` text NOT NULL,
+  `pendukung_capres` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -166,18 +181,32 @@ CREATE TABLE `parpol_paslon` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paslon`
+-- Table structure for table `paslon_pilkada`
 --
 
-CREATE TABLE `paslon` (
+CREATE TABLE `paslon_pilkada` (
   `id_paslon` int(11) NOT NULL,
-  `jenis_pemilihan` enum('Pemilihan Walikota') NOT NULL,
+  `jenis_pemilihan` enum('Pemilihan Walikota','Pemilihan Gubernur','Pemilihan Bupati') NOT NULL,
   `nomor_urut` int(11) NOT NULL,
-  `nama_kepala_daerah` text NOT NULL,
-  `nama_wakil_kepala_daerah` text NOT NULL,
+  `id_kepala_daerah` int(11) NOT NULL,
+  `id_wakil_kepala_daerah` int(11) NOT NULL,
   `jenis_calon` enum('Perseorangan','Parpol') NOT NULL,
   `status_penetapan` enum('MS','TMS') NOT NULL,
-  `keterangan` text NOT NULL
+  `keterangan` text NOT NULL,
+  `tahun` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paslon_pilpres`
+--
+
+CREATE TABLE `paslon_pilpres` (
+  `id_paslon_pilpres` int(11) NOT NULL,
+  `nomor_urut` int(11) NOT NULL,
+  `id_capres` int(11) NOT NULL,
+  `id_cawapres` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -211,12 +240,12 @@ CREATE TABLE `perolehan_kursi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perolehan_suara_calon`
+-- Table structure for table `perolehan_suara_pileg`
 --
 
-CREATE TABLE `perolehan_suara_calon` (
-  `id_perolehan_suara_calon` int(11) NOT NULL,
-  `id_data_calon_dprd` int(11) NOT NULL,
+CREATE TABLE `perolehan_suara_pileg` (
+  `id_perolehan_suara_pileg` int(11) NOT NULL,
+  `id_calon_pileg` int(11) NOT NULL,
   `id_kecamatan` int(11) NOT NULL,
   `jumlah_suara` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -247,12 +276,24 @@ ALTER TABLE `berita`
   ADD KEY `username` (`username`);
 
 --
--- Indexes for table `calon_terpilih`
+-- Indexes for table `calon_pileg`
 --
-ALTER TABLE `calon_terpilih`
-  ADD PRIMARY KEY (`id_calon_terpilih`),
+ALTER TABLE `calon_pileg`
+  ADD PRIMARY KEY (`id_calon_pileg`),
   ADD KEY `id_dapil` (`id_dapil`),
   ADD KEY `id_parpol` (`id_parpol`);
+
+--
+-- Indexes for table `calon_pilkada`
+--
+ALTER TABLE `calon_pilkada`
+  ADD PRIMARY KEY (`id_calon_pilkada`);
+
+--
+-- Indexes for table `calon_pilpres`
+--
+ALTER TABLE `calon_pilpres`
+  ADD PRIMARY KEY (`id_calon_pilpres`);
 
 --
 -- Indexes for table `dapil`
@@ -261,18 +302,12 @@ ALTER TABLE `dapil`
   ADD PRIMARY KEY (`id_dapil`);
 
 --
--- Indexes for table `data_calon_dprd`
+-- Indexes for table `jadwal_kampanye_pemilu`
 --
-ALTER TABLE `data_calon_dprd`
-  ADD PRIMARY KEY (`id_data_calon_dprd`),
-  ADD KEY `id_dapil` (`id_dapil`),
-  ADD KEY `id_parpol` (`id_parpol`);
-
---
--- Indexes for table `info_kampanye`
---
-ALTER TABLE `info_kampanye`
-  ADD PRIMARY KEY (`id_info_kampanye`);
+ALTER TABLE `jadwal_kampanye_pemilu`
+  ADD PRIMARY KEY (`id_jadwal_kampanye_pemilu`),
+  ADD KEY `id_kecamatan` (`id_kecamatan`),
+  ADD KEY `jadwal_kampanye_pemilu_ibfk_2` (`pendukung_capres`);
 
 --
 -- Indexes for table `kecamatan`
@@ -290,10 +325,10 @@ ALTER TABLE `komentar`
   ADD KEY `username` (`username`);
 
 --
--- Indexes for table `lokasi_kampanye`
+-- Indexes for table `lokasi_kampanye_pemilu`
 --
-ALTER TABLE `lokasi_kampanye`
-  ADD PRIMARY KEY (`id_lokasi_kampanye`),
+ALTER TABLE `lokasi_kampanye_pemilu`
+  ADD PRIMARY KEY (`id_lokasi_kampanye_pemilu`),
   ADD KEY `id_kecamatan` (`id_kecamatan`);
 
 --
@@ -301,7 +336,8 @@ ALTER TABLE `lokasi_kampanye`
 --
 ALTER TABLE `parpol`
   ADD PRIMARY KEY (`id_parpol`),
-  ADD UNIQUE KEY `no_urut_parpol` (`no_urut_parpol`);
+  ADD UNIQUE KEY `no_urut_parpol` (`no_urut_parpol`),
+  ADD KEY `pendukung_capres` (`pendukung_capres`);
 
 --
 -- Indexes for table `parpol_paslon`
@@ -312,10 +348,21 @@ ALTER TABLE `parpol_paslon`
   ADD KEY `id_parpol` (`id_parpol`);
 
 --
--- Indexes for table `paslon`
+-- Indexes for table `paslon_pilkada`
 --
-ALTER TABLE `paslon`
-  ADD PRIMARY KEY (`id_paslon`);
+ALTER TABLE `paslon_pilkada`
+  ADD PRIMARY KEY (`id_paslon`),
+  ADD KEY `id_kepala_daerah` (`id_kepala_daerah`),
+  ADD KEY `id_wakil_kepala_daerah` (`id_wakil_kepala_daerah`);
+
+--
+-- Indexes for table `paslon_pilpres`
+--
+ALTER TABLE `paslon_pilpres`
+  ADD PRIMARY KEY (`id_paslon_pilpres`),
+  ADD UNIQUE KEY `nomor_urut` (`nomor_urut`),
+  ADD KEY `id_capres` (`id_capres`),
+  ADD KEY `id_cawapres` (`id_cawapres`);
 
 --
 -- Indexes for table `pengguna`
@@ -332,12 +379,12 @@ ALTER TABLE `perolehan_kursi`
   ADD KEY `id_parpol` (`id_parpol`);
 
 --
--- Indexes for table `perolehan_suara_calon`
+-- Indexes for table `perolehan_suara_pileg`
 --
-ALTER TABLE `perolehan_suara_calon`
-  ADD PRIMARY KEY (`id_perolehan_suara_calon`),
+ALTER TABLE `perolehan_suara_pileg`
+  ADD PRIMARY KEY (`id_perolehan_suara_pileg`),
   ADD KEY `id_kecamatan` (`id_kecamatan`),
-  ADD KEY `id_data_calon_dprd` (`id_data_calon_dprd`);
+  ADD KEY `id_data_calon_dprd` (`id_calon_pileg`);
 
 --
 -- Indexes for table `tps`
@@ -357,10 +404,22 @@ ALTER TABLE `berita`
   MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `calon_terpilih`
+-- AUTO_INCREMENT for table `calon_pileg`
 --
-ALTER TABLE `calon_terpilih`
-  MODIFY `id_calon_terpilih` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `calon_pileg`
+  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `calon_pilkada`
+--
+ALTER TABLE `calon_pilkada`
+  MODIFY `id_calon_pilkada` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `calon_pilpres`
+--
+ALTER TABLE `calon_pilpres`
+  MODIFY `id_calon_pilpres` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `dapil`
@@ -369,16 +428,10 @@ ALTER TABLE `dapil`
   MODIFY `id_dapil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `data_calon_dprd`
+-- AUTO_INCREMENT for table `jadwal_kampanye_pemilu`
 --
-ALTER TABLE `data_calon_dprd`
-  MODIFY `id_data_calon_dprd` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `info_kampanye`
---
-ALTER TABLE `info_kampanye`
-  MODIFY `id_info_kampanye` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `jadwal_kampanye_pemilu`
+  MODIFY `id_jadwal_kampanye_pemilu` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kecamatan`
@@ -393,10 +446,10 @@ ALTER TABLE `komentar`
   MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `lokasi_kampanye`
+-- AUTO_INCREMENT for table `lokasi_kampanye_pemilu`
 --
-ALTER TABLE `lokasi_kampanye`
-  MODIFY `id_lokasi_kampanye` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `lokasi_kampanye_pemilu`
+  MODIFY `id_lokasi_kampanye_pemilu` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `parpol`
@@ -411,10 +464,16 @@ ALTER TABLE `parpol_paslon`
   MODIFY `id_parpol_paslon` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `paslon`
+-- AUTO_INCREMENT for table `paslon_pilkada`
 --
-ALTER TABLE `paslon`
+ALTER TABLE `paslon_pilkada`
   MODIFY `id_paslon` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `paslon_pilpres`
+--
+ALTER TABLE `paslon_pilpres`
+  MODIFY `id_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `perolehan_kursi`
@@ -423,10 +482,10 @@ ALTER TABLE `perolehan_kursi`
   MODIFY `id_perolehan_kursi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `perolehan_suara_calon`
+-- AUTO_INCREMENT for table `perolehan_suara_pileg`
 --
-ALTER TABLE `perolehan_suara_calon`
-  MODIFY `id_perolehan_suara_calon` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `perolehan_suara_pileg`
+  MODIFY `id_perolehan_suara_pileg` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tps`
@@ -445,18 +504,18 @@ ALTER TABLE `berita`
   ADD CONSTRAINT `berita_ibfk_1` FOREIGN KEY (`username`) REFERENCES `pengguna` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `calon_terpilih`
+-- Constraints for table `calon_pileg`
 --
-ALTER TABLE `calon_terpilih`
-  ADD CONSTRAINT `calon_terpilih_ibfk_1` FOREIGN KEY (`id_dapil`) REFERENCES `dapil` (`id_dapil`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `calon_terpilih_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `calon_pileg`
+  ADD CONSTRAINT `calon_pileg_ibfk_1` FOREIGN KEY (`id_dapil`) REFERENCES `dapil` (`id_dapil`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `calon_pileg_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `data_calon_dprd`
+-- Constraints for table `jadwal_kampanye_pemilu`
 --
-ALTER TABLE `data_calon_dprd`
-  ADD CONSTRAINT `data_calon_dprd_ibfk_1` FOREIGN KEY (`id_dapil`) REFERENCES `dapil` (`id_dapil`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `data_calon_dprd_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `jadwal_kampanye_pemilu`
+  ADD CONSTRAINT `jadwal_kampanye_pemilu_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_kampanye_pemilu_ibfk_2` FOREIGN KEY (`pendukung_capres`) REFERENCES `calon_pilpres` (`id_calon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `kecamatan`
@@ -472,17 +531,37 @@ ALTER TABLE `komentar`
   ADD CONSTRAINT `komentar_ibfk_2` FOREIGN KEY (`username`) REFERENCES `pengguna` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `lokasi_kampanye`
+-- Constraints for table `lokasi_kampanye_pemilu`
 --
-ALTER TABLE `lokasi_kampanye`
-  ADD CONSTRAINT `lokasi_kampanye_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `lokasi_kampanye_pemilu`
+  ADD CONSTRAINT `lokasi_kampanye_pemilu_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `parpol`
+--
+ALTER TABLE `parpol`
+  ADD CONSTRAINT `parpol_ibfk_1` FOREIGN KEY (`pendukung_capres`) REFERENCES `calon_pilpres` (`id_calon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `parpol_paslon`
 --
 ALTER TABLE `parpol_paslon`
-  ADD CONSTRAINT `parpol_paslon_ibfk_1` FOREIGN KEY (`id_paslon`) REFERENCES `paslon` (`id_paslon`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `parpol_paslon_ibfk_1` FOREIGN KEY (`id_paslon`) REFERENCES `paslon_pilkada` (`id_paslon`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `parpol_paslon_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `paslon_pilkada`
+--
+ALTER TABLE `paslon_pilkada`
+  ADD CONSTRAINT `paslon_pilkada_ibfk_1` FOREIGN KEY (`id_kepala_daerah`) REFERENCES `calon_pilkada` (`id_calon_pilkada`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `paslon_pilkada_ibfk_2` FOREIGN KEY (`id_wakil_kepala_daerah`) REFERENCES `calon_pilkada` (`id_calon_pilkada`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `paslon_pilpres`
+--
+ALTER TABLE `paslon_pilpres`
+  ADD CONSTRAINT `paslon_pilpres_ibfk_1` FOREIGN KEY (`id_capres`) REFERENCES `calon_pilpres` (`id_calon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `paslon_pilpres_ibfk_2` FOREIGN KEY (`id_cawapres`) REFERENCES `calon_pilpres` (`id_calon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `perolehan_kursi`
@@ -492,11 +571,11 @@ ALTER TABLE `perolehan_kursi`
   ADD CONSTRAINT `perolehan_kursi_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `perolehan_suara_calon`
+-- Constraints for table `perolehan_suara_pileg`
 --
-ALTER TABLE `perolehan_suara_calon`
-  ADD CONSTRAINT `perolehan_suara_calon_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `perolehan_suara_calon_ibfk_2` FOREIGN KEY (`id_data_calon_dprd`) REFERENCES `data_calon_dprd` (`id_data_calon_dprd`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `perolehan_suara_pileg`
+  ADD CONSTRAINT `perolehan_suara_pileg_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `perolehan_suara_pileg_ibfk_2` FOREIGN KEY (`id_calon_pileg`) REFERENCES `calon_pileg` (`id_calon_pileg`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tps`
