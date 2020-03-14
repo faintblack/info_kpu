@@ -4,18 +4,34 @@
         <div id="sidebar-menu">
             <ul>
 
-                <li >
+                <li>
                     <a href="<?= base_url() ?>" class="waves-effect"><i class="ti-home"></i> <span> Home </span> </a>
                 </li>
-
+                <li>
+                    <a href="<?= base_url('berita') ?>" class="waves-effect"><i class="ti-home"></i> <span> Berita </span> </a>
+                </li>
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span> Data Master </span> <span class="menu-arrow"></span> </a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span> Data Pemilu </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="<?= base_url('dapil') ?>">Dapil</a></li>
-                        <li><a href="<?= base_url('papol') ?>">Parpol</a></li>
-                        <li><a href="<?= base_url('pengguna') ?>">Pengguna</a></li>
+                        <li><a href="<?= base_url('pilkada') ?>">PILKADA</a></li>
+                        <li><a href="<?= base_url('pileg') ?>">PILEG</a></li>
+                        <li><a href="<?= base_url('pilpres') ?>">PILPRES</a></li>
                     </ul>
                 </li>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span> Data Wilayah </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled">
+                        <li><a href="<?= base_url('dapil') ?>">Dapil</a></li>
+                        <li><a href="<?= base_url('kecamatan') ?>">Kecamatan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?= base_url('parpol') ?>" class="waves-effect"><i class="ti-home"></i> <span> Parpol </span> </a>
+                </li>
+                <li>
+                    <a href="<?= base_url('pengguna') ?>" class="waves-effect"><i class="ti-home"></i> <span> Pengguna </span> </a>
+                </li>
+                
 
             </ul>
             <div class="clearfix"></div>
