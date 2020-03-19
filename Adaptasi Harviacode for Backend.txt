@@ -1,0 +1,10 @@
+1. (Di file controller, dan masing2 form, list, dan read) Ganti semua text 'namacontroller' menjadi 'NamaController', 
+    yaitu kapital di inisial kata
+2. Di function index, read, create, update , tambahkan kedalam array $data berupa 'content => 'folder_view/nama_file'
+3. (Di setiap function pada controller ) Kemudian ganti $this->load_view() menjadi bersumber pada $this->load_view   ('layout-static', $data)
+4. Di setiap file dalam folder view masing-masing controller, ganti isinya dengan isi file di folder    layout/content_basic.php, ganti judul sesuai fungsi, dan copykan isi file penting kebawah tulisan comment #CRUD
+5. Jika dalam suatu tabel, primary key dapat diubah, tambahkan input hidden pada form tsb. Tambahkan atribut baru dgn nama    old_id
+6. Jika primary key dapat diubah, pada file menu form, buat satu parameter tersembunyi sbg id
+7. Kemudian pada method update_action jadikan parameter tersembunyi tsb sebagai id atau username awal dalam proses update    pada model. 
+8. Buat method tambahan yang berfungsi untuk memeriksa jumlah data di database.
+9. 
