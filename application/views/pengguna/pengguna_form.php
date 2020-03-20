@@ -11,7 +11,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-box table-responsive">
-                    <!-- CRUD -->
                     <form action="<?php echo $action; ?>" method="post">
                         <!-- #this for saving old username  -->
                         <div class="form-group">
@@ -30,6 +29,7 @@
                             <label for="enum">Hak Akses <?php echo form_error('hak_akses') ?></label>
                             <?php
                             $hak_akses_list = [
+                                '' => 'Pilih hak akses', 
                                 'admin' => 'Admin', 
                                 'public' => 'Public'
                             ];
