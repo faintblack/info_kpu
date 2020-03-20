@@ -1,5 +1,4 @@
-1. (Di file controller, dan masing2 form, list, dan read) Ganti semua text 'namacontroller' menjadi 'NamaController', 
-    yaitu kapital di inisial kata
+
 2. Di function index, read, create, update , tambahkan kedalam array $data berupa 'content => 'folder_view/nama_file'
 3. (Di setiap function pada controller ) Kemudian ganti $this->load_view() menjadi bersumber pada $this->load_view   ('layout-static', $data)
 4. Di setiap file dalam folder view masing-masing controller, ganti isinya dengan isi file di folder    layout/content_basic.php, ganti judul sesuai fungsi, dan copykan isi file penting kebawah tulisan comment #CRUD

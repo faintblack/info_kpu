@@ -60,7 +60,7 @@ class Dapil extends CI_Controller
             $this->load->view('layout/static', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Dapil'));
+            redirect(site_url('dapil'));
         }
     }
 
@@ -92,7 +92,7 @@ class Dapil extends CI_Controller
 
             $this->DapilModel->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('Dapil'));
+            redirect(site_url('dapil'));
         }
     }
     
@@ -114,7 +114,7 @@ class Dapil extends CI_Controller
             $this->load->view('layout/static', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Dapil'));
+            redirect(site_url('dapil'));
         }
     }
     
@@ -143,10 +143,10 @@ class Dapil extends CI_Controller
         if ($row) {
             $this->DapilModel->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('Dapil'));
+            redirect(site_url('dapil'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Dapil'));
+            redirect(site_url('dapil'));
         }
     }
 

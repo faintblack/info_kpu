@@ -8,7 +8,11 @@
 
 		<link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
-		<title>Backend Info KPU</title>
+        <title>Backend Info KPU</title>
+        
+        <!-- Data tables -->
+        <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
 		<link href="<?= base_url('libraries/ubold/') ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/core.css" rel="stylesheet" type="text/css" />
@@ -23,6 +27,12 @@
         <style type="text/css">
             #sidebar-menu{
                 padding-top:0;
+            }
+            .data-list th, .data-list td {
+                text-align: center;
+            }
+            .data-list .pinggir{
+                text-align: left;
             }
         </style>
 
@@ -87,9 +97,7 @@
         </div>
         <!-- END wrapper -->
 
-        <script>
-            var resizefunc = [];
-        </script>
+        
 
         <!-- jQuery  -->
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.min.js"></script>
@@ -105,6 +113,20 @@
 
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.core.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.app.js"></script>
-	
+
+        <!-- Data tables -->
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/dataTables.bootstrap.js"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/dataTables.responsive.min.js"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/pages/datatables.init.js"></script>
+
+        <script type="text/javascript">
+            var resizefunc = [];
+            $(document).ready(function () {
+                $('#datatable-responsive').DataTable();
+                
+            });
+            TableManageButtons.init();
+        </script>
 	</body>
 </html>

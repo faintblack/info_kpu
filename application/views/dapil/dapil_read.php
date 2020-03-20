@@ -15,7 +15,7 @@
                     <table class="table">
                         <tr><td>Nama Dapil</td><td><?php echo $nama_dapil; ?></td></tr>
                         <tr><td>Alokasi Kursi</td><td><?php echo $alokasi_kursi; ?></td></tr>
-                        <tr><td></td><td><a href="<?php echo site_url('Dapil') ?>" class="btn btn-default">Cancel</a></td></tr>
+                        <tr><td></td><td><a href="<?php echo site_url('dapil') ?>" class="btn btn-default">Cancel</a></td></tr>
                     </table>
                 </div>
             </div>

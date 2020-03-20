@@ -55,4 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 //$route['/'] = 'MainController';
 //$route['main'] = 'MainController';
-$route['dapil'] = 'DapilController';
+//$route['dapil'] = 'DapilController';
