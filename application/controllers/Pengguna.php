@@ -63,7 +63,7 @@ class Pengguna extends CI_Controller
             $this->load->view('layout/static', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Pengguna'));
+            redirect(site_url('pengguna'));
         }
     }
 
@@ -101,7 +101,7 @@ class Pengguna extends CI_Controller
 
             $this->PenggunaModel->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('Pengguna'));
+            redirect(site_url('pengguna'));
         }
     }
     
@@ -125,31 +125,27 @@ class Pengguna extends CI_Controller
             $this->load->view('layout/static', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Pengguna'));
+            redirect(site_url('pengguna'));
         }
     }
     
     public function update_action() 
     {
-        $this->_rules();
+        $this->_rules();       
 
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('username', TRUE));
         } else {
-            #this
-            $old_id = $this->input->post('old_username', TRUE);
 
             $data = array(
-                'username' => $this->input->post('username',TRUE),
                 'password' => $this->input->post('password',TRUE),
                 'nama_pengguna' => $this->input->post('nama_pengguna',TRUE),
                 'hak_akses' => $this->input->post('hak_akses',TRUE),
                 'email' => $this->input->post('email',TRUE),
             );
-            // #this
-            $this->PenggunaModel->update($old_id, $data);
+            $this->PenggunaModel->update($this->input->post('username'), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('Pengguna'));
+            redirect(site_url('pengguna'));
         }
     }
     
@@ -160,36 +156,19 @@ class Pengguna extends CI_Controller
         if ($row) {
             $this->PenggunaModel->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('Pengguna'));
+            redirect(site_url('pengguna'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Pengguna'));
+            redirect(site_url('pengguna'));
         }
     }
 
-    public function _rules() 
-    {
-	$this->form_validation->set_rules('password', 'password', 'trim|required');
-	$this->form_validation->set_rules('nama_pengguna', 'nama pengguna', 'trim|required');
-	$this->form_validation->set_rules('hak_akses', 'hak akses', 'trim|required');
-	$this->form_validation->set_rules('email', 'email', 'trim|required');
-    // #this untuk menmeriksa apakan username tidak ada urusan d kampus?
-	$this->form_validation->set_rules('username', 'username', 'trim|required|callback_username_check');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
-    }
-
-    // #this
-    public function username_check($id){
-        $row = $this->PenggunaModel->get_by_id($id);
-        if ($row)
-        {
-                $this->form_validation->set_message('username_check', 'Username sudah digunakan');
-                return FALSE;
-        }
-        else
-        {
-                return TRUE;
-        }
+    public function _rules(){
+        $this->form_validation->set_rules('password', 'password', 'trim|required');
+        $this->form_validation->set_rules('nama_pengguna', 'nama pengguna', 'trim|required');
+        $this->form_validation->set_rules('hak_akses', 'hak akses', 'trim|required');
+        $this->form_validation->set_rules('email', 'email', 'trim|required');
+        $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
 }

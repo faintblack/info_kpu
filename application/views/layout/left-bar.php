@@ -37,6 +37,9 @@
                 <li>
                     <a href="<?= base_url('libraries/ubold') ?>" class="waves-effect"><i class="ti-home"></i> <span> Ubold </span> </a>
                 </li>
+                <li>
+                    <a href="<?= base_url('user_guide') ?>" class="waves-effect"><i class="ti-home"></i> <span> CI Documentation </span> </a>
+                </li>
                 
 
             </ul>

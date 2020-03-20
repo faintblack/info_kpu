@@ -15,11 +15,11 @@
                     <table class="table">
                         <!-- #this -->
                         <tr><td>Username</td><td><?php echo $username; ?></td></tr>
-                        <tr><td>Password</td><td><?php echo $password; ?></td></tr>
+                        <tr><td>Password</td><td><?php echo '-'; ?></td></tr>
                         <tr><td>Nama Pengguna</td><td><?php echo $nama_pengguna; ?></td></tr>
                         <tr><td>Hak Akses</td><td><?php echo $hak_akses; ?></td></tr>
                         <tr><td>Email</td><td><?php echo $email; ?></td></tr>
-                        <tr><td></td><td><a href="<?php echo site_url('Pengguna') ?>" class="btn btn-default">Cancel</a></td></tr>
+                        <tr><td></td><td><a href="<?php echo site_url('pengguna') ?>" class="btn btn-default">Cancel</a></td></tr>
                     </table>
                 </div>
             </div>

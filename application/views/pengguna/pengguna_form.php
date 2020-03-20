@@ -14,14 +14,13 @@
                     <!-- CRUD -->
                     <form action="<?php echo $action; ?>" method="post">
                         <!-- #this for saving old username  -->
-                        <input type="hidden" name="old_username" value="<?php echo $username; ?>" /> 
                         <div class="form-group">
                             <label for="varchar">Username <?php echo form_error('username') ?></label>
-                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
-                        </div>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" <?= $button == 'Update' ? 'readonly' : '' ?> />
+                        </div>                                               
                         <div class="form-group">
                             <label for="varchar">Password <?php echo form_error('password') ?></label>
-                            <input type="text" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
                         </div>
                         <div class="form-group">
                             <label for="varchar">Nama Pengguna <?php echo form_error('nama_pengguna') ?></label>
@@ -29,7 +28,13 @@
                         </div>
                         <div class="form-group">
                             <label for="enum">Hak Akses <?php echo form_error('hak_akses') ?></label>
-                            <input type="text" class="form-control" name="hak_akses" id="hak_akses" placeholder="Hak Akses" value="<?php echo $hak_akses; ?>" />
+                            <?php
+                            $hak_akses_list = [
+                                'admin' => 'Admin', 
+                                'public' => 'Public'
+                            ];
+                            echo form_dropdown('hak_akses', $hak_akses_list,'', ['class' => 'form-control']);
+                            ?>
                         </div>
                         <div class="form-group">
                             <label for="varchar">Email <?php echo form_error('email') ?></label>
@@ -37,7 +42,7 @@
                         </div>
                         
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-                        <a href="<?php echo site_url('Pengguna') ?>" class="btn btn-default">Cancel</a>
+                        <a href="<?php echo site_url('pengguna') ?>" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
             </div>

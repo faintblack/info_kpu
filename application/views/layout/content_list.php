@@ -12,6 +12,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-box table-responsive">
+                    <!-- Div 1 -->
                     <div class="row" style="margin-bottom: 10px">
                         <div class="col-md-4">
                         <!-- Ambil dari generator -->
@@ -25,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Data -->
+                    <!-- Div 2 -->
                     <div class="row">
                         <div class="col-sm-12">
                             <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
