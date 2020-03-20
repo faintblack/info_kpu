@@ -34,12 +34,11 @@ class PaslonPilpres extends CI_Controller
         $this->load->library('pagination');
         $this->pagination->initialize($config);
 
-        $calon_pilpres = $this->CalonPilpresModel->get_all();
+        $paslonpilpres2 = $this->PaslonPilpresModel->get_all();
 
         $data = array(
             'content' => 'paslonpilpres/paslon_pilpres_list',
-            'paslonpilpres_data' => $paslonpilpres,
-            'calonpilpres_data' => $calon_pilpres,
+            'paslonpilpres_data' => $paslonpilpres2,
             'q' => $q,
             'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],

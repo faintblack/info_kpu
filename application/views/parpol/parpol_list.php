@@ -1,13 +1,10 @@
-<?php
-$CI =& get_instance();
-?>
 <div class="content">
     <div class="container">
 
         <!-- Page-Title -->
         <div class="row">
             <div class="col-sm-12">
-                <h4 class="page-title" style="margin-bottom: 10px">Data Paslon Pilpres</h4>
+                <h4 class="page-title" style="margin-bottom: 10px">Data Parpol</h4>
             </div>
         </div>
         
@@ -19,11 +16,10 @@ $CI =& get_instance();
                     <div class="row" style="margin-bottom: 10px">
                         <div class="col-md-4">
                             <!-- Ambil dari generator -->
-                            <?php echo anchor(site_url('paslonpilpres/create'),'Create', 'class="btn btn-primary"'); ?>
+                            <?php echo anchor(site_url('parpol/create'),'Create', 'class="btn btn-primary"'); ?>
                         </div>
                         <div class="col-md-4 text-center">
                             <div style="margin-top: 8px" id="message">
-                                <!-- Ambil dari generator -->
                                 <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
                             </div>
                         </div>
@@ -36,29 +32,29 @@ $CI =& get_instance();
                                     <!-- Ambil dari generator -->
                                     <tr>
                                         <th>No</th>
-                                        <th>Nomor Urut</th>
-                                        <th>Capres</th>
-                                        <th>Cawapres</th>
+                                        <th>No Urut Parpol</th>
+                                        <th>Nama Parpol</th>
+                                        <th>Pendukung Capres</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <!-- Ambil dari generator -->
                                 <?php
-                                    foreach ($paslonpilpres_data as $no => $paslonpilpres){
+                                    foreach ($parpol_data as $no => $parpol){
                                 ?>
                                     <tr>
                                         <td width="80px"><?php echo $no+1 ?></td>
-                                        <td><?php echo $paslonpilpres->nomor_urut ?></td>
-                                        <td><?= $paslonpilpres->id_capres ?></td>
-                                        <td><?= $paslonpilpres->id_cawapres ?></td>
+                                        <td><?php echo $parpol->no_urut_parpol ?></td>
+                                        <td><?php echo $parpol->nama_parpol ?></td>
+                                        <td><?= "{$parpol->no_urut_capres} - {$parpol->id_capres} & {$parpol->id_cawapres}" ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
-                                            echo anchor(site_url('paslonpilpres/read/'.$paslonpilpres->id_paslon_pilpres),' ', 'class="glyphicon glyphicon-eye-open"'); 
-                                            echo ' '; 
-                                            echo anchor(site_url('paslonpilpres/update/'.$paslonpilpres->id_paslon_pilpres),' ', 'class="glyphicon glyphicon-pencil"'); 
-                                            echo ' '; 
-                                            echo anchor(site_url('paslonpilpres/delete/'.$paslonpilpres->id_paslon_pilpres),' ','class="glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                            echo anchor(site_url('parpol/read/'.$parpol->id_parpol),'Read'); 
+                                            echo ' | '; 
+                                            echo anchor(site_url('parpol/update/'.$parpol->id_parpol),'Update'); 
+                                            echo ' | '; 
+                                            echo anchor(site_url('parpol/delete/'.$parpol->id_parpol),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                                             ?>
                                         </td>
                                     </tr>

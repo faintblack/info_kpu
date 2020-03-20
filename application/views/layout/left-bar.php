@@ -19,7 +19,7 @@
                             <a href="javascript:void(0);" class="waves-effect"><span>PILPRES</span>  <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="<?= site_url('calonpilpres') ?>"><span>Data Calon</span></a></li>
-                                <li><a href="<?= site_url('paslonpilpres') ?>"><span>Data Paslon</span></a></li>
+                                <li><a href="<?= base_url('paslonpilpres') ?>"><span>Data Paslon</span></a></li>
                             </ul>
                         </li>
                     </ul>
