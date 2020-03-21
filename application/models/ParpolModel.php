@@ -36,6 +36,12 @@ class ParpolModel extends CI_Model
         $this->db->select('id_parpol, no_urut_parpol, nama_parpol, a.nomor_urut AS no_urut_capres, b.nama_calon AS id_capres, c.nama_calon AS id_cawapres, pendukung_capres');
         return $this->db->get($this->table)->row();
     }
+
+    function get_where($condition){
+        $this->db->where($condition);
+        $this->db->select('*');
+        return $this->db->get($this->table)->result();
+    }
     
     // get total rows
     function total_rows($q = NULL) {

@@ -10,6 +10,7 @@ class PaslonPilpres extends CI_Controller
         parent::__construct();
         $this->load->model('PaslonPilpresModel');
         $this->load->model('CalonPilpresModel');
+        $this->load->model('ParpolModel');
         $this->load->library('form_validation');
     }
 
@@ -51,9 +52,11 @@ class PaslonPilpres extends CI_Controller
     public function read($id) 
     {
         $row = $this->PaslonPilpresModel->get_by_id($id);
-
+        
         if ($row) {
+            $parpol_data = $this->ParpolModel->get_where(['pendukung_capres' => $row->id_paslon_pilpres]);
             $data = array(
+                'parpol_data' => $parpol_data,
                 'content' => 'paslonpilpres/paslon_pilpres_read',
                 'id_paslon_pilpres' => $row->id_paslon_pilpres,
                 'nomor_urut' => $row->nomor_urut,

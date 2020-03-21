@@ -13,12 +13,44 @@
             <div class="col-sm-12">
                 <div class="card-box table-responsive">
                     <!-- Isi content -->
-                    <table class="table">
-                        <tr><td>Nomor Urut</td><td><?php echo $nomor_urut; ?></td></tr>
-                        <tr><td>Capres</td><td><?php echo $capres; ?></td></tr>
-                        <tr><td>Cawapres</td><td><?php echo $cawapres; ?></td></tr>
-                        <tr><td></td><td><a href="<?php echo site_url('paslonpilpres') ?>" class="btn btn-default">Cancel</a></td></tr>
-                    </table>
+                    <div class="row">
+                        <table class="table">
+                            <tr><td>Nomor Urut</td><td><?php echo $nomor_urut; ?></td></tr>
+                            <tr><td>Capres</td><td><?php echo $capres; ?></td></tr>
+                            <tr><td>Cawapres</td><td><?php echo $cawapres; ?></td></tr>
+                            <tr><td></td><td><a href="<?php echo site_url('paslonpilpres') ?>" class="btn btn-default">Cancel</a></td></tr>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4 class="page-title" style="margin-bottom: 10px">Daftar Parpol Pendukung</h4>
+                            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
+                                <thead>
+                                    <!-- Ambil dari generator -->
+                                    <tr>
+                                        <th>No</th>
+                                        <th>No Urut Parpol</th>
+                                        <th>Nama Parpol</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Ambil dari generator -->
+                                <?php
+                                    foreach ($parpol_data as $no => $parpol){
+                                ?>
+                                    <tr>
+                                        <td width="80px"><?php echo $no+1 ?></td>
+                                        <td><?php echo $parpol->no_urut_parpol ?></td>
+                                        <td><?php echo $parpol->nama_parpol ?></td>
+                                    </tr>
+                                <?php
+                                    }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>        

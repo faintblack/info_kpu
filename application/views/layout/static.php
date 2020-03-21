@@ -49,7 +49,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>INFO KPU</span></a>
+                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>INFO KPU PKU</span></a>
                     </div>
                 </div>
 

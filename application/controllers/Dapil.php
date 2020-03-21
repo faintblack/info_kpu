@@ -9,6 +9,7 @@ class Dapil extends CI_Controller
     {
         parent::__construct();
         $this->load->model('DapilModel');
+        $this->load->model('KecamatanModel');
         $this->load->library('form_validation');
     }
 
@@ -50,7 +51,10 @@ class Dapil extends CI_Controller
     {
         $row = $this->DapilModel->get_by_id($id);
         if ($row) {
+            $kecamatan_dapil = $this->KecamatanModel->get_where(['id_dapil' => $row->id_dapil]);
+
             $data = array(
+                'kecamatan_dapil' => $kecamatan_dapil,
                 'content' => 'dapil/dapil_read',
                 'id_dapil' => $row->id_dapil,
                 'nama_dapil' => $row->nama_dapil,
