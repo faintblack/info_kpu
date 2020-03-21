@@ -25,7 +25,8 @@
                     <form action="<?php echo $action; ?>" method="post">
                         <div class="form-group">
                             <label for="int">Nomor Urut <?php echo form_error('nomor_urut') ?></label>
-                            <input type="text" class="form-control" name="nomor_urut" id="nomor_urut" placeholder="Nomor Urut" value="<?php echo $nomor_urut; ?>" <?= $button == 'Update' ? 'readonly':'' ?> />
+                            <input type="hidden" name="nomor_urut-lama" value="<?php echo $nomor_urut; ?>" /> 
+                            <input type="text" class="form-control" name="nomor_urut" id="nomor_urut" placeholder="Nomor Urut" value="<?php echo $nomor_urut; ?>"  />
                         </div>
                         <div class="form-group">
                             <label for="int">Capres <?php echo form_error('id_capres') ?></label>

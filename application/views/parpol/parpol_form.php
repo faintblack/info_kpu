@@ -19,7 +19,8 @@
                     <form action="<?php echo $action; ?>" method="post">
                         <div class="form-group">
                             <label for="int">No Urut Parpol <?php echo form_error('no_urut_parpol') ?></label>
-                            <input type="number" class="form-control" name="no_urut_parpol" id="no_urut_parpol" placeholder="No Urut Parpol" value="<?php echo $no_urut_parpol; ?>" <?= $button == 'Update' ? 'readonly':'' ?> />
+                            <input type="hidden" name="no_urut_parpol-lama" value="<?php echo $no_urut_parpol; ?>" /> 
+                            <input type="number" class="form-control" name="no_urut_parpol" id="no_urut_parpol" placeholder="No Urut Parpol" value="<?php echo $no_urut_parpol; ?>"  />
                         </div>
                         <div class="form-group">
                             <label for="nama_parpol">Nama Parpol <?php echo form_error('nama_parpol') ?></label>

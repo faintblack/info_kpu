@@ -51,6 +51,7 @@ class PaslonPilpres extends CI_Controller
     public function read($id) 
     {
         $row = $this->PaslonPilpresModel->get_by_id($id);
+
         if ($row) {
             $data = array(
                 'content' => 'paslonpilpres/paslon_pilpres_read',
@@ -58,6 +59,8 @@ class PaslonPilpres extends CI_Controller
                 'nomor_urut' => $row->nomor_urut,
                 'id_capres' => $row->id_capres,
                 'id_cawapres' => $row->id_cawapres,
+                'capres' => $row->nama_capres,
+                'cawapres' => $row->nama_cawapres,
             );
             $this->load->view('layout/static', $data);
 //            $this->load->view('paslonpilpres/paslon_pilpres_read', $data);
@@ -92,10 +95,10 @@ class PaslonPilpres extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'nomor_urut' => $this->input->post('nomor_urut',TRUE),
-		'id_capres' => $this->input->post('id_capres',TRUE),
-		'id_cawapres' => $this->input->post('id_cawapres',TRUE),
-	    );
+              'nomor_urut' => $this->input->post('nomor_urut',TRUE),
+              'id_capres' => $this->input->post('id_capres',TRUE),
+              'id_cawapres' => $this->input->post('id_cawapres',TRUE),
+          );
 
             $this->PaslonPilpresModel->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -129,7 +132,12 @@ class PaslonPilpres extends CI_Controller
     
     public function update_action() 
     {
-        $this->_rules('update');
+        // Jika update nomor urut 
+        if ($this->input->post('nomor_urut-lama',TRUE) != $this->input->post('nomor_urut',TRUE)) {
+            $this->_rules();
+        } else {
+            $this->_rules('skip_nomor_urut');
+        }
 
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id_paslon_pilpres', TRUE));

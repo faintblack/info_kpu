@@ -15,8 +15,8 @@
                     <!-- Isi content -->
                     <table class="table">
                         <tr><td>Nomor Urut</td><td><?php echo $nomor_urut; ?></td></tr>
-                        <tr><td>Capres</td><td><?php echo $id_capres; ?></td></tr>
-                        <tr><td>Cawapres</td><td><?php echo $id_cawapres; ?></td></tr>
+                        <tr><td>Capres</td><td><?php echo $capres; ?></td></tr>
+                        <tr><td>Cawapres</td><td><?php echo $cawapres; ?></td></tr>
                         <tr><td></td><td><a href="<?php echo site_url('paslonpilpres') ?>" class="btn btn-default">Cancel</a></td></tr>
                     </table>
                 </div>

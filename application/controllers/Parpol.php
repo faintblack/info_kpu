@@ -95,10 +95,10 @@ class Parpol extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'no_urut_parpol' => $this->input->post('no_urut_parpol',TRUE),
-		'nama_parpol' => $this->input->post('nama_parpol',TRUE),
-		'pendukung_capres' => $this->input->post('pendukung_capres',TRUE),
-	    );
+              'no_urut_parpol' => $this->input->post('no_urut_parpol',TRUE),
+              'nama_parpol' => $this->input->post('nama_parpol',TRUE),
+              'pendukung_capres' => $this->input->post('pendukung_capres',TRUE),
+          );
 
             $this->ParpolModel->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -132,7 +132,12 @@ class Parpol extends CI_Controller
     
     public function update_action() 
     {
-        $this->_rules('update');
+        // Jika update nomor urut parpol
+        if ($this->input->post('no_urut_parpol-lama',TRUE) != $this->input->post('no_urut_parpol',TRUE)) {
+            $this->_rules();
+        } else {
+            $this->_rules('skip_nomor_urut');
+        }        
 
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id_parpol', TRUE));
@@ -167,12 +172,12 @@ class Parpol extends CI_Controller
         if ($type == '') {
             $this->form_validation->set_rules('no_urut_parpol', 'no urut parpol', 'trim|required|is_unique[parpol.no_urut_parpol]');
         }
-	
-	$this->form_validation->set_rules('nama_parpol', 'nama parpol', 'trim|required');
-	$this->form_validation->set_rules('pendukung_capres', 'pendukung capres', 'trim|required');
+        
+        $this->form_validation->set_rules('nama_parpol', 'nama parpol', 'trim|required');
+        $this->form_validation->set_rules('pendukung_capres', 'pendukung capres', 'trim|required');
 
-	$this->form_validation->set_rules('id_parpol', 'id_parpol', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+        $this->form_validation->set_rules('id_parpol', 'id_parpol', 'trim');
+        $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
@@ -197,20 +202,20 @@ class Parpol extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "No Urut Parpol");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nama Parpol");
-	xlsWriteLabel($tablehead, $kolomhead++, "Pendukung Capres");
+        xlsWriteLabel($tablehead, $kolomhead++, "No Urut Parpol");
+        xlsWriteLabel($tablehead, $kolomhead++, "Nama Parpol");
+        xlsWriteLabel($tablehead, $kolomhead++, "Pendukung Capres");
 
-	foreach ($this->ParpolModel->get_all() as $data) {
+        foreach ($this->ParpolModel->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->no_urut_parpol);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_parpol);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->pendukung_capres);
+            xlsWriteNumber($tablebody, $kolombody++, $data->no_urut_parpol);
+            xlsWriteLabel($tablebody, $kolombody++, $data->nama_parpol);
+            xlsWriteNumber($tablebody, $kolombody++, $data->pendukung_capres);
 
-	    $tablebody++;
+            $tablebody++;
             $nourut++;
         }
 
