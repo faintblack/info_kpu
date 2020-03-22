@@ -55,6 +55,7 @@ class PaslonPilpres extends CI_Controller
         $row = $this->PaslonPilpresModel->get_by_id($id);
         
         if ($row) {
+            
             $parpol_data = $this->ParpolPaslonPilpresModel->get_where(['id_paslon_pilpres' => $id]);
             $data = array(
                 'parpol_data' => $parpol_data,

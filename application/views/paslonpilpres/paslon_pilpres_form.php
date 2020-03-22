@@ -48,7 +48,7 @@
                                 'class' => 'select2 select2-multiple',
                                 'multiple' => 'multiple',
                                 'data-placeholder' => 'Choose parpol pendukung'
-                                ]) ?>
+                            ]) ?>
                         </div>                        
                         
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 

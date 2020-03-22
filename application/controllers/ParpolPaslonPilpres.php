@@ -43,6 +43,20 @@ class ParpolPaslonPilpres extends CI_Controller
         $this->load->view('parpolpaslonpilpres/parpol_paslon_pilpres_list', $data);
     }
 
+    public function add($id_paslon){
+        $parpol_pendukung = $this->input->post('parpol_pendukung');
+        
+        foreach ($parpol_pendukung as $key => $value) {
+            $data = [
+                'id_paslon_pilpres' => $id_paslon,
+                'id_parpol' => $value
+            ];
+            $this->ParpolPaslonPilpresModel->insert($data);
+        }
+        $this->session->set_flashdata('message', 'Create Record Success');
+            redirect(site_url('paslonpilpres/read/'.$id_paslon));
+    }
+
     public function read($id) 
     {
         $row = $this->ParpolPaslonPilpresModel->get_by_id($id);
@@ -126,14 +140,14 @@ class ParpolPaslonPilpres extends CI_Controller
         }
     }
     
-    public function delete($id) 
+    public function delete($id, $id_paslon) 
     {
         $row = $this->ParpolPaslonPilpresModel->get_by_id($id);
 
         if ($row) {
             $this->ParpolPaslonPilpresModel->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('parpolpaslonpilpres'));
+            redirect(site_url('paslonpilpres/read/'.$id_paslon));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('parpolpaslonpilpres'));
