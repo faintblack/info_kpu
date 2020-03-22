@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -9,6 +9,7 @@ class PaslonPilpres extends CI_Controller
     {
         parent::__construct();
         $this->load->model('PaslonPilpresModel');
+        $this->load->model('ParpolPaslonPilpresModel');
         $this->load->model('CalonPilpresModel');
         $this->load->model('ParpolModel');
         $this->load->library('form_validation');
@@ -54,7 +55,7 @@ class PaslonPilpres extends CI_Controller
         $row = $this->PaslonPilpresModel->get_by_id($id);
         
         if ($row) {
-            $parpol_data = $this->ParpolModel->get_where(['pendukung_capres' => $row->id_paslon_pilpres]);
+            $parpol_data = $this->ParpolPaslonPilpresModel->get_where(['id_paslon_pilpres' => $id]);
             $data = array(
                 'parpol_data' => $parpol_data,
                 'content' => 'paslonpilpres/paslon_pilpres_read',
@@ -76,6 +77,7 @@ class PaslonPilpres extends CI_Controller
     public function create() 
     {
         $calon_pilpres = $this->CalonPilpresModel->get_all();
+        
         $data = array(
             'calon_pilpres' => $calon_pilpres,
             'content' => 'paslonpilpres/paslon_pilpres_form',
@@ -92,18 +94,33 @@ class PaslonPilpres extends CI_Controller
     
     public function create_action() 
     {
+        
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
             $data = array(
-              'nomor_urut' => $this->input->post('nomor_urut',TRUE),
-              'id_capres' => $this->input->post('id_capres',TRUE),
-              'id_cawapres' => $this->input->post('id_cawapres',TRUE),
-          );
+                'nomor_urut' => $this->input->post('nomor_urut',TRUE),
+                'id_capres' => $this->input->post('id_capres',TRUE),
+                'id_cawapres' => $this->input->post('id_cawapres',TRUE),
+            );
+            $data_parpol_pendukung = $this->input->post('parpol_pilpres');
 
+            // Input paslon
             $this->PaslonPilpresModel->insert($data);
+
+            $last_paslon = $this->PaslonPilpresModel->get_last();
+            foreach ($data_parpol_pendukung as $key => $value) {
+                $data2 = [
+                    'id_paslon_pilpres' => $last_paslon->id_paslon_pilpres,
+                    'id_parpol' => $value
+                ];
+                // input parpol pendukung paslon
+                $this->ParpolPaslonPilpresModel->insert($data2);
+            }
+            
+            
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('paslonpilpres'));
         }

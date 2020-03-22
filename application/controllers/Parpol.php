@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -56,11 +56,7 @@ class Parpol extends CI_Controller
                 'content' => 'parpol/parpol_read',
                 'id_parpol' => $row->id_parpol,
                 'no_urut_parpol' => $row->no_urut_parpol,
-                'no_urut_capres' => $row->no_urut_capres,
-                'capres' => $row->id_capres,
-                'cawapres' => $row->id_cawapres,
                 'nama_parpol' => $row->nama_parpol,
-                'pendukung_capres' => $row->pendukung_capres,
             );
             $this->load->view('layout/static', $data);
 //            $this->load->view('parpol/parpol_read', $data);
@@ -81,14 +77,13 @@ class Parpol extends CI_Controller
             'id_parpol' => set_value('id_parpol'),
             'no_urut_parpol' => set_value('no_urut_parpol'),
             'nama_parpol' => set_value('nama_parpol'),
-            'pendukung_capres' => set_value('pendukung_capres'),
         );
         $this->load->view('layout/static', $data);
 //        $this->load->view('parpol/parpol_form', $data);
     }
     
     public function create_action() 
-    {
+    {        
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
@@ -97,7 +92,6 @@ class Parpol extends CI_Controller
             $data = array(
               'no_urut_parpol' => $this->input->post('no_urut_parpol',TRUE),
               'nama_parpol' => $this->input->post('nama_parpol',TRUE),
-              'pendukung_capres' => $this->input->post('pendukung_capres',TRUE),
           );
 
             $this->ParpolModel->insert($data);
@@ -120,7 +114,6 @@ class Parpol extends CI_Controller
                 'id_parpol' => set_value('id_parpol', $row->id_parpol),
                 'no_urut_parpol' => set_value('no_urut_parpol', $row->no_urut_parpol),
                 'nama_parpol' => set_value('nama_parpol', $row->nama_parpol),
-                'pendukung_capres' => set_value('pendukung_capres', $row->pendukung_capres),
             );
             $this->load->view('layout/static', $data);
 //            $this->load->view('parpol/parpol_form', $data);
@@ -145,7 +138,6 @@ class Parpol extends CI_Controller
             $data = array(
                 'no_urut_parpol' => $this->input->post('no_urut_parpol',TRUE),
                 'nama_parpol' => $this->input->post('nama_parpol',TRUE),
-                'pendukung_capres' => $this->input->post('pendukung_capres',TRUE),
             );
 
             $this->ParpolModel->update($this->input->post('id_parpol', TRUE), $data);
@@ -174,7 +166,6 @@ class Parpol extends CI_Controller
         }
         
         $this->form_validation->set_rules('nama_parpol', 'nama parpol', 'trim|required');
-        $this->form_validation->set_rules('pendukung_capres', 'pendukung capres', 'trim|required');
 
         $this->form_validation->set_rules('id_parpol', 'id_parpol', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

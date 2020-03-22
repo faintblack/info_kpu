@@ -16,7 +16,6 @@
                     <table class="table">
                         <tr><td>No Urut Parpol</td><td><?php echo $no_urut_parpol; ?></td></tr>
                         <tr><td>Nama Parpol</td><td><?php echo $nama_parpol; ?></td></tr>
-                        <tr><td>Pendukung Capres</td><td><?php echo "{$no_urut_capres} - {$capres} & {$cawapres}"; ?></td></tr>
                         <tr><td></td><td><a href="<?php echo site_url('parpol') ?>" class="btn btn-default">Cancel</a></td></tr>
                     </table>
                 </div>

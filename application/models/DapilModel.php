@@ -32,9 +32,9 @@ class DapilModel extends CI_Model
     // get total rows
     function total_rows($q = NULL) {
         $this->db->like('id_dapil', $q);
-	$this->db->or_like('nama_dapil', $q);
-	$this->db->or_like('alokasi_kursi', $q);
-	$this->db->from($this->table);
+        $this->db->or_like('nama_dapil', $q);
+        $this->db->or_like('alokasi_kursi', $q);
+        $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 

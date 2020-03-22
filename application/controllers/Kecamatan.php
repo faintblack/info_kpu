@@ -144,12 +144,12 @@ class Kecamatan extends CI_Controller
             $this->update($this->input->post('id_kecamatan', TRUE));
         } else {
             $data = array(
-		'nama_kecamatan' => $this->input->post('nama_kecamatan',TRUE),
-		'id_dapil' => $this->input->post('id_dapil',TRUE),
-		'jumlah_penduduk' => $this->input->post('jumlah_penduduk',TRUE),
-		'jumlah_dpt_lk' => $this->input->post('jumlah_dpt_lk',TRUE),
-		'jumlah_dpt_pr' => $this->input->post('jumlah_dpt_pr',TRUE),
-	    );
+              'nama_kecamatan' => $this->input->post('nama_kecamatan',TRUE),
+              'id_dapil' => $this->input->post('id_dapil',TRUE),
+              'jumlah_penduduk' => $this->input->post('jumlah_penduduk',TRUE),
+              'jumlah_dpt_lk' => $this->input->post('jumlah_dpt_lk',TRUE),
+              'jumlah_dpt_pr' => $this->input->post('jumlah_dpt_pr',TRUE),
+          );
 
             $this->KecamatanModel->update($this->input->post('id_kecamatan', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -173,62 +173,62 @@ class Kecamatan extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('nama_kecamatan', 'nama kecamatan', 'trim|required');
-	$this->form_validation->set_rules('id_dapil', 'id dapil', 'trim|required');
-	$this->form_validation->set_rules('jumlah_penduduk', 'jumlah penduduk', 'trim|required');
-	$this->form_validation->set_rules('jumlah_dpt_lk', 'jumlah dpt lk', 'trim|required');
-	$this->form_validation->set_rules('jumlah_dpt_pr', 'jumlah dpt pr', 'trim|required');
+       $this->form_validation->set_rules('nama_kecamatan', 'nama kecamatan', 'trim|required');
+       $this->form_validation->set_rules('id_dapil', 'id dapil', 'trim|required');
+       $this->form_validation->set_rules('jumlah_penduduk', 'jumlah penduduk', 'trim|required');
+       $this->form_validation->set_rules('jumlah_dpt_lk', 'jumlah dpt lk', 'trim|required');
+       $this->form_validation->set_rules('jumlah_dpt_pr', 'jumlah dpt pr', 'trim|required');
 
-	$this->form_validation->set_rules('id_kecamatan', 'id_kecamatan', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
-    }
+       $this->form_validation->set_rules('id_kecamatan', 'id_kecamatan', 'trim');
+       $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+   }
 
-    public function excel()
-    {
-        $this->load->helper('exportexcel');
-        $namaFile = "kecamatan.xls";
-        $judul = "kecamatan";
-        $tablehead = 0;
-        $tablebody = 1;
-        $nourut = 1;
+   public function excel()
+   {
+    $this->load->helper('exportexcel');
+    $namaFile = "kecamatan.xls";
+    $judul = "kecamatan";
+    $tablehead = 0;
+    $tablebody = 1;
+    $nourut = 1;
         //penulisan header
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
-        header("Content-Disposition: attachment;filename=" . $namaFile . "");
-        header("Content-Transfer-Encoding: binary ");
+    header("Pragma: public");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+    header("Content-Type: application/force-download");
+    header("Content-Type: application/octet-stream");
+    header("Content-Type: application/download");
+    header("Content-Disposition: attachment;filename=" . $namaFile . "");
+    header("Content-Transfer-Encoding: binary ");
 
-        xlsBOF();
+    xlsBOF();
 
-        $kolomhead = 0;
-        xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nama Kecamatan");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id Dapil");
-	xlsWriteLabel($tablehead, $kolomhead++, "Jumlah Penduduk");
-	xlsWriteLabel($tablehead, $kolomhead++, "Jumlah Dpt Lk");
-	xlsWriteLabel($tablehead, $kolomhead++, "Jumlah Dpt Pr");
+    $kolomhead = 0;
+    xlsWriteLabel($tablehead, $kolomhead++, "No");
+    xlsWriteLabel($tablehead, $kolomhead++, "Nama Kecamatan");
+    xlsWriteLabel($tablehead, $kolomhead++, "Id Dapil");
+    xlsWriteLabel($tablehead, $kolomhead++, "Jumlah Penduduk");
+    xlsWriteLabel($tablehead, $kolomhead++, "Jumlah Dpt Lk");
+    xlsWriteLabel($tablehead, $kolomhead++, "Jumlah Dpt Pr");
 
-	foreach ($this->KecamatanModel->get_all() as $data) {
-            $kolombody = 0;
+    foreach ($this->KecamatanModel->get_all() as $data) {
+        $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
-            xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_kecamatan);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->id_dapil);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->jumlah_penduduk);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->jumlah_dpt_lk);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->jumlah_dpt_pr);
+        xlsWriteNumber($tablebody, $kolombody++, $nourut);
+        xlsWriteLabel($tablebody, $kolombody++, $data->nama_kecamatan);
+        xlsWriteNumber($tablebody, $kolombody++, $data->id_dapil);
+        xlsWriteNumber($tablebody, $kolombody++, $data->jumlah_penduduk);
+        xlsWriteNumber($tablebody, $kolombody++, $data->jumlah_dpt_lk);
+        xlsWriteNumber($tablebody, $kolombody++, $data->jumlah_dpt_pr);
 
-	    $tablebody++;
-            $nourut++;
-        }
-
-        xlsEOF();
-        exit();
+        $tablebody++;
+        $nourut++;
     }
+
+    xlsEOF();
+    exit();
+}
 
 }
 

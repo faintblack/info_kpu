@@ -24,17 +24,16 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h4 class="page-title" style="margin-bottom: 10px">Daftar Parpol Pendukung</h4>
+                            
                             <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
                                 <thead>
-                                    <!-- Ambil dari generator -->
                                     <tr>
                                         <th>No</th>
-                                        <th>No Urut Parpol</th>
+                                        <th style="width: 200px">No Urut Parpol</th>
                                         <th>Nama Parpol</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <!-- Ambil dari generator -->
                                 <?php
                                     foreach ($parpol_data as $no => $parpol){
                                 ?>

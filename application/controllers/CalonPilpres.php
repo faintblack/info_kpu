@@ -104,10 +104,10 @@ class CalonPilpres extends CI_Controller
                 'content' => 'calonpilpres/calon_pilpres_form',
                 'button' => 'Update',
                 'action' => site_url('calonpilpres/update_action'),
-		'id_calon_pilpres' => set_value('id_calon_pilpres', $row->id_calon_pilpres),
-		'nama_calon' => set_value('nama_calon', $row->nama_calon),
-		'gender' => set_value('gender', $row->gender),
-        );
+                'id_calon_pilpres' => set_value('id_calon_pilpres', $row->id_calon_pilpres),
+                'nama_calon' => set_value('nama_calon', $row->nama_calon),
+                'gender' => set_value('gender', $row->gender),
+            );
             $this->load->view('layout/static', $data);
             //$this->load->view('calonpilpres/calon_pilpres_form', $data);
         } else {
@@ -124,9 +124,9 @@ class CalonPilpres extends CI_Controller
             $this->update($this->input->post('id_calon_pilpres', TRUE));
         } else {
             $data = array(
-		'nama_calon' => $this->input->post('nama_calon',TRUE),
-		'gender' => $this->input->post('gender',TRUE),
-	    );
+              'nama_calon' => $this->input->post('nama_calon',TRUE),
+              'gender' => $this->input->post('gender',TRUE),
+          );
 
             $this->CalonPilpresModel->update($this->input->post('id_calon_pilpres', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -150,53 +150,53 @@ class CalonPilpres extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('nama_calon', 'nama calon', 'trim|required');
-	$this->form_validation->set_rules('gender', 'gender', 'trim|required');
+       $this->form_validation->set_rules('nama_calon', 'nama calon', 'trim|required');
+       $this->form_validation->set_rules('gender', 'gender', 'trim|required');
 
-	$this->form_validation->set_rules('id_calon_pilpres', 'id_calon_pilpres', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
-    }
+       $this->form_validation->set_rules('id_calon_pilpres', 'id_calon_pilpres', 'trim');
+       $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+   }
 
-    public function excel()
-    {
-        $this->load->helper('exportexcel');
-        $namaFile = "calon_pilpres.xls";
-        $judul = "calon_pilpres";
-        $tablehead = 0;
-        $tablebody = 1;
-        $nourut = 1;
+   public function excel()
+   {
+    $this->load->helper('exportexcel');
+    $namaFile = "calon_pilpres.xls";
+    $judul = "calon_pilpres";
+    $tablehead = 0;
+    $tablebody = 1;
+    $nourut = 1;
         //penulisan header
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
-        header("Content-Disposition: attachment;filename=" . $namaFile . "");
-        header("Content-Transfer-Encoding: binary ");
+    header("Pragma: public");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+    header("Content-Type: application/force-download");
+    header("Content-Type: application/octet-stream");
+    header("Content-Type: application/download");
+    header("Content-Disposition: attachment;filename=" . $namaFile . "");
+    header("Content-Transfer-Encoding: binary ");
 
-        xlsBOF();
+    xlsBOF();
 
-        $kolomhead = 0;
-        xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nama Calon");
-	xlsWriteLabel($tablehead, $kolomhead++, "Gender");
+    $kolomhead = 0;
+    xlsWriteLabel($tablehead, $kolomhead++, "No");
+    xlsWriteLabel($tablehead, $kolomhead++, "Nama Calon");
+    xlsWriteLabel($tablehead, $kolomhead++, "Gender");
 
-	foreach ($this->CalonPilpresModel->get_all() as $data) {
-            $kolombody = 0;
+    foreach ($this->CalonPilpresModel->get_all() as $data) {
+        $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
-            xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_calon);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->gender);
+        xlsWriteNumber($tablebody, $kolombody++, $nourut);
+        xlsWriteLabel($tablebody, $kolombody++, $data->nama_calon);
+        xlsWriteLabel($tablebody, $kolombody++, $data->gender);
 
-	    $tablebody++;
-            $nourut++;
-        }
-
-        xlsEOF();
-        exit();
+        $tablebody++;
+        $nourut++;
     }
+
+    xlsEOF();
+    exit();
+}
 
 }
 

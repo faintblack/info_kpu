@@ -14,6 +14,10 @@
         <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
+        <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/multiselect/css/multi-select.css"  rel="stylesheet" type="text/css" />
+        <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+
 		<link href="<?= base_url('libraries/ubold/') ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -97,8 +101,6 @@
         </div>
         <!-- END wrapper -->
 
-        
-
         <!-- jQuery  -->
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.min.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/bootstrap.min.js"></script>
@@ -111,14 +113,24 @@
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.nicescroll.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.scrollTo.min.js"></script>
 
-        <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.core.js"></script>
-        <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.app.js"></script>
-
         <!-- Data tables -->
         <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/dataTables.bootstrap.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/dataTables.responsive.min.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/pages/datatables.init.js"></script>
+        
+        <!-- Multi select -->
+        <script type="text/javascript" src="<?= base_url('libraries/ubold/') ?>assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/select2/js/select2.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+        
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="<?= base_url('libraries/ubold/') ?>assets/pages/jquery.form-advanced.init.js"></script>
+
+        <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.core.js"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.app.js"></script>
 
         <script type="text/javascript">
             var resizefunc = [];

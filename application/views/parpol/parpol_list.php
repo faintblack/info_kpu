@@ -34,7 +34,6 @@
                                         <th>No</th>
                                         <th>No Urut Parpol</th>
                                         <th>Nama Parpol</th>
-                                        <th>Pendukung Capres</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -47,7 +46,6 @@
                                         <td width="80px"><?php echo $no+1 ?></td>
                                         <td><?php echo $parpol->no_urut_parpol ?></td>
                                         <td><?php echo $parpol->nama_parpol ?></td>
-                                        <td><?= "{$parpol->no_urut_capres} - {$parpol->id_capres} & {$parpol->id_cawapres}" ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
                                             echo anchor(site_url('parpol/read/'.$parpol->id_parpol),'Read'); 

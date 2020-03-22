@@ -32,9 +32,9 @@ class CalonPilpresModel extends CI_Model
     // get total rows
     function total_rows($q = NULL) {
         $this->db->like('id_calon_pilpres', $q);
-	$this->db->or_like('nama_calon', $q);
-	$this->db->or_like('gender', $q);
-	$this->db->from($this->table);
+        $this->db->or_like('nama_calon', $q);
+        $this->db->or_like('gender', $q);
+        $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
@@ -42,9 +42,9 @@ class CalonPilpresModel extends CI_Model
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id_calon_pilpres', $q);
-	$this->db->or_like('nama_calon', $q);
-	$this->db->or_like('gender', $q);
-	$this->db->limit($limit, $start);
+        $this->db->or_like('nama_calon', $q);
+        $this->db->or_like('gender', $q);
+        $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
 

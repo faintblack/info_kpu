@@ -15,6 +15,11 @@ class PaslonPilpresModel extends CI_Model
         parent::__construct();
     }
 
+    function get_last(){
+        $this->db->select('id_paslon_pilpres');
+        return $this->db->get($this->table)->last_row();
+    }
+
     // get all
     function get_all()
     {

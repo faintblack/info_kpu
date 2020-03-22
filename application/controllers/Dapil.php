@@ -90,9 +90,9 @@ class Dapil extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'nama_dapil' => $this->input->post('nama_dapil',TRUE),
-		'alokasi_kursi' => $this->input->post('alokasi_kursi',TRUE),
-	    );
+              'nama_dapil' => $this->input->post('nama_dapil',TRUE),
+              'alokasi_kursi' => $this->input->post('alokasi_kursi',TRUE),
+          );
 
             $this->DapilModel->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -130,9 +130,9 @@ class Dapil extends CI_Controller
             $this->update($this->input->post('id_dapil', TRUE));
         } else {
             $data = array(
-		'nama_dapil' => $this->input->post('nama_dapil',TRUE),
-		'alokasi_kursi' => $this->input->post('alokasi_kursi',TRUE),
-	    );
+              'nama_dapil' => $this->input->post('nama_dapil',TRUE),
+              'alokasi_kursi' => $this->input->post('alokasi_kursi',TRUE),
+          );
 
             $this->DapilModel->update($this->input->post('id_dapil', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -156,53 +156,53 @@ class Dapil extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('nama_dapil', 'nama dapil', 'trim|required');
-	$this->form_validation->set_rules('alokasi_kursi', 'alokasi kursi', 'trim|required');
+       $this->form_validation->set_rules('nama_dapil', 'nama dapil', 'trim|required');
+       $this->form_validation->set_rules('alokasi_kursi', 'alokasi kursi', 'trim|required');
 
-	$this->form_validation->set_rules('id_dapil', 'id_dapil', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
-    }
+       $this->form_validation->set_rules('id_dapil', 'id_dapil', 'trim');
+       $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+   }
 
-    public function excel()
-    {
-        $this->load->helper('exportexcel');
-        $namaFile = "dapil.xls";
-        $judul = "dapil";
-        $tablehead = 0;
-        $tablebody = 1;
-        $nourut = 1;
+   public function excel()
+   {
+    $this->load->helper('exportexcel');
+    $namaFile = "dapil.xls";
+    $judul = "dapil";
+    $tablehead = 0;
+    $tablebody = 1;
+    $nourut = 1;
         //penulisan header
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
-        header("Content-Disposition: attachment;filename=" . $namaFile . "");
-        header("Content-Transfer-Encoding: binary ");
+    header("Pragma: public");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+    header("Content-Type: application/force-download");
+    header("Content-Type: application/octet-stream");
+    header("Content-Type: application/download");
+    header("Content-Disposition: attachment;filename=" . $namaFile . "");
+    header("Content-Transfer-Encoding: binary ");
 
-        xlsBOF();
+    xlsBOF();
 
-        $kolomhead = 0;
-        xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nama Dapil");
-	xlsWriteLabel($tablehead, $kolomhead++, "Alokasi Kursi");
+    $kolomhead = 0;
+    xlsWriteLabel($tablehead, $kolomhead++, "No");
+    xlsWriteLabel($tablehead, $kolomhead++, "Nama Dapil");
+    xlsWriteLabel($tablehead, $kolomhead++, "Alokasi Kursi");
 
-	foreach ($this->DapilModel->get_all() as $data) {
-            $kolombody = 0;
+    foreach ($this->DapilModel->get_all() as $data) {
+        $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
-            xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_dapil);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->alokasi_kursi);
+        xlsWriteNumber($tablebody, $kolombody++, $nourut);
+        xlsWriteLabel($tablebody, $kolombody++, $data->nama_dapil);
+        xlsWriteNumber($tablebody, $kolombody++, $data->alokasi_kursi);
 
-	    $tablebody++;
-            $nourut++;
-        }
-
-        xlsEOF();
-        exit();
+        $tablebody++;
+        $nourut++;
     }
+
+    xlsEOF();
+    exit();
+}
 
 }
 
