@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2020 at 08:57 AM
+-- Generation Time: Mar 23, 2020 at 02:06 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -223,8 +223,10 @@ CREATE TABLE `parpol_paslon_pilpres` (
 --
 
 INSERT INTO `parpol_paslon_pilpres` (`id_parpol_paslon_pilpres`, `id_paslon_pilpres`, `id_parpol`) VALUES
-(3, 11, 3),
-(4, 11, 2);
+(11, 2, 2),
+(12, 2, 4),
+(13, 1, 3),
+(14, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -264,8 +266,7 @@ CREATE TABLE `paslon_pilpres` (
 
 INSERT INTO `paslon_pilpres` (`id_paslon_pilpres`, `nomor_urut`, `id_capres`, `id_cawapres`, `tahun`) VALUES
 (1, 1, 6, 7, ''),
-(2, 2, 4, 5, ''),
-(11, 3, 5, 7, '');
+(2, 2, 4, 5, '');
 
 -- --------------------------------------------------------
 
@@ -294,40 +295,12 @@ INSERT INTO `pengguna` (`username`, `password`, `nama_pengguna`, `hak_akses`, `e
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perolehan_kursi`
---
-
-CREATE TABLE `perolehan_kursi` (
-  `id_perolehan_kursi` int(11) NOT NULL,
-  `id_dapil` int(11) NOT NULL,
-  `id_parpol` int(11) NOT NULL,
-  `jumlah_suara_sah` int(11) NOT NULL,
-  `jumlah_kursi` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `suara_calon_pileg`
 --
 
 CREATE TABLE `suara_calon_pileg` (
   `id_suara_calon_pileg` int(11) NOT NULL,
   `id_calon_pileg` int(11) NOT NULL,
-  `id_kecamatan` int(11) NOT NULL,
-  `jumlah_suara` int(11) NOT NULL,
-  `tahun` varchar(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `suara_parpol_pileg`
---
-
-CREATE TABLE `suara_parpol_pileg` (
-  `id_suara_parpol_pileg` int(11) NOT NULL,
-  `id_parpol` int(11) NOT NULL,
   `id_kecamatan` int(11) NOT NULL,
   `jumlah_suara` int(11) NOT NULL,
   `tahun` varchar(4) NOT NULL
@@ -461,28 +434,12 @@ ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `perolehan_kursi`
---
-ALTER TABLE `perolehan_kursi`
-  ADD PRIMARY KEY (`id_perolehan_kursi`),
-  ADD KEY `id_dapil` (`id_dapil`),
-  ADD KEY `id_parpol` (`id_parpol`);
-
---
 -- Indexes for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
   ADD PRIMARY KEY (`id_suara_calon_pileg`),
   ADD KEY `id_kecamatan` (`id_kecamatan`),
   ADD KEY `id_data_calon_dprd` (`id_calon_pileg`);
-
---
--- Indexes for table `suara_parpol_pileg`
---
-ALTER TABLE `suara_parpol_pileg`
-  ADD PRIMARY KEY (`id_suara_parpol_pileg`),
-  ADD KEY `id_parpol` (`id_parpol`),
-  ADD KEY `id_kecamatan` (`id_kecamatan`);
 
 --
 -- Indexes for table `tps`
@@ -565,7 +522,7 @@ ALTER TABLE `parpol_paslon_pilkada`
 -- AUTO_INCREMENT for table `parpol_paslon_pilpres`
 --
 ALTER TABLE `parpol_paslon_pilpres`
-  MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `paslon_pilkada`
@@ -580,22 +537,10 @@ ALTER TABLE `paslon_pilpres`
   MODIFY `id_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `perolehan_kursi`
---
-ALTER TABLE `perolehan_kursi`
-  MODIFY `id_perolehan_kursi` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
   MODIFY `id_suara_calon_pileg` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `suara_parpol_pileg`
---
-ALTER TABLE `suara_parpol_pileg`
-  MODIFY `id_suara_parpol_pileg` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tps`
@@ -675,25 +620,11 @@ ALTER TABLE `paslon_pilpres`
   ADD CONSTRAINT `paslon_pilpres_ibfk_2` FOREIGN KEY (`id_cawapres`) REFERENCES `calon_pilpres` (`id_calon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `perolehan_kursi`
---
-ALTER TABLE `perolehan_kursi`
-  ADD CONSTRAINT `perolehan_kursi_ibfk_1` FOREIGN KEY (`id_dapil`) REFERENCES `dapil` (`id_dapil`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `perolehan_kursi_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
   ADD CONSTRAINT `suara_calon_pileg_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `suara_calon_pileg_ibfk_2` FOREIGN KEY (`id_calon_pileg`) REFERENCES `calon_pileg` (`id_calon_pileg`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `suara_parpol_pileg`
---
-ALTER TABLE `suara_parpol_pileg`
-  ADD CONSTRAINT `suara_parpol_pileg_ibfk_1` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `suara_parpol_pileg_ibfk_2` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tps`
