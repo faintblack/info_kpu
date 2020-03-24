@@ -3,10 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class PaslonPilpres extends CI_Controller
-{
-    function __construct()
-    {
+class PaslonPilpres extends CI_Controller{
+
+    public $main_menu = 'Data Pemilu';
+
+    function __construct(){
         parent::__construct();
         $this->load->model('PaslonPilpresModel');
         $this->load->model('ParpolPaslonPilpresModel');
@@ -15,8 +16,7 @@ class PaslonPilpres extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index()
-    {
+    public function index(){
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
         
@@ -39,6 +39,7 @@ class PaslonPilpres extends CI_Controller
         $paslonpilpres2 = $this->PaslonPilpresModel->get_all();
 
         $data = array(
+            'main_menu' => $this->main_menu,
             'content' => 'paslonpilpres/paslon_pilpres_list',
             'paslonpilpres_data' => $paslonpilpres2,
             'q' => $q,

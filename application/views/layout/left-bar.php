@@ -11,10 +11,16 @@
                     <a href="<?= base_url('berita') ?>" class="waves-effect"><i class="ti-home"></i> <span> Berita </span> </a>
                 </li>
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span> Data Pemilu </span> <span class="menu-arrow"></span> </a>
-                    <ul class="list-unstyled">
+                    <a href="javascript:void(0);" class="waves-effect <?= isset($main_menu)&&$main_menu=='Data Pemilu' ? 'subdrop' : '' ?>"><i class="ti-paint-bucket"></i> <span> Data Pemilu </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled" style="<?= isset($main_menu)&&$main_menu=='Data Pemilu' ? 'display:block' : '' ?>">
                         <li><a href="<?= base_url('pilkada') ?>">PILKADA</a></li>
-                        <li><a href="<?= base_url('pileg') ?>">PILEG</a></li>
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><span>PILEG</span>  <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="<?= site_url('calonpileg') ?>"><span>Data Calon</span></a></li>
+                                <li><a href="<?= base_url('paslonpilpres') ?>"><span>Data Perolehan Suara</span></a></li>
+                            </ul>
+                        </li>
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><span>PILPRES</span>  <span class="menu-arrow"></span></a>
                             <ul>

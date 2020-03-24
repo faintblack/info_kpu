@@ -3,8 +3,10 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class CalonPilpres extends CI_Controller
-{
+class CalonPilpres extends CI_Controller{
+
+    public $main_menu = 'Data Pemilu';
+
     function __construct()
     {
         parent::__construct();
@@ -34,6 +36,7 @@ class CalonPilpres extends CI_Controller
         $this->pagination->initialize($config);
 
         $data = array(
+            'main_menu' => $this->main_menu,
             'content' => 'calonpilpres/calon_pilpres_list',
             'calonpilpres_data' => $calonpilpres,
             'q' => $q,
