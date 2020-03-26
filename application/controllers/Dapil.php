@@ -8,6 +8,9 @@ class Dapil extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('level') != "admin") {
+            redirect('login');
+        }
         $this->load->model('DapilModel');
         $this->load->model('KecamatanModel');
         $this->load->library('form_validation');

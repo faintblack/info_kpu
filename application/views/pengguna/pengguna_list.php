@@ -30,14 +30,13 @@
                         <div class="col-sm-12">
                             <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
                                 <thead>
-                                    <!-- Ambil dari generator -->
                                     <tr>
                                         <th>No</th>
                                         <th>Username</th>
                                         <th>Nama Pengguna</th>
                                         <th>Hak Akses</th>
                                         <th>Email</th>
-                                        <th>Action</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,11 +52,11 @@
                                         <td class="pinggir"><?php echo $pengguna->email ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
-                                            echo anchor(site_url('pengguna/read/'.$pengguna->username), ' ', 'class="glyphicon glyphicon-eye-open"'); 
+                                            echo anchor(site_url('pengguna/read/'.$pengguna->username), ' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' ';
-                                            echo anchor(site_url('pengguna/update/'.$pengguna->username),' ', 'class="glyphicon glyphicon-pencil"');
+                                            echo anchor(site_url('pengguna/update/'.$pengguna->username),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-edit"');
                                             echo ' ';
-                                            echo anchor(site_url('pengguna/delete/'.$pengguna->username),' ','class="glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                            echo anchor(site_url('pengguna/delete/'.$pengguna->username),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                                             ?>
                                         </td>
                                     </tr>

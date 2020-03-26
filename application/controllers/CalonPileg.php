@@ -10,6 +10,9 @@ class CalonPileg extends CI_Controller{
 	function __construct()
 	{
 		parent::__construct();
+		if ($this->session->userdata('level') != "admin") {
+			redirect('login');
+		}
 		$this->load->model('CalonPilegModel');
 		$this->load->model('DapilModel');
 		$this->load->model('ParpolModel');

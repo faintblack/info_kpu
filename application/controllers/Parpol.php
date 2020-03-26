@@ -8,6 +8,9 @@ class Parpol extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('level') != "admin") {
+            redirect('login');
+        }
         $this->load->model('ParpolModel');
         $this->load->model('PaslonPilpresModel');
         $this->load->library('form_validation');

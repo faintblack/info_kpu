@@ -15,6 +15,11 @@ class PenggunaModel extends CI_Model
         parent::__construct();
     }
 
+    function validasi($data) {
+        $query = $this->db->get_where('pengguna', $data);
+        return $query;
+    }
+
     // get all
     function get_all()
     {

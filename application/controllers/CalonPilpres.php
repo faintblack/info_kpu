@@ -10,6 +10,9 @@ class CalonPilpres extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('level') != "admin") {
+            redirect('login');
+        }
         $this->load->model('CalonPilpresModel');
         $this->load->library('form_validation');
     }

@@ -5,10 +5,10 @@
             <ul>
 
                 <li>
-                    <a href="<?= site_url() ?>" class="waves-effect"><i class="ti-home"></i> <span> Home </span> </a>
+                    <a href="<?= site_url('homecontroller') ?>" class="waves-effect"><i class="ti-home"></i> <span> Home </span> </a>
                 </li>
                 <li>
-                    <a href="<?= site_url('berita') ?>" class="waves-effect"><i class="ti-home"></i> <span> Berita </span> </a>
+                    <a href="<?= site_url('berita') ?>" class="waves-effect"><i class="ti-book"></i> <span> Berita </span> </a>
                 </li>
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect <?= isset($main_menu)&&$main_menu=='Data Pemilu' ? 'subdrop' : '' ?>"><i class="ti-paint-bucket"></i> <span> Data Pemilu </span> <span class="menu-arrow"></span> </a>
@@ -41,7 +41,7 @@
                     <a href="<?= site_url('parpol') ?>" class="waves-effect"><i class="ti-home"></i> <span> Parpol </span> </a>
                 </li>
                 <li>
-                    <a href="<?= site_url('pengguna') ?>" class="waves-effect"><i class="ti-home"></i> <span> Pengguna </span> </a>
+                    <a href="<?= site_url('pengguna') ?>" class="waves-effect"><i class="ti-user"></i> <span> Pengguna </span> </a>
                 </li>
                 <li>
                     <a href="<?= site_url('harviacode') ?>" class="waves-effect"><i class="ti-home"></i> <span> CRUD GENERATOR </span> </a>

@@ -8,6 +8,9 @@ class Kecamatan extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('level') != "admin") {
+            redirect('login');
+        }
         $this->load->model('KecamatanModel');
         $this->load->model('DapilModel');
         $this->load->library('form_validation');

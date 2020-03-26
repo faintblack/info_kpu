@@ -8,6 +8,9 @@ class Pengguna extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('level') != "admin") {
+            redirect('login');
+        }
         $this->load->model('PenggunaModel');
         $this->load->library('form_validation');
     }
@@ -93,7 +96,7 @@ class Pengguna extends CI_Controller
         } else {
             $data = array(  
                 'username' => $this->input->post('username',TRUE),
-                'password' => $this->input->post('password',TRUE),
+                'password' => md5($this->input->post('password',TRUE)),
                 'nama_pengguna' => $this->input->post('nama_pengguna',TRUE),
                 'hak_akses' => $this->input->post('hak_akses',TRUE),
                 'email' => $this->input->post('email',TRUE),
@@ -138,7 +141,7 @@ class Pengguna extends CI_Controller
         } else {
 
             $data = array(
-                'password' => $this->input->post('password',TRUE),
+                'password' => md5($this->input->post('password',TRUE)),
                 'nama_pengguna' => $this->input->post('nama_pengguna',TRUE),
                 'hak_akses' => $this->input->post('hak_akses',TRUE),
                 'email' => $this->input->post('email',TRUE),
