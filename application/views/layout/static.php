@@ -9,6 +9,8 @@
 		<link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
         <title>Backend Info KPU</title>
+
+        <link href="<?= base_url('libraries/ubold/') ?>assets/css/yearpicker.css" rel="stylesheet" type="text/css"/>
         
         <!-- Data tables -->
         <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -103,6 +105,7 @@
 
         <!-- jQuery  -->
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.min.js"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/js/yearpicker.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/bootstrap.min.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/detect.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/fastclick.js"></script>
@@ -136,7 +139,14 @@
             var resizefunc = [];
             $(document).ready(function () {
                 $('#datatable-responsive').DataTable();
-                
+                //$('#tahun').datepicker({dateFormat: 'yy'});
+                /*$('.yearpicker').yearpicker({
+                    
+                    show:null,
+                    hide:null,
+                    pick:null
+
+                });*/
             });
             TableManageButtons.init();
         </script>

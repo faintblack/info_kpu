@@ -1,6 +1,20 @@
 <?php
 $data_calon_pileg = $this->CalonPilegModel->get_all();
 $data_kecamatan = $this->KecamatanModel->get_all();
+
+$map_calon_pileg = ['' => 'Pilih Calon'];
+$map_kecamatan = ['' => 'Pilih Kecamatan'];
+
+foreach ($data_calon_pileg as $key => $value) {
+    $id = $value->id_calon_pileg;
+    $map_calon_pileg[$id] = $value->nama_calon;
+}
+foreach ($data_kecamatan as $key => $value) {
+    $id = $value->id_kecamatan;
+    $map_kecamatan[$id] = $value->nama_kecamatan;
+}
+
+
 ?>
 <div class="content">
     <div class="container">
@@ -20,11 +34,11 @@ $data_kecamatan = $this->KecamatanModel->get_all();
                     <form action="<?php echo $action; ?>" method="post">
                         <div class="form-group">
                             <label for="int">Calon Pileg <?php echo form_error('id_calon_pileg') ?></label>
-                            <input type="text" class="form-control" name="id_calon_pileg" id="id_calon_pileg" placeholder="Id Calon Pileg" value="<?php echo $id_calon_pileg; ?>" />
+                            <?= form_dropdown('id_calon_pileg', $map_calon_pileg, $id_calon_pileg, ['class' => 'form-control']) ?>
                         </div>
                         <div class="form-group">
                             <label for="int">Kecamatan <?php echo form_error('id_kecamatan') ?></label>
-                            <input type="text" class="form-control" name="id_kecamatan" id="id_kecamatan" placeholder="Id Kecamatan" value="<?php echo $id_kecamatan; ?>" />
+                            <?= form_dropdown('id_kecamatan', $map_kecamatan, $id_kecamatan, ['class' => 'form-control']) ?>
                         </div>
                         <div class="form-group">
                             <label for="int">Jumlah Suara <?php echo form_error('jumlah_suara') ?></label>
@@ -32,7 +46,7 @@ $data_kecamatan = $this->KecamatanModel->get_all();
                         </div>
                         <div class="form-group">
                             <label for="varchar">Tahun <?php echo form_error('tahun') ?></label>
-                            <input type="text" class="form-control" name="tahun" id="tahun" placeholder="Tahun" value="<?php echo $tahun; ?>" />
+                            <input type="number" min="2015" max="2020"  class="form-control" name="tahun" id="tahun" placeholder="Tahun" value="<?php echo $tahun; ?>" />
                         </div>
                         <input type="hidden" name="id_suara_calon_pileg" value="<?php echo $id_suara_calon_pileg; ?>" /> 
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
