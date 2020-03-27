@@ -58,6 +58,12 @@
                         <button class="btn btn-inverse btn-block waves-effect waves-light" type="submit" name="login" value="login">Login</button>
                     </div>
                 </div>
+                <div class="form-group m-t-30 m-b-0">
+                    <div class="col-sm-12" style="text-align: right;">
+                        <a href="#" class="text-dark"> Daftar</a> | 
+                        <a href="<?=site_url();?>" class="text-dark"> Kembali</a>
+                    </div>
+                </div>
 
             </form> 
             

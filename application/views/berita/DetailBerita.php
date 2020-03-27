@@ -35,10 +35,16 @@
                                             </div>
                                             <br />
                                             <div class="row">
-                                                <a href="<?=base_url('berita/komentar/'.$k->id_berita);?>" class="btn btn-success waves-effect waves-light">Lihat Komentar</a>
-                                                <a href="<?=base_url('berita/edit/'.$k->id_berita);?>" class="btn btn-warning waves-effect waves-light">Edit</a>
-                                                <a href="<?=base_url('berita/hapus/'.$k->id_berita);?>" onclick="return confirm('Anda Yakin Menghapus Data?')" class="btn btn-danger waves-effect waves-light">Hapus</a>
-                                                <a href="<?=base_url('berita');?>" class="btn btn-primary waves-effect waves-light">Kembali</a>
+                                                <div class="col-md-4">
+                                                    <a href="<?=base_url('berita/komentar/'.$k->id_berita);?>" class="btn btn-success waves-effect waves-light">Lihat Komentar ...</a>
+                                                </div>
+                                                <div class="col-md-4" style="text-align: right;">
+                                                    <a href="<?=base_url('berita/edit/'.$k->id_berita);?>" class="btn btn-warning waves-effect waves-light glyphicon glyphicon-edit"></a>
+                                                    <a href="<?=base_url('berita/hapus/'.$k->id_berita);?>" class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="return confirm('Anda yakin ingin menghapus berita ?')"></a>
+                                                </div>
+                                                <div class="col-md-4" style="text-align: right;">
+                                                    <a href="<?=base_url('berita');?>" class="btn btn-primary btn-custom waves-effect waves-light">Kembali</a>
+                                                </div>
                                                     
                                             </div>
                                                 <br />
