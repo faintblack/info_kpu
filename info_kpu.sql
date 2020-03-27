@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2020 at 10:27 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Mar 27, 2020 at 02:53 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,7 +34,7 @@ CREATE TABLE `berita` (
   `jenis_berita` enum('PILEG','PILPRES','PILKADA') NOT NULL,
   `isi_berita` text NOT NULL,
   `gambar_berita` text NOT NULL,
-  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `waktu` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -59,6 +59,14 @@ CREATE TABLE `calon_pileg` (
   `nama_calon` text NOT NULL,
   `gender` enum('Laki-laki','Perempuan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `calon_pileg`
+--
+
+INSERT INTO `calon_pileg` (`id_calon_pileg`, `id_dapil`, `id_parpol`, `no_urut`, `nama_calon`, `gender`) VALUES
+(1, 4, 3, 1, 'Abu Janda', 'Perempuan'),
+(2, 3, 3, 2, 'Lambe', 'Laki-laki');
 
 -- --------------------------------------------------------
 
@@ -165,7 +173,7 @@ CREATE TABLE `komentar` (
   `id_berita` int(11) NOT NULL,
   `username` varchar(10) NOT NULL,
   `isi_komentar` text NOT NULL,
-  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `waktu` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -245,7 +253,11 @@ INSERT INTO `parpol_paslon_pilpres` (`id_parpol_paslon_pilpres`, `id_paslon_pilp
 (11, 2, 2),
 (12, 2, 4),
 (13, 1, 3),
-(14, 1, 6);
+(14, 1, 6),
+(15, 12, 2),
+(16, 12, 3),
+(17, 12, 4),
+(19, 12, 6);
 
 -- --------------------------------------------------------
 
@@ -285,7 +297,8 @@ CREATE TABLE `paslon_pilpres` (
 
 INSERT INTO `paslon_pilpres` (`id_paslon_pilpres`, `nomor_urut`, `id_capres`, `id_cawapres`, `tahun`) VALUES
 (1, 1, 6, 7, ''),
-(2, 2, 4, 5, '');
+(2, 2, 4, 5, ''),
+(12, 3, 4, 6, '');
 
 -- --------------------------------------------------------
 
@@ -326,6 +339,14 @@ CREATE TABLE `suara_calon_pileg` (
   `jumlah_suara` int(11) NOT NULL,
   `tahun` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `suara_calon_pileg`
+--
+
+INSERT INTO `suara_calon_pileg` (`id_suara_calon_pileg`, `id_calon_pileg`, `id_kecamatan`, `jumlah_suara`, `tahun`) VALUES
+(1, 1, 3, 0, '2019'),
+(2, 2, 4, 1, '2019');
 
 -- --------------------------------------------------------
 
@@ -483,7 +504,7 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT for table `calon_pileg`
 --
 ALTER TABLE `calon_pileg`
-  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `calon_pilkada`
@@ -543,7 +564,7 @@ ALTER TABLE `parpol_paslon_pilkada`
 -- AUTO_INCREMENT for table `parpol_paslon_pilpres`
 --
 ALTER TABLE `parpol_paslon_pilpres`
-  MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `paslon_pilkada`
@@ -555,13 +576,13 @@ ALTER TABLE `paslon_pilkada`
 -- AUTO_INCREMENT for table `paslon_pilpres`
 --
 ALTER TABLE `paslon_pilpres`
-  MODIFY `id_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
-  MODIFY `id_suara_calon_pileg` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_suara_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tps`

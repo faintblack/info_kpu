@@ -31,6 +31,7 @@
                     <form action="<?php echo $action; ?>" method="post">
                         <div class="form-group">
                             <label for="int">Nomor Urut <?php echo form_error('nomor_urut') ?></label>
+                            <input type="hidden" name="id_paslon_pilpres" value="<?php echo $id_paslon_pilpres; ?>" /> 
                             <input type="hidden" name="nomor_urut-lama" value="<?php echo $nomor_urut; ?>" /> 
                             <input type="text" class="form-control" name="nomor_urut" id="nomor_urut" placeholder="Nomor Urut" value="<?php echo $nomor_urut; ?>"  />
                         </div>
@@ -42,6 +43,9 @@
                             <label for="int">Cawapres <?php echo form_error('id_cawapres') ?></label>
                             <?= form_dropdown('id_cawapres', $map_calon_pilpres2, $id_cawapres, ['class' => 'form-control']) ?>
                         </div>
+                        <?php
+                        if ($button != 'Update') {
+                        ?>
                         <div class="form-group">
                             <label for="int">Parpol Pilres <?php echo form_error('parpol_pilpres') ?></label>
                             <?= form_dropdown('parpol_pilpres[]', $map_data_parpol, '', [
@@ -49,7 +53,10 @@
                                 'multiple' => 'multiple',
                                 'data-placeholder' => 'Choose parpol pendukung'
                             ]) ?>
-                        </div>                        
+                        </div> 
+                        <?php
+                        }
+                        ?>                                               
                         
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
                         <a href="<?php echo site_url('paslonpilpres') ?>" class="btn btn-default">Cancel</a>

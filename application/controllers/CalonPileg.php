@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class CalonPileg extends CI_Controller{
 
 	public $main_menu = 'Data Pemilu';
+	public $sub_menu = 'PILEG';
 
 	function __construct()
 	{
@@ -36,6 +37,9 @@ class CalonPileg extends CI_Controller{
 		$row = $this->CalonPilegModel->get_by_id($id);
 		if ($row) {
 			$data = array(
+				'main_menu' => $this->main_menu,
+				'sub_menu' => $this->sub_menu,
+				'detail_menu' => 'Data Calon Pileg',
 				'content' => 'calonpileg/calon_pileg_read',
 				'id_calon_pileg' => $row->id_calon_pileg,
 				'id_dapil' => $row->id_dapil,
@@ -57,6 +61,9 @@ class CalonPileg extends CI_Controller{
 	public function create() 
 	{
 		$data = array(
+			'main_menu' => $this->main_menu,
+			'sub_menu' => $this->sub_menu,
+			'detail_menu' => 'Data Calon Pileg',
 			'content' => 'calonpileg/calon_pileg_form',
 			'button' => 'Create',
 			'action' => site_url('calonpileg/create_action'),
@@ -99,6 +106,9 @@ class CalonPileg extends CI_Controller{
 
 		if ($row) {
 			$data = array(
+				'main_menu' => $this->main_menu,
+				'sub_menu' => $this->sub_menu,
+				'detail_menu' => 'Data Calon Pileg',
 				'content' => 'calonpileg/calon_pileg_form',
 				'button' => 'Update',
 				'action' => site_url('calonpileg/update_action'),

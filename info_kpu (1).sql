@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2020 at 02:06 PM
+-- Generation Time: Mar 27, 2020 at 01:48 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -51,6 +51,14 @@ CREATE TABLE `calon_pileg` (
   `nama_calon` text NOT NULL,
   `gender` enum('Laki-laki','Perempuan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `calon_pileg`
+--
+
+INSERT INTO `calon_pileg` (`id_calon_pileg`, `id_dapil`, `id_parpol`, `no_urut`, `nama_calon`, `gender`) VALUES
+(2, 3, 4, 3, 'Yuni Setiawan', 'Perempuan'),
+(3, 4, 3, 1, 'Abu Janda', 'Perempuan');
 
 -- --------------------------------------------------------
 
@@ -306,6 +314,14 @@ CREATE TABLE `suara_calon_pileg` (
   `tahun` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `suara_calon_pileg`
+--
+
+INSERT INTO `suara_calon_pileg` (`id_suara_calon_pileg`, `id_calon_pileg`, `id_kecamatan`, `jumlah_suara`, `tahun`) VALUES
+(1, 2, 3, 571, '2018'),
+(3, 3, 4, 0, '2019');
+
 -- --------------------------------------------------------
 
 --
@@ -462,7 +478,7 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT for table `calon_pileg`
 --
 ALTER TABLE `calon_pileg`
-  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `calon_pilkada`
@@ -540,7 +556,7 @@ ALTER TABLE `paslon_pilpres`
 -- AUTO_INCREMENT for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
-  MODIFY `id_suara_calon_pileg` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_suara_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tps`

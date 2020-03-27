@@ -3,8 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class SuaraCalonPileg extends CI_Controller
-{
+class SuaraCalonPileg extends CI_Controller{
+
+    public $main_menu = 'Data Pemilu';
+    public $sub_menu = 'PILEG';
+
     function __construct()
     {
         parent::__construct();
@@ -17,36 +20,14 @@ class SuaraCalonPileg extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index()
-    {
-        $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->input->get('start'));
-        
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'suaracalonpileg/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'suaracalonpileg/index.html?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'suaracalonpileg/index.html';
-            $config['first_url'] = base_url() . 'suaracalonpileg/index.html';
-        }
-
-        $config['per_page'] = 10;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->SuaraCalonPilegModel->total_rows($q);
-        $suaracalonpileg = $this->SuaraCalonPilegModel->get_limit_data($config['per_page'], $start, $q);
-
-        $this->load->library('pagination');
-        $this->pagination->initialize($config);
+    public function index(){
 
         $suaracalonpileg2 = $this->SuaraCalonPilegModel->get_all();
 
         $data = array(
+            'main_menu' => $this->main_menu,
             'content' => 'suaracalonpileg/suara_calon_pileg_list',
-            'suaracalonpileg_data' => $suaracalonpileg2,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
-            'total_rows' => $config['total_rows'],
-            'start' => $start,
+            'suaracalonpileg_data' => $suaracalonpileg2
         );
         $this->load->view('layout/static', $data);
 //        $this->load->view('suaracalonpileg/suara_calon_pileg_list', $data);
@@ -56,6 +37,9 @@ class SuaraCalonPileg extends CI_Controller
         $row = $this->SuaraCalonPilegModel->get_by_id($id);
         if ($row) {
             $data = array(
+                'main_menu' => $this->main_menu,
+				'sub_menu' => $this->sub_menu,
+				'detail_menu' => 'Suara Calon Pileg',
                 'content' => 'suaracalonpileg/suara_calon_pileg_read',
                 'id_suara_calon_pileg' => $row->id_suara_calon_pileg,
                 'id_calon_pileg' => $row->id_calon_pileg,
@@ -76,6 +60,9 @@ class SuaraCalonPileg extends CI_Controller
     public function create(){
         
         $data = array(
+            'main_menu' => $this->main_menu,
+            'sub_menu' => $this->sub_menu,
+            'detail_menu' => 'Suara Calon Pileg',
             'content' => 'suaracalonpileg/suara_calon_pileg_form',
             'button' => 'Create',
             'action' => site_url('suaracalonpileg/create_action'),
@@ -113,6 +100,9 @@ class SuaraCalonPileg extends CI_Controller
 
         if ($row) {
             $data = array(
+                'main_menu' => $this->main_menu,
+                'sub_menu' => $this->sub_menu,
+                'detail_menu' => 'Suara Calon Pileg',
                 'content' => 'suaracalonpileg/suara_calon_pileg_form',
                 'button' => 'Update',
                 'action' => site_url('suaracalonpileg/update_action'),

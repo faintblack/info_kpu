@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class PaslonPilpres extends CI_Controller{
 
     public $main_menu = 'Data Pemilu';
+    public $sub_menu = 'PILPRES';
 
     function __construct(){
         parent::__construct();
@@ -62,6 +63,9 @@ class PaslonPilpres extends CI_Controller{
             
             $parpol_data = $this->ParpolPaslonPilpresModel->get_where(['id_paslon_pilpres' => $id]);
             $data = array(
+                'main_menu' => $this->main_menu,
+				'sub_menu' => $this->sub_menu,
+				'detail_menu' => 'Paslon Pilpres',
                 'parpol_data' => $parpol_data,
                 'content' => 'paslonpilpres/paslon_pilpres_read',
                 'id_paslon_pilpres' => $row->id_paslon_pilpres,
@@ -84,6 +88,9 @@ class PaslonPilpres extends CI_Controller{
         $calon_pilpres = $this->CalonPilpresModel->get_all();
         
         $data = array(
+            'main_menu' => $this->main_menu,
+            'sub_menu' => $this->sub_menu,
+            'detail_menu' => 'Paslon Pilpres',
             'calon_pilpres' => $calon_pilpres,
             'content' => 'paslonpilpres/paslon_pilpres_form',
             'button' => 'Create',
@@ -138,6 +145,9 @@ class PaslonPilpres extends CI_Controller{
         if ($row) {
             $calon_pilpres = $this->CalonPilpresModel->get_all();
             $data = array(
+                'main_menu' => $this->main_menu,
+				'sub_menu' => $this->sub_menu,
+				'detail_menu' => 'Paslon Pilpres',
                 'calon_pilpres' => $calon_pilpres,
                 'content' => 'paslonpilpres/paslon_pilpres_form',
                 'button' => 'Update',

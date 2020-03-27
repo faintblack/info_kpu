@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class CalonPilpres extends CI_Controller{
 
     public $main_menu = 'Data Pemilu';
+    public $sub_menu = 'PILPRES';
 
     function __construct()
     {
@@ -56,6 +57,9 @@ class CalonPilpres extends CI_Controller{
         $row = $this->CalonPilpresModel->get_by_id($id);
         if ($row) {
             $data = array(
+                'main_menu' => $this->main_menu,
+				'sub_menu' => $this->sub_menu,
+				'detail_menu' => 'Data Calon Pilpres',
                 'content' => 'calonpilpres/calon_pilpres_read',
                 'id_calon_pilpres' => $row->id_calon_pilpres,
                 'nama_calon' => $row->nama_calon,
@@ -72,6 +76,9 @@ class CalonPilpres extends CI_Controller{
     public function create() 
     {
         $data = array(
+            'main_menu' => $this->main_menu,
+            'sub_menu' => $this->sub_menu,
+            'detail_menu' => 'Data Calon Pilpres',
             'content' => 'calonpilpres/calon_pilpres_form',
             'button' => 'Create',
             'action' => site_url('calonpilpres/create_action'),
@@ -107,6 +114,9 @@ class CalonPilpres extends CI_Controller{
 
         if ($row) {
             $data = array(
+                'main_menu' => $this->main_menu,
+                'sub_menu' => $this->sub_menu,
+                'detail_menu' => 'Data Calon Pilpres',
                 'content' => 'calonpilpres/calon_pilpres_form',
                 'button' => 'Update',
                 'action' => site_url('calonpilpres/update_action'),
