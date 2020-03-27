@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--
+	24 News by FreeHTML5.co
+	Twitter: https://twitter.com/fh5co
+	Facebook: https://fb.com/fh5co
+	URL: https://freehtml5.co
+-->
+<html lang="en" class="no-js">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>KPU KOTA PEKANBARU</title>
+    <link href="<?= base_url('libraries/frontend/') ?>css/media_query.css" rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url('libraries/frontend/') ?>css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="<?= base_url('libraries/frontend/') ?>css/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="<?= base_url('libraries/frontend/') ?>css/owl.carousel.css" rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url('libraries/frontend/') ?>css/owl.theme.default.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap CSS -->
+    <link href="<?= base_url('libraries/frontend/') ?>css/style_1.css" rel="stylesheet" type="text/css"/>
+    <!-- Modernizr JS -->
+    <script src="<?= base_url('libraries/frontend/') ?>js/modernizr-3.5.0.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" style="background-image: url('<?= base_url('libraries/frontend/') ?>images/headbg.jpg'); size: 100%;">
+    <div class="container" >
+        <div class="row">
+            <div class="col-12 col-md-3 fh5co_padding_menu">
+                <a href="#>"><img src="<?= base_url('libraries/frontend/') ?>images/logokpu.png" alt="img" class="fh5co_logo_width"/></a>
+            </div>
+            <div class="col-12 col-md-6 align-self-center fh5co_mediya_left" style="text-align: center;">
+                
+                <h1><b>KOMISI PEMILIHAN UMUM</b></h1>
+                <h1><b>KOTA PEKANBARU</b></h1>
+                
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
+    <div class="container padding_786">
+        <nav class="navbar navbar-toggleable-md navbar-light ">
+            <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+            <a class="navbar-brand" href="#"><img src="<?= base_url('libraries/frontend/') ?>images/logokpu.png" alt="img" class="mobile_logo_width"/></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">BERITA <span class="sr-only">(current)</span></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
+                            <a class="dropdown-item" href="#">PILKADA</a>
+                            <a class="dropdown-item" href="#">PILEG</a>
+                            <a class="dropdown-item" href="#">PILPRES</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">INFORMASI UMUM<span class="sr-only">(current)</span></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
+                            <a class="dropdown-item" href="#">PILKADA</a>
+                            <a class="dropdown-item" href="#">PILEG</a>
+                            <a class="dropdown-item" href="#">PILPRES</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">DATA KPU<span class="sr-only">(current)</span></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
+                            <a class="dropdown-item" href="#">PILKADA</a>
+                            <a class="dropdown-item" href="#">PILEG</a>
+                            <a class="dropdown-item" href="#">PILPRES</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item navbar-toggler-right" >
+                        <a class="nav-link" href="<?= site_url('Login') ?>">LOGIN <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid paddding mb-5">
+    <div class="row mx-0">
+        <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
+            <div class="fh5co_suceefh5co_height" ><img src="<?= base_url('libraries/frontend/') ?>images/kpu1.jpeg" alt="img" />
+                <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                <div class="fh5co_suceefh5co_height_position_absolute_font">
+                    <div class=""> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;5 Maret, 2020.
+                    </div>
+                    <div class=""><a href="single.html" > KPU Kota Pekanbaru Goes to Campus </a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="<?= base_url('libraries/frontend/') ?>images/kpu2.jpeg" alt="img"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;20 Februari, 2020. </div>
+                            <div class=""><a href="single.html" > Kunjungan KPU Kota Pekanbaru kepada Pemerintah Kota Pekanbaru. </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="<?= base_url('libraries/frontend/') ?>images/kpu3.jpeg" alt="img"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""><i class="fa fa-clock-o"></i>&nbsp;&nbsp;8 Januari, 2020. </div>
+                            <div class=""><a href="single.html" > KPU RIAU HELAT BIMTEK SIMULASI PENCALONAN PERSEORANGAN PEMILIHAN TAHUN 2020 </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="<?= base_url('libraries/frontend/') ?>images/kpu4.jpeg" alt="img"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""><i class="fa fa-clock-o"></i>&nbsp;&nbsp;10 Desember, 2019.</div>
+                            <div class=""><a href="single.html" > Sosialisasi RPP KPU Kota Pekanbaru di MI Muhammadiyah 01 Pekanbaru </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="<?= base_url('libraries/frontend/') ?>images/kpu5.jpeg" alt="img"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;10 Desember, 2019.</div>
+                            <div class=""><a href="single.html" > Sosialisasi RPP KPU Kota Pekanbaru </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pb-4 pt-4 paddding">
+    <div class="container paddding">
+        <div class="row mx-0">
+            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
+                </div>
+                <div class="row pb-4">
+                    <div class="col-md-5">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><img src="<?= base_url('libraries/frontend/') ?>images/nathan-mcbride-229637.jpg" alt=""/></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 animate-box">
+                        <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        nostrud quis xercitation ullamco. </a> <a href="single.html" class="fh5co_mini_time py-3"> Thomson Smith -
+                        April 18,2016 </a>
+                        <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-4">
+                    <div class="col-md-5">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><img src="<?= base_url('libraries/frontend/') ?>images/ryan-moreno-98837.jpg" alt=""/></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
+                        April 18,2016 </a>
+                        <div class="fh5co_consectetur"> Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore.
+                        </div>
+                        <ul class="fh5co_gaming_topikk pt-3">
+                            <li> Why 2017 Might Just Be the Worst Year Ever for Gaming</li>
+                            <li> Ghost Racer Wants to Be the Most Ambitious Car Game</li>
+                            <li> New Nintendo Wii Console Goes on Sale in Strategy Reboot</li>
+                            <li> You and Your Kids can Enjoy this News Gaming Console</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row pb-4">
+                    <div class="col-md-5">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img">
+                                <img src="<?= base_url('libraries/frontend/') ?>images/photo-1449157291145-7efd050a4d0e-578x362.jpg" alt=""/>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
+                        April 18,2016 </a>
+                        <div class="fh5co_consectetur"> Quis nostrud xercitation ullamco laboris nisi aliquip ex ea commodo
+                            consequat.
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-4">
+                    <div class="col-md-5">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><img src="<?= base_url('libraries/frontend/') ?>images/office-768x512.jpg" alt=""/></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
+                        April 18,2016 </a>
+                        <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tags</div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="fh5co_tags_all">
+                    <a href="#" class="fh5co_tagg">Business</a>
+                    <a href="#" class="fh5co_tagg">Technology</a>
+                    <a href="#" class="fh5co_tagg">Sport</a>
+                    <a href="#" class="fh5co_tagg">Art</a>
+                    <a href="#" class="fh5co_tagg">Lifestyle</a>
+                    <a href="#" class="fh5co_tagg">Three</a>
+                    <a href="#" class="fh5co_tagg">Photography</a>
+                    <a href="#" class="fh5co_tagg">Lifestyle</a>
+                    <a href="#" class="fh5co_tagg">Art</a>
+                    <a href="#" class="fh5co_tagg">Education</a>
+                    <a href="#" class="fh5co_tagg">Social</a>
+                    <a href="#" class="fh5co_tagg">Three</a>
+                </div>
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center">
+                        <img src="<?= base_url('libraries/frontend/') ?>images/download (1).jpg" alt="img" class="fh5co_most_trading"/>
+                    </div>
+                    <div class="col-7 paddding">
+                        <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
+                        <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center">
+                        <img src="<?= base_url('libraries/frontend/') ?>images/allef-vinicius-108153.jpg" alt="img" class="fh5co_most_trading"/>
+                    </div>
+                    <div class="col-7 paddding">
+                        <div class="most_fh5co_treding_font"> Enim ad minim veniam nostrud xercitation ullamco.</div>
+                        <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center">
+                        <img src="<?= base_url('libraries/frontend/') ?>images/download (2).jpg" alt="img" class="fh5co_most_trading"/>
+                    </div>
+                    <div class="col-7 paddding">
+                        <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
+                        <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center"><img src="<?= base_url('libraries/frontend/') ?>images/seth-doyle-133175.jpg" alt="img"
+                                                              class="fh5co_most_trading"/></div>
+                    <div class="col-7 paddding">
+                        <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
+                        <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
+            <div class="col-12 text-center pb-4 pt-4">
+                <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
+                <a href="#" class="btn_pagging">1</a>
+                <a href="#" class="btn_pagging">2</a>
+                <a href="#" class="btn_pagging">3</a>
+                <a href="#" class="btn_pagging">...</a>
+                <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+             </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid fh5co_footer_bg pb-3">
+    <div class="container animate-box">
+        <div class="row">
+            <div class="col-12 spdp_right py-5"><img src="<?= base_url('libraries/frontend/') ?>images/white_logo.png" alt="img" class="footer_logo"/></div>
+            <div class="clearfix"></div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="footer_main_title py-3"> About</div>
+                <div class="footer_sub_about pb-3"> Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </div>
+                <div class="footer_mediya_icon">
+                    <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                        <div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div>
+                    </a></div>
+                    <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                        <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+                    </a></div>
+                    <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                        <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
+                    </a></div>
+                    <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                        <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+                    </a></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-2">
+                <div class="footer_main_title py-3"> Category</div>
+                <ul class="footer_menu">
+                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Business</a></li>
+                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Entertainment</a></li>
+                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Environment</a></li>
+                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Health</a></li>
+                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Life style</a></li>
+                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Politics</a></li>
+                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Technology</a></li>
+                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; World</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-5 col-lg-3 position_footer_relative">
+                <div class="footer_main_title py-3"> Most Viewed Posts</div>
+                <div class="footer_makes_sub_font"> Dec 31, 2016</div>
+                <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
+                <div class="footer_makes_sub_font"> Dec 31, 2016</div>
+                <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
+                <div class="footer_makes_sub_font"> Dec 31, 2016</div>
+                <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
+                <div class="footer_position_absolute"><img src="<?= base_url('libraries/frontend/') ?>images/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 ">
+                <div class="footer_main_title py-3"> Last Modified Posts</div>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/allef-vinicius-108153.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/32-450x260.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download (1).jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/science-578x362.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/vil-son-35490.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/zack-minor-15104.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download (2).jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/ryan-moreno-98837.jpg" alt="img"/></a>
+            </div>
+        </div>
+        <div class="row justify-content-center pt-2 pb-4">
+            <div class="col-12 col-md-8 col-lg-7 ">
+                <div class="input-group">
+                    <span class="input-group-addon fh5co_footer_text_box" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                    <input type="text" class="form-control fh5co_footer_text_box" placeholder="Enter your email..." aria-describedby="basic-addon1">
+                    <a href="#" class="input-group-addon fh5co_footer_subcribe" id="basic-addon12"> <i class="fa fa-paper-plane-o"></i>&nbsp;&nbsp;Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid fh5co_footer_right_reserved">
+    <div class="container">
+        <div class="row  ">
+            <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved.  </div>
+        </div>
+    </div>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="<?= base_url('libraries/frontend/') ?>js/owl.carousel.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+<!-- Waypoints -->
+<script src="<?= base_url('libraries/frontend/') ?>js/jquery.waypoints.min.js"></script>
+<!-- Main -->
+<script src="<?= base_url('libraries/frontend/') ?>js/main.js"></script>
+
+</body>
+</html>
