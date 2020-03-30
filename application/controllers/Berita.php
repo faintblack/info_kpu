@@ -124,4 +124,17 @@ class Berita extends CI_Controller {
 
 		$this->load->view('layout/static', ['content' => 'berita/komentar', 'komentar' => $komentar, 'berita' => $berita]);
 	}
+
+	public function hapuskomentar($id_komentar)
+	{
+		$idberita = $id_komentar;
+		$row = $this->beritamodel->cari_berita_id($idberita)->row();
+		$ide = $row->id_berita;
+
+		$id = array('id_komentar' => $id_komentar);
+		$this->beritamodel->hapus($id, 'komentar');
+
+		redirect(site_url('berita/komentar/'.$ide));
+	}
+
 }

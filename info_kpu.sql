@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2020 at 02:53 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: Mar 27, 2020 at 09:46 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,7 +34,7 @@ CREATE TABLE `berita` (
   `jenis_berita` enum('PILEG','PILPRES','PILKADA') NOT NULL,
   `isi_berita` text NOT NULL,
   `gambar_berita` text NOT NULL,
-  `waktu` timestamp NOT NULL DEFAULT current_timestamp()
+  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -42,8 +42,8 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `username`, `jenis_berita`, `isi_berita`, `gambar_berita`, `waktu`) VALUES
-(4, 'admin', 'PILKADA', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.', '2.PNG', '2020-03-26 01:21:38'),
-(5, 'bayusugara', 'PILPRES', 'saya adalah bayu sugara, mahasiswa uin suska riau jurusan teknik informatika semester 10 dan insyaallah saya akan wisuda disemster 10 ini. aamiin', '464_mp4_snapshot_02_03_2018_10_20_13_09_044.jpg', '2020-03-26 01:25:34');
+(5, 'bayusugara', 'PILPRES', 'saya adalah bayu sugara, mahasiswa uin suska riau jurusan teknik informatika semester 10 dan insyaallah saya akan wisuda disemster 10 ini. aamiin', '464_mp4_snapshot_02_03_2018_10_20_13_09_044.jpg', '2020-03-26 01:25:34'),
+(8, 'admin', 'PILPRES', 'Revert artinya mengembalikan. Perintah ini lebih aman daripada git reset, karena tidak akan menghapus catatan sejarah revisi.\r\nRevert akan akan mengambil kondisi file yang ada di masa lalu, kemudian menggabungkannya dengan commit terakhir.', '1.PNG', '2020-03-26 23:57:36');
 
 -- --------------------------------------------------------
 
@@ -59,14 +59,6 @@ CREATE TABLE `calon_pileg` (
   `nama_calon` text NOT NULL,
   `gender` enum('Laki-laki','Perempuan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `calon_pileg`
---
-
-INSERT INTO `calon_pileg` (`id_calon_pileg`, `id_dapil`, `id_parpol`, `no_urut`, `nama_calon`, `gender`) VALUES
-(1, 4, 3, 1, 'Abu Janda', 'Perempuan'),
-(2, 3, 3, 2, 'Lambe', 'Laki-laki');
 
 -- --------------------------------------------------------
 
@@ -173,7 +165,7 @@ CREATE TABLE `komentar` (
   `id_berita` int(11) NOT NULL,
   `username` varchar(10) NOT NULL,
   `isi_komentar` text NOT NULL,
-  `waktu` timestamp NOT NULL DEFAULT current_timestamp()
+  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -181,11 +173,10 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`id_komentar`, `id_berita`, `username`, `isi_komentar`, `waktu`) VALUES
-(5, 4, 'bayusugara', 'mantap gan!', '2020-03-17 17:00:00'),
-(6, 4, 'dadan', 'apa ni ? wkwkkwk', '2020-03-16 17:00:00'),
-(7, 4, 'beno', 'njiiiiir', '2020-03-23 17:00:00'),
 (8, 5, 'beno', 'i love you bay!', '2020-03-27 17:00:00'),
-(9, 5, 'mhrdkk', 'gimana bay ? sehat ?', '2020-03-30 17:00:00');
+(10, 8, 'beno', 'weey baik baik lah', '2020-03-26 17:00:00'),
+(30, 8, 'ezu', 'iya iya iya', '2020-03-30 17:00:00'),
+(31, 5, 'mhrdkk', 'assalamualaikum bay', '2020-03-15 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -253,11 +244,7 @@ INSERT INTO `parpol_paslon_pilpres` (`id_parpol_paslon_pilpres`, `id_paslon_pilp
 (11, 2, 2),
 (12, 2, 4),
 (13, 1, 3),
-(14, 1, 6),
-(15, 12, 2),
-(16, 12, 3),
-(17, 12, 4),
-(19, 12, 6);
+(14, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -297,8 +284,7 @@ CREATE TABLE `paslon_pilpres` (
 
 INSERT INTO `paslon_pilpres` (`id_paslon_pilpres`, `nomor_urut`, `id_capres`, `id_cawapres`, `tahun`) VALUES
 (1, 1, 6, 7, ''),
-(2, 2, 4, 5, ''),
-(12, 3, 4, 6, '');
+(2, 2, 4, 5, '');
 
 -- --------------------------------------------------------
 
@@ -339,14 +325,6 @@ CREATE TABLE `suara_calon_pileg` (
   `jumlah_suara` int(11) NOT NULL,
   `tahun` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `suara_calon_pileg`
---
-
-INSERT INTO `suara_calon_pileg` (`id_suara_calon_pileg`, `id_calon_pileg`, `id_kecamatan`, `jumlah_suara`, `tahun`) VALUES
-(1, 1, 3, 0, '2019'),
-(2, 2, 4, 1, '2019');
 
 -- --------------------------------------------------------
 
@@ -498,13 +476,13 @@ ALTER TABLE `tps`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `calon_pileg`
 --
 ALTER TABLE `calon_pileg`
-  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `calon_pilkada`
@@ -516,13 +494,13 @@ ALTER TABLE `calon_pilkada`
 -- AUTO_INCREMENT for table `calon_pilpres`
 --
 ALTER TABLE `calon_pilpres`
-  MODIFY `id_calon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_calon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `dapil`
 --
 ALTER TABLE `dapil`
-  MODIFY `id_dapil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_dapil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jadwal_kampanye_pemilu`
@@ -540,7 +518,7 @@ ALTER TABLE `kecamatan`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `lokasi_kampanye_pemilu`
@@ -564,7 +542,7 @@ ALTER TABLE `parpol_paslon_pilkada`
 -- AUTO_INCREMENT for table `parpol_paslon_pilpres`
 --
 ALTER TABLE `parpol_paslon_pilpres`
-  MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `paslon_pilkada`
@@ -576,13 +554,13 @@ ALTER TABLE `paslon_pilkada`
 -- AUTO_INCREMENT for table `paslon_pilpres`
 --
 ALTER TABLE `paslon_pilpres`
-  MODIFY `id_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
-  MODIFY `id_suara_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_suara_calon_pileg` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tps`

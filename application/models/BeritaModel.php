@@ -49,11 +49,14 @@ class BeritaModel extends CI_Model {
         return $this->db->get();
     }
 
-    //frontend fungtion
-    //ambil data mahasiswa dari database
-    public function get_berita_list($limit, $start){
-        $query = $this->db->get('berita', $limit, $start);
-        return $query;
+    public function cari_berita_id($id_komentar){
+        $this->db->select('a.id_berita');
+        $this->db->from('komentar a');
+        $this->db->join('pengguna b','a.username = b.username', 'left');
+        $this->db->join('berita c','a.id_berita = c.id_berita', 'left');
+        $this->db->where('id_komentar', $id_komentar);
+        
+        return $this->db->get();
     }
 
 }

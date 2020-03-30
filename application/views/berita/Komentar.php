@@ -23,6 +23,7 @@
                                             <a href="#" title=""><?=$k->nama_pengguna;?></a><span><?=$k->waktu;?></span>
                                         </div>
                                         <?=$k->isi_komentar;?>
+                                        <a style="float: right;" href="<?=base_url('berita/hapuskomentar/'.$k->id_komentar);?>" class="waves-effect waves-light glyphicon glyphicon-trash" onclick="return confirm('Anda yakin ingin menghapus komentar ?')"></a>
                                     </div>
                                     <div class="comment-footer">
                                         
