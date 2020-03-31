@@ -4,5 +4,5 @@
 4. Ganti semua pemanggilan data list di function index menggunakan method model get_all()
 5. Hapus semua list pagination yang tidak diperlukan
 6. (Bayu) Tolong samakan bentuk icon read, update, sama delete di semua tabel bay
-7. (PENTING) Update paslon pilpres belum bisa
+7. 
 8. 

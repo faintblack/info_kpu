@@ -15,7 +15,7 @@ class Berita extends CI_Controller {
 	public function index()
 	{
 		$username = $this->session->userdata('username');
-        $berita = $this->beritamodel->find($username);
+		$berita = $this->beritamodel->find($username);
 
 		$this->load->view('layout/static', ['content' => 'berita/index', 'berita' => $berita]);
 	}

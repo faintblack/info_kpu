@@ -31,17 +31,17 @@
                     </ul>
                 </li>
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span> Data Wilayah </span> <span class="menu-arrow"></span> </a>
-                    <ul class="list-unstyled">
-                        <li><a href="<?= site_url('dapil') ?>">Dapil</a></li>
-                        <li><a href="<?= site_url('kecamatan') ?>">Kecamatan</a></li>
+                    <a href="javascript:void(0);" class="waves-effect <?= isset($main_menu)&&$main_menu=='Data Wilayah' ? 'subdrop' : '' ?>"><i class="ti-paint-bucket"></i> <span> Data Wilayah </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled" style="<?= isset($sub_menu)&&($sub_menu=='Dapil' || $sub_menu=='Kecamatan') ? 'display:block' : '' ?>">
+                        <li class="<?= isset($sub_menu)&&$sub_menu=='Dapil' ? 'active' : '' ?>"><a href="<?= site_url('dapil') ?>">Dapil</a></li>
+                        <li class="<?= isset($sub_menu)&&$sub_menu=='Kecamatan' ? 'active' : '' ?>"><a href="<?= site_url('kecamatan') ?>">Kecamatan</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="<?= site_url('parpol') ?>" class="waves-effect"><i class="ti-home"></i> <span> Parpol </span> </a>
+                    <a href="<?= site_url('parpol') ?>" class="waves-effect <?= isset($main_menu)&&$main_menu=='Parpol' ? 'active' : '' ?>"><i class="ti-home"></i> <span> Parpol </span> </a>
                 </li>
                 <li>
-                    <a href="<?= site_url('pengguna') ?>" class="waves-effect"><i class="ti-user"></i> <span> Pengguna </span> </a>
+                    <a href="<?= site_url('pengguna') ?>" class="waves-effect <?= isset($main_menu)&&$main_menu=='Pengguna' ? 'active' : '' ?>"><i class="ti-user"></i> <span> Pengguna </span> </a>
                 </li>
                 <li>
                     <a href="<?= site_url('harviacode') ?>" class="waves-effect"><i class="ti-home"></i> <span> CRUD GENERATOR </span> </a>
