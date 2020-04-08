@@ -48,11 +48,11 @@
                                         <td><?php echo $parpol->nama_parpol ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
-                                            echo anchor(site_url('parpol/read/'.$parpol->id_parpol),' ', 'class="glyphicon glyphicon-eye-open"'); 
+                                            echo anchor(site_url('parpol/read/'.$parpol->id_parpol),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' '; 
-                                            echo anchor(site_url('parpol/update/'.$parpol->id_parpol),' ', 'class="glyphicon glyphicon-pencil"'); 
+                                            echo anchor(site_url('parpol/update/'.$parpol->id_parpol),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
                                             echo ' '; 
-                                            echo anchor(site_url('parpol/delete/'.$parpol->id_parpol),' ','class="glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                            echo anchor(site_url('parpol/delete/'.$parpol->id_parpol),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                                             ?>
                                         </td>
                                     </tr>

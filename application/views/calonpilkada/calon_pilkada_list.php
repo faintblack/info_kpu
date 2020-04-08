@@ -1,10 +1,26 @@
+<?php
+$bulan = [
+	'01' => 'Januari',
+	'02' => 'Februari',
+	'03' => 'Maret',
+	'04' => 'April',
+	'05' => 'Mei',
+	'06' => 'Juni',
+	'07' => 'Juli',
+	'08' => 'Agustus',
+	'09' => 'September',
+	'10' => 'Oktober',
+	'11' => 'November',
+	'12' => 'Desember',
+];
+?>
 <div class="content">
 	<div class="container">
 
 		<!-- Page-Title -->
 		<div class="row">
 			<div class="col-sm-12">
-				<h4 class="page-title" style="margin-bottom: 10px">Data Calon Pileg</h4>
+				<h4 class="page-title" style="margin-bottom: 10px">Data Calon Pilkada</h4>
 			</div>
 		</div>
 		
@@ -16,11 +32,10 @@
 					<div class="row" style="margin-bottom: 10px">
 						<div class="col-md-4">
 							<!-- Ambil dari generator -->
-							<?php echo anchor(site_url('calonpileg/create'),'Create', 'class="btn btn-primary"'); ?>
+							<?php echo anchor(site_url('calonpilkada/create'),'Create', 'class="btn btn-primary"'); ?>
 						</div>
 						<div class="col-md-4 text-center">
 							<div style="margin-top: 8px" id="message">
-								<!-- Ambil dari generator -->
 								<?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
 							</div>
 						</div>
@@ -33,33 +48,33 @@
 									<!-- Ambil dari generator -->
 									<tr>
 										<th>No</th>
-										<th>Dapil</th>
-										<th>Parpol</th>
-										<th>No Urut</th>
 										<th>Nama Calon</th>
 										<th>Gender</th>
+										<th>Tgl Lahir</th>
+										<th>Alamat</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<!-- Ambil dari generator -->
 									<?php
-									foreach ($calonpileg_data as $no => $calonpileg){
+									foreach ($calonpilkada_data as $no => $calonpilkada){
+										$split_birthday = explode('-', $calonpilkada->tgl_lahir);
+										$convert_date = $split_birthday[2].' '.$bulan[$split_birthday[1]].' '.$split_birthday[0];
 										?>
 										<tr>
 											<td width="80px"><?php echo $no+1 ?></td>
-											<td><?php echo $calonpileg->nama_dapil ?></td>
-											<td><?php echo $calonpileg->nama_parpol ?></td>
-											<td><?php echo $calonpileg->no_urut ?></td>
-											<td><?php echo $calonpileg->nama_calon ?></td>
-											<td><?php echo $calonpileg->gender ?></td>
+											<td><?php echo $calonpilkada->nama_calon ?></td>
+											<td><?php echo $calonpilkada->gender ?></td>
+											<td><?php echo $convert_date ?></td>
+											<td><?php echo $calonpilkada->alamat ?></td>
 											<td style="text-align:center" width="200px">
 												<?php 
-												echo anchor(site_url('calonpileg/read/'.$calonpileg->id_calon_pileg),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
+												echo anchor(site_url('calonpilkada/read/'.$calonpilkada->id_calon_pilkada),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
 												echo ' '; 
-												echo anchor(site_url('calonpileg/update/'.$calonpileg->id_calon_pileg),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
+												echo anchor(site_url('calonpilkada/update/'.$calonpilkada->id_calon_pilkada),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
 												echo ' '; 
-												echo anchor(site_url('calonpileg/delete/'.$calonpileg->id_calon_pileg),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+												echo anchor(site_url('calonpilkada/delete/'.$calonpilkada->id_calon_pilkada),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
 												?>
 											</td>
 										</tr>

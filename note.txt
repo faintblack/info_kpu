@@ -6,3 +6,9 @@
 6. (Bayu) Tolong samakan bentuk icon read, update, sama delete di semua tabel bay
 7. 
 8. 
+
+8/4/2020
+1. Update database, penambahan kolom judul berita pada tabel berita
+2. Perbaikan edit gambar berita
+3. Ganti icon crud
+4. Penambahan menu calon pilkada

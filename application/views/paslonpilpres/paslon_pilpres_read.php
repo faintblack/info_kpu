@@ -57,7 +57,7 @@ foreach ($data_parpol as $key => $value) {
                                         <td><?php echo $parpol->nama_parpol ?></td>
                                         <td style="text-align:center" width="200px">
                                         <?php 
-                                            echo anchor(site_url('parpolpaslonpilpres/delete/'.$parpol->id_parpol_paslon_pilpres.'/'.$id_paslon_pilpres),' ','class="glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                            echo anchor(site_url('parpolpaslonpilpres/delete/'.$parpol->id_parpol_paslon_pilpres.'/'.$id_paslon_pilpres),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                                             ?>
                                         </td>
                                     </tr>
