@@ -74,6 +74,7 @@ class PaslonPilpres extends CI_Controller{
                 'id_cawapres' => $row->id_cawapres,
                 'capres' => $row->nama_capres,
                 'cawapres' => $row->nama_cawapres,
+                'tahun' => $row->tahun
             );
             $this->load->view('layout/static', $data);
 //            $this->load->view('paslonpilpres/paslon_pilpres_read', $data);
@@ -99,6 +100,7 @@ class PaslonPilpres extends CI_Controller{
             'nomor_urut' => set_value('nomor_urut'),
             'id_capres' => set_value('id_capres'),
             'id_cawapres' => set_value('id_cawapres'),
+            'tahun' => set_value('tahun')
         );
         $this->load->view('layout/static', $data);
 //        $this->load->view('paslonpilpres/paslon_pilpres_form', $data);
@@ -116,6 +118,7 @@ class PaslonPilpres extends CI_Controller{
                 'nomor_urut' => $this->input->post('nomor_urut',TRUE),
                 'id_capres' => $this->input->post('id_capres',TRUE),
                 'id_cawapres' => $this->input->post('id_cawapres',TRUE),
+                'tahun' => $this->input->post('tahun',TRUE),
             );
             $data_parpol_pendukung = $this->input->post('parpol_pilpres');
 
@@ -138,8 +141,8 @@ class PaslonPilpres extends CI_Controller{
         }
     }
     
-    public function update($id) 
-    {
+    public function update($id){
+
         $row = $this->PaslonPilpresModel->get_by_id($id);
 
         if ($row) {
@@ -156,9 +159,9 @@ class PaslonPilpres extends CI_Controller{
                 'nomor_urut' => set_value('nomor_urut', $row->nomor_urut),
                 'id_capres' => set_value('id_capres', $row->id_capres),
                 'id_cawapres' => set_value('id_cawapres', $row->id_cawapres),
+                'tahun' => set_value('tahun', $row->tahun)
             );
             $this->load->view('layout/static', $data);
-//            $this->load->view('paslonpilpres/paslon_pilpres_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('paslonpilpres'));
@@ -181,6 +184,7 @@ class PaslonPilpres extends CI_Controller{
                 'nomor_urut' => $this->input->post('nomor_urut',TRUE),
                 'id_capres' => $this->input->post('id_capres',TRUE),
                 'id_cawapres' => $this->input->post('id_cawapres',TRUE),
+                'tahun' => $this->input->post('tahun',TRUE),
             );
 
             $this->PaslonPilpresModel->update($this->input->post('id_paslon_pilpres', TRUE), $data);
@@ -211,6 +215,7 @@ class PaslonPilpres extends CI_Controller{
         
         $this->form_validation->set_rules('id_capres', 'id capres', 'trim|required');
         $this->form_validation->set_rules('id_cawapres', 'id cawapres', 'trim|required|callback_nomatches[id_capres]');
+        $this->form_validation->set_rules('tahun', 'tahun', 'trim|required');
 
         $this->form_validation->set_rules('id_paslon_pilpres', 'id_paslon_pilpres', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

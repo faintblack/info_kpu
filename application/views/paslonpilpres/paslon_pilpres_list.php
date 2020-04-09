@@ -39,6 +39,7 @@ $CI =& get_instance();
                                         <th>Nomor Urut</th>
                                         <th>Capres</th>
                                         <th>Cawapres</th>
+                                        <th>Tahun</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -52,6 +53,7 @@ $CI =& get_instance();
                                         <td><?php echo $paslonpilpres->nomor_urut ?></td>
                                         <td><?= $paslonpilpres->id_capres ?></td>
                                         <td><?= $paslonpilpres->id_cawapres ?></td>
+                                        <td><?= $paslonpilpres->tahun ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
                                             echo anchor(site_url('paslonpilpres/read/'.$paslonpilpres->id_paslon_pilpres),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 

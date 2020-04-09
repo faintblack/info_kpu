@@ -25,6 +25,7 @@ foreach ($data_parpol as $key => $value) {
                             <tr><td>Nomor Urut</td><td><?php echo $nomor_urut; ?></td></tr>
                             <tr><td>Capres</td><td><?php echo $capres; ?></td></tr>
                             <tr><td>Cawapres</td><td><?php echo $cawapres; ?></td></tr>
+                            <tr><td>Tahun</td><td><?php echo $tahun; ?></td></tr>
                             <tr><td></td><td><a href="<?php echo site_url('paslonpilpres') ?>" class="btn btn-default">Cancel</a></td></tr>
                         </table>
                     </div>
