@@ -5,6 +5,9 @@ if (!defined('BASEPATH'))
 
 class Pengguna extends CI_Controller
 {
+
+    public $main_menu = 'Pengguna';
+
     function __construct()
     {
         parent::__construct();
@@ -54,6 +57,7 @@ class Pengguna extends CI_Controller
         $row = $this->PenggunaModel->get_by_id($id);
         if ($row) {
             $data = array(
+                'main_menu' => $this->main_menu,
                 'content' => 'pengguna/pengguna_read',
 		'username' => $row->username,
 		'password' => $row->password,
@@ -73,6 +77,7 @@ class Pengguna extends CI_Controller
     public function create() 
     {
         $data = array(
+            'main_menu' => $this->main_menu,
             'content' => 'pengguna/pengguna_form',
             'button' => 'Create',
             'action' => site_url('pengguna/create_action'),
@@ -114,6 +119,7 @@ class Pengguna extends CI_Controller
 
         if ($row) {
             $data = array(
+                'main_menu' => $this->main_menu,
                 'content' => 'pengguna/pengguna_form',
                 'button' => 'Update',
                 'action' => site_url('pengguna/update_action'),

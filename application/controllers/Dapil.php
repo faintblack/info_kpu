@@ -5,6 +5,10 @@ if (!defined('BASEPATH'))
 
 class Dapil extends CI_Controller
 {
+
+    public $main_menu = 'Data Wilayah';
+    public $sub_menu = 'Dapil';
+
     function __construct()
     {
         parent::__construct();
@@ -36,7 +40,7 @@ class Dapil extends CI_Controller
 
         $this->load->library('pagination');
         $this->pagination->initialize($config);
-
+        
         $data = array(
             'content' => 'dapil/dapil_list',
             'dapil_data' => $dapil,
@@ -57,6 +61,8 @@ class Dapil extends CI_Controller
             $kecamatan_dapil = $this->KecamatanModel->get_where(['id_dapil' => $row->id_dapil]);
 
             $data = array(
+                'main_menu' => $this->main_menu,
+                'sub_menu' => $this->sub_menu,
                 'kecamatan_dapil' => $kecamatan_dapil,
                 'content' => 'dapil/dapil_read',
                 'id_dapil' => $row->id_dapil,
@@ -74,6 +80,8 @@ class Dapil extends CI_Controller
     public function create() 
     {
         $data = array(
+            'main_menu' => $this->main_menu,
+            'sub_menu' => $this->sub_menu,
             'content' => 'dapil/dapil_form',
             'button' => 'Create',
             'action' => site_url('dapil/create_action'),
@@ -109,7 +117,8 @@ class Dapil extends CI_Controller
 
         if ($row) {
             $data = array(
-                #this
+                'main_menu' => $this->main_menu,
+                'sub_menu' => $this->sub_menu,
                 'content' => 'dapil/dapil_form',
                 'button' => 'Update',
                 'action' => site_url('dapil/update_action'),

@@ -55,11 +55,11 @@
                                         <td><?php echo $kecamatan->jumlah_dpt_pr ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
-                                            echo anchor(site_url('kecamatan/read/'.$kecamatan->id_kecamatan),' ', 'class="glyphicon glyphicon-eye-open"'); 
+                                            echo anchor(site_url('kecamatan/read/'.$kecamatan->id_kecamatan),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' '; 
-                                            echo anchor(site_url('kecamatan/update/'.$kecamatan->id_kecamatan),' ', 'class="glyphicon glyphicon-pencil"'); 
+                                            echo anchor(site_url('kecamatan/update/'.$kecamatan->id_kecamatan),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
                                             echo ' '; 
-                                            echo anchor(site_url('kecamatan/delete/'.$kecamatan->id_kecamatan),' ','class="glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                            echo anchor(site_url('kecamatan/delete/'.$kecamatan->id_kecamatan),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                                             ?>
                                         </td>
                                     </tr>

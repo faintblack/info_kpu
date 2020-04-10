@@ -3,6 +3,12 @@
 3. Jadikan semua data relasi sbg link, agar dapat diarahkan ke data detailnya masing-masing
 4. Ganti semua pemanggilan data list di function index menggunakan method model get_all()
 5. Hapus semua list pagination yang tidak diperlukan
-6. (Bayu) Tolong samakan bentuk icon read, update, sama delete di semua tabel bay
-7. (PENTING) Update paslon pilpres belum bisa
+6. 
+7. 
 8. 
+
+8/4/2020
+1. Update database, penambahan kolom judul berita pada tabel berita
+2. Perbaikan edit gambar berita
+3. Ganti icon crud
+4. Penambahan menu calon pilkada

@@ -52,11 +52,11 @@
                                         <td><?php echo $suaracalonpileg->tahun ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
-                                            echo anchor(site_url('suaracalonpileg/read/'.$suaracalonpileg->id_suara_calon_pileg),' ', 'class="glyphicon glyphicon-eye-open"'); 
+                                            echo anchor(site_url('suaracalonpileg/read/'.$suaracalonpileg->id_suara_calon_pileg),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' '; 
-                                            echo anchor(site_url('suaracalonpileg/update/'.$suaracalonpileg->id_suara_calon_pileg),' ', 'class="glyphicon glyphicon-pencil"'); 
+                                            echo anchor(site_url('suaracalonpileg/update/'.$suaracalonpileg->id_suara_calon_pileg),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
                                             echo ' '; 
-                                            echo anchor(site_url('suaracalonpileg/delete/'.$suaracalonpileg->id_suara_calon_pileg),' ','class="glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                            echo anchor(site_url('suaracalonpileg/delete/'.$suaracalonpileg->id_suara_calon_pileg),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                                             ?>
                                         </td>
                                     </tr>

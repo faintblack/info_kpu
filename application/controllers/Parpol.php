@@ -5,6 +5,9 @@ if (!defined('BASEPATH'))
 
 class Parpol extends CI_Controller
 {
+
+    public $main_menu = 'Parpol';
+
     function __construct()
     {
         parent::__construct();
@@ -56,6 +59,7 @@ class Parpol extends CI_Controller
         $row = $this->ParpolModel->get_by_id($id);
         if ($row) {
             $data = array(
+                'main_menu' => $this->main_menu,
                 'content' => 'parpol/parpol_read',
                 'id_parpol' => $row->id_parpol,
                 'no_urut_parpol' => $row->no_urut_parpol,
@@ -73,6 +77,7 @@ class Parpol extends CI_Controller
     {
         $data_paslon_pilpres = $this->PaslonPilpresModel->get_all();
         $data = array(
+            'main_menu' => $this->main_menu,
             'data_paslon_pilpres' => $data_paslon_pilpres,
             'content' => 'parpol/parpol_form',
             'button' => 'Create',
@@ -110,6 +115,7 @@ class Parpol extends CI_Controller
         if ($row) {
             $data_paslon_pilpres = $this->PaslonPilpresModel->get_all();
             $data = array(
+                'main_menu' => $this->main_menu,
                 'data_paslon_pilpres' => $data_paslon_pilpres,
                 'content' => 'parpol/parpol_form',
                 'button' => 'Update',

@@ -3,19 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Berita extends CI_Controller {
 
-    public function __construct(){
-        parent:: __construct();
+	public function __construct(){
+		parent:: __construct();
 
-        if ($this->session->userdata('level') != "admin") {
+		if ($this->session->userdata('level') != "admin") {
 			redirect('login');
 		}
-        $this->load->model('beritamodel');
-    }
+		$this->load->model('beritamodel');
+	}
 
 	public function index()
 	{
 		$username = $this->session->userdata('username');
-        $berita = $this->beritamodel->find($username);
+		$berita = $this->beritamodel->find($username);
 
 		$this->load->view('layout/static', ['content' => 'berita/index', 'berita' => $berita]);
 	}
@@ -36,9 +36,9 @@ class Berita extends CI_Controller {
 		if ( !$this->upload->do_upload('gambar') ){
 			$gambar="";
 		}else{
-	        $file1 = array('upload_data' => $this->upload->data());
-	        $gambar= $file1['upload_data']['file_name'];
-        }
+			$file1 = array('upload_data' => $this->upload->data());
+			$gambar= $file1['upload_data']['file_name'];
+		}
 
 		$jenis = $this->input->post('jenis_berita');
 		$isi = $this->input->post('isi_berita');
@@ -51,7 +51,7 @@ class Berita extends CI_Controller {
 			'isi_berita' => $isi, 
 			'gambar_berita' => $gambar, 
 			'waktu' => $waktu
-			);
+		);
 		//print_r($data1);exit();
 		$this->beritamodel->tambah($data, 'berita');
 
@@ -83,25 +83,27 @@ class Berita extends CI_Controller {
 
 		$this->load->library('upload', $config);
 
-		if ( !$this->upload->do_upload('gambar') ){
-			$gambar="";
-		}else{
-	        $file1 = array('upload_data' => $this->upload->data());
-	        $gambar= $file1['upload_data']['file_name'];
-        }
+		$id = $this->input->post('id_berita');
 
-        $id = $this->input->post('id_berita');
-		$jenis = $this->input->post('jenis_berita');
-		$isi = $this->input->post('isi_berita');
+		if ( !$this->upload->do_upload('gambar') ){
+			$tmp = $this->beritamodel->detail(['id_berita' => $id])->result();
+			$gambar = $tmp[0]->gambar_berita;
+		}else{
+			$file1 = array('upload_data' => $this->upload->data());
+			$gambar= $file1['upload_data']['file_name'];
+
+			// Jika update data gambar, hapus data gambar sebelumnya
+			$tmp = $this->beritamodel->detail(['id_berita' => $id])->result();
+			$old_gambar = $tmp[0]->gambar_berita;
+			unlink($config['upload_path'].$old_gambar);
+		}
+
+		$data['gambar_berita'] = $gambar;
+		$data['jenis_berita'] = $this->input->post('jenis_berita');
+		$data['isi_berita'] = $this->input->post('isi_berita');		
 
 		$where = array('id_berita' => $id);
 
-		$data = array(
-			'jenis_berita' => $jenis,
-			'isi_berita' => $isi, 
-			'gambar_berita' => $gambar
-			);
-		//print_r($data1);exit();
 		$this->beritamodel->edit($where, $data);
 
 		redirect('berita');

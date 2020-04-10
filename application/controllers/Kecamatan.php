@@ -5,6 +5,10 @@ if (!defined('BASEPATH'))
 
 class Kecamatan extends CI_Controller
 {
+
+    public $main_menu = 'Data Wilayah';
+    public $sub_menu = 'Kecamatan';
+
     function __construct()
     {
         parent::__construct();
@@ -56,6 +60,8 @@ class Kecamatan extends CI_Controller
         $row = $this->KecamatanModel->get_by_id($id);
         if ($row) {
             $data = array(
+                'main_menu' => $this->main_menu,
+                'sub_menu' => $this->sub_menu,
                 'content' => 'kecamatan/kecamatan_read',
                 'id_kecamatan' => $row->id_kecamatan,
                 'nama_kecamatan' => $row->nama_kecamatan,
@@ -77,6 +83,8 @@ class Kecamatan extends CI_Controller
     {
         $dapil = $this->DapilModel->get_all();
         $data = array(
+            'main_menu' => $this->main_menu,
+            'sub_menu' => $this->sub_menu,
             'dapil' => $dapil,
             'content' => 'kecamatan/kecamatan_form',
             'button' => 'Create',
@@ -120,6 +128,8 @@ class Kecamatan extends CI_Controller
         if ($row) {
             $dapil = $this->DapilModel->get_all();
             $data = array(
+                'main_menu' => $this->main_menu,
+                'sub_menu' => $this->sub_menu,
                 'dapil' => $dapil,
                 'content' => 'kecamatan/kecamatan_form',
                 'button' => 'Update',
