@@ -59,6 +59,50 @@ class BeritaModel extends CI_Model {
         return $this->db->get();
     }
 
+    //ambil data berita dari database
+    public function get_berita_list($limit, $start){
+        $query = $this->db->get('berita', $limit, $start);
+        return $query;
+    }
+
+    //ambil data berita pilkada dari database
+    public function get_berita_pilkada(){
+        $this->db->select('*');
+        $this->db->from('berita ');
+        $this->db->where('jenis_berita', 'PILKADA');
+        
+        return $this->db->get();
+    }
+
+    //ambil data berita pileg dari database
+    public function get_berita_pileg(){
+        $this->db->select('*');
+        $this->db->from('berita ');
+        $this->db->where('jenis_berita', 'PILEG');
+        
+        return $this->db->get();
+    }
+
+    //ambil data berita pilpres dari database
+    public function get_berita_pilpres(){
+        $this->db->select('*');
+        $this->db->from('berita ');
+        $this->db->where('jenis_berita', 'PIlPRES');
+        
+        return $this->db->get();
+    }
+
+     //ambil data berita berdasarkan id dari database
+    public function beritaSelengkapnya($id_berita){
+        $this->db->select('*');
+        $this->db->from('berita');
+        $this->db->where('id_berita', $id_berita);
+
+        return $this->db->get()->result();
+    }
+
+    
+
 }
 
 ?>

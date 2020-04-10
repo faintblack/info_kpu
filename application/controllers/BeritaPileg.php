@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Frontend extends CI_Controller {
+class BeritaPileg extends CI_Controller {
 
 	public function __construct(){
         parent:: __construct();
@@ -13,10 +13,9 @@ class Frontend extends CI_Controller {
     }
 
 	public function index(){
-		
 
 		//konfigurasi pagination
-        $config['base_url'] = site_url('frontend/index'); //site url
+        $config['base_url'] = site_url('frontend/beritapileg'); //site url
         $config['total_rows'] = $this->db->count_all('berita'); //total row
         $config['per_page'] = 5;  //show record per halaman
         $config["uri_segment"] = 3;  // uri parameter
@@ -47,16 +46,11 @@ class Frontend extends CI_Controller {
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
  
         //panggil function getberita_list yang ada pada mmodel berita_model. 
-        $data['data'] = $this->BeritaModel->get_berita_list($config["per_page"], $data['page']);           
+        $data['data'] = $this->BeritaModel->get_berita_pileg($config["per_page"], $data['page']);           
  
         $data['pagination'] = $this->pagination->create_links();
 
-		$this->load->view('frontend/index', $data);
+
+		$this->load->view('frontend/beritapileg', $data);
 	}
-
-    public function beritaSelengkapnya($id_berita){
-        $berita_selengkapnya = $this->BeritaModel->beritaSelengkapnya($id_berita);
-
-        $this->load->view('frontend/bacaberita', ['berita_selengkapnya' => $berita_selengkapnya]);
-    }
 }

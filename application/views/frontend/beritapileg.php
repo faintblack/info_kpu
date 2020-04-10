@@ -130,7 +130,7 @@ function limit_words($string, $word_limit){
                             $limited_string_berita = limit_words($long_string, 25);
                             ?>
                             <p><?php echo $limited_string_berita; ?>...</p>
-                            <p style="float: right;"><a href="<?= site_url('Frontend/beritaSelengkapnya/'.$row->id_berita); ?>">Selengkapnya</a></p>
+                            <p style="float: right;"><a href="">Selengkapnya</a></p>
                         </div>
                     </div>
                 </div>
