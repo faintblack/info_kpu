@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2020 at 10:20 AM
+-- Generation Time: Apr 11, 2020 at 03:48 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -32,6 +32,7 @@ CREATE TABLE `berita` (
   `id_berita` int(11) NOT NULL,
   `username` varchar(10) NOT NULL,
   `jenis_berita` enum('PILEG','PILPRES','PILKADA') NOT NULL,
+  `judul_berita` varchar(75) NOT NULL,
   `isi_berita` text NOT NULL,
   `gambar_berita` text NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT current_timestamp()
@@ -41,10 +42,11 @@ CREATE TABLE `berita` (
 -- Dumping data for table `berita`
 --
 
-INSERT INTO `berita` (`id_berita`, `username`, `jenis_berita`, `isi_berita`, `gambar_berita`, `waktu`) VALUES
-(5, 'bayusugara', 'PILPRES', 'saya adalah bayu sugara, mahasiswa uin suska riau jurusan teknik informatika semester 10 dan insyaallah saya akan wisuda disemster 10 ini. aamiin', '464_mp4_snapshot_02_03_2018_10_20_13_09_044.jpg', '2020-03-26 01:25:34'),
-(8, 'admin', 'PILPRES', 'Revert artinya mengembalikan. Perintah ini lebih aman daripada git reset, karena tidak akan menghapus catatan sejarah revisi.\r\nRevert akan akan mengambil kondisi file yang ada di masa lalu, kemudian menggabungkannya dengan commit terakhir.', '1.PNG', '2020-03-26 23:57:36'),
-(9, 'mhrdkk', 'PILPRES', 'Jokowi Curang, pakai cit', 'Screenshot_(12).png', '2020-03-31 02:27:44');
+INSERT INTO `berita` (`id_berita`, `username`, `jenis_berita`, `judul_berita`, `isi_berita`, `gambar_berita`, `waktu`) VALUES
+(5, 'bayusugara', 'PILPRES', '', 'saya adalah bayu sugara, mahasiswa uin suska riau jurusan teknik informatika semester 10 dan insyaallah saya akan wisuda disemster 10 ini. aamiin', '464_mp4_snapshot_02_03_2018_10_20_13_09_044.jpg', '2020-03-26 01:25:34'),
+(8, 'admin', 'PILPRES', '', 'Revert artinya mengembalikan. Perintah ini lebih aman daripada git reset, karena tidak akan menghapus catatan sejarah revisi.\r\nRevert akan akan mengambil kondisi file yang ada di masa lalu, kemudian menggabungkannya dengan commit terakhir.', '1.PNG', '2020-03-26 23:57:36'),
+(9, 'mhrdkk', 'PILPRES', '', 'Jokowi curang, pakai cit.', 'Screenshot_(144).png', '2020-03-31 02:27:44'),
+(10, 'mhrdkk', 'PILEG', '', 'sdfsdfsd', 'Screenshot_(3).png', '2020-03-31 05:53:22');
 
 -- --------------------------------------------------------
 
@@ -82,6 +84,14 @@ CREATE TABLE `calon_pilkada` (
   `tgl_lahir` date NOT NULL,
   `alamat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `calon_pilkada`
+--
+
+INSERT INTO `calon_pilkada` (`id_calon_pilkada`, `nama_calon`, `gender`, `tgl_lahir`, `alamat`) VALUES
+(1, 'Sitole', 'Laki-laki', '2020-04-01', 'Jalan Paus Ujung'),
+(2, 'Sinusa', 'Laki-laki', '2020-03-31', 'Jalan jalan');
 
 -- --------------------------------------------------------
 
@@ -291,8 +301,8 @@ CREATE TABLE `paslon_pilpres` (
 --
 
 INSERT INTO `paslon_pilpres` (`id_paslon_pilpres`, `nomor_urut`, `id_capres`, `id_cawapres`, `tahun`) VALUES
-(1, 1, 6, 7, ''),
-(2, 2, 4, 5, '');
+(1, 1, 6, 7, '2019'),
+(2, 2, 4, 5, '2019');
 
 -- --------------------------------------------------------
 
@@ -492,7 +502,7 @@ ALTER TABLE `tps`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `calon_pileg`
@@ -504,7 +514,7 @@ ALTER TABLE `calon_pileg`
 -- AUTO_INCREMENT for table `calon_pilkada`
 --
 ALTER TABLE `calon_pilkada`
-  MODIFY `id_calon_pilkada` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_calon_pilkada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `calon_pilpres`

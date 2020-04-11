@@ -4,7 +4,7 @@
         <!-- Page-Title -->
         <div class="row">
             <div class="col-sm-12">
-                <h4 class="page-title" style="margin-bottom: 10px">Data Berita</h4>
+                <h4 class="page-title" style="margin-bottom: 10px">Data Beritaku</h4>
             </div>
         </div>
 
