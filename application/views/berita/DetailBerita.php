@@ -17,8 +17,9 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <?php foreach ($detail as $k) { ?>
+                                <p><?=$k->jenis_berita;?></p>
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><?=$k->jenis_berita;?></h3>
+                                    <h3 class="panel-title"><?=$k->judul_berita;?></h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="tab-content br-n pn">

@@ -41,16 +41,18 @@ class Berita extends CI_Controller {
 		}
 
 		$jenis = $this->input->post('jenis_berita');
+		$judul = $this->input->post('judul_berita');
 		$isi = $this->input->post('isi_berita');
-		$waktu = date("Y-m-d h:i:s");
+		//$waktu = date("Y-m-d h:i:s");
 		$username = $this->session->userdata('username');
 
 		$data = array(
 			'username' => $username,
 			'jenis_berita' => $jenis,
+			'judul_berita' => $judul,
 			'isi_berita' => $isi, 
 			'gambar_berita' => $gambar, 
-			'waktu' => $waktu
+			//'waktu' => $waktu
 		);
 		//print_r($data1);exit();
 		$this->beritamodel->tambah($data, 'berita');
@@ -100,6 +102,7 @@ class Berita extends CI_Controller {
 
 		$data['gambar_berita'] = $gambar;
 		$data['jenis_berita'] = $this->input->post('jenis_berita');
+		$data['judul_berita'] = $this->input->post('judul_berita');	
 		$data['isi_berita'] = $this->input->post('isi_berita');		
 
 		$where = array('id_berita' => $id);

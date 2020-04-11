@@ -19,6 +19,7 @@
                                 <th>No</th>
                                 <th>Username</th>
                                 <th>Nama Pengguna</th>
+                                <th>Judul Berita</th>
                                 <th>Jenis Berita</th>
                                 <th>Waktu</th>
                                 <th style="text-align: center;">Isi Berita</th>
@@ -32,6 +33,7 @@
                                 <td style="text-align: center;"><?=$no++;?></td>
                                 <td><?=$b->username;?></td>
                                 <td><?=$b->nama_pengguna;?></td>
+                                <td><?=$b->judul_berita;?></td>
                                 <td><?=$b->jenis_berita;?></td>
                                 <td><?=$b->waktu;?></td>
                                 <td style="text-align: center;"><a href="<?=base_url('berita/detail/'.$b->id_berita);?>" class="btn btn-info btn-custom waves-effect waves-light">Lihat Berita</a></td>

@@ -29,6 +29,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label">Judul Berita</label>
+                                    <div class="col-sm-6">
+                                        <input rows="15" name="judul_berita" required class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Isi Berita</label>
                                     <div class="col-sm-6">
                                         <textarea rows="15" name="isi_berita" required class="form-control"></textarea>

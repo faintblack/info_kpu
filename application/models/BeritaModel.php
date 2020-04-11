@@ -16,6 +16,15 @@ class BeritaModel extends CI_Model {
         return $this->db->get()->result();
     }
 
+    public function get_all(){
+        $this->db->select('*');
+        $this->db->from('berita a');
+        $this->db->join('pengguna b','a.username = b.username', 'left');
+        $this->db->order_by('id_berita','desc');
+
+        return $this->db->get()->result();
+    }
+
     public function tambah($data, $tabel){
 		$this->db->insert($tabel, $data);
 	}
