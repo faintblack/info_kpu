@@ -1,7 +1,5 @@
 <?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ParpolPaslonPilkada extends CI_Controller
 {
@@ -14,31 +12,11 @@ class ParpolPaslonPilkada extends CI_Controller
 
     public function index()
     {
-        $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->input->get('start'));
-        
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'parpolpaslonpilkada/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'parpolpaslonpilkada/index.html?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'parpolpaslonpilkada/index.html';
-            $config['first_url'] = base_url() . 'parpolpaslonpilkada/index.html';
-        }
 
-        $config['per_page'] = 10;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->ParpolPaslonPilkadaModel->total_rows($q);
-        $parpolpaslonpilkada = $this->ParpolPaslonPilkadaModel->get_limit_data($config['per_page'], $start, $q);
-
-        $this->load->library('pagination');
-        $this->pagination->initialize($config);
+        $parpolpaslonpilkada = $this->ParpolPaslonPilkadaModel->get_all();
 
         $data = array(
             'parpolpaslonpilkada_data' => $parpolpaslonpilkada,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
-            'total_rows' => $config['total_rows'],
-            'start' => $start,
         );
         $this->load->view('parpolpaslonpilkada/parpol_paslon_pilkada_list', $data);
     }
@@ -55,7 +33,7 @@ class ParpolPaslonPilkada extends CI_Controller
             $this->load->view('parpolpaslonpilkada/parpol_paslon_pilkada_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('parpolpaslonpilkada'));
+            redirect(site_url('ParpolPaslonPilkada'));
         }
     }
 
@@ -70,14 +48,14 @@ class ParpolPaslonPilkada extends CI_Controller
             $this->ParpolPaslonPilkadaModel->insert($data);
         }
         $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('paslonpilkada/read/'.$id_paslon));
+            redirect(site_url('PaslonPilkada/read/'.$id_paslon));
     }
 
     public function create() 
     {
         $data = array(
             'button' => 'Create',
-            'action' => site_url('parpolpaslonpilkada/create_action'),
+            'action' => site_url('ParpolPaslonPilkada/create_action'),
 	    'id_parpol_paslon_pilkada' => set_value('id_parpol_paslon_pilkada'),
 	    'id_paslon' => set_value('id_paslon'),
 	    'id_parpol' => set_value('id_parpol'),
@@ -99,7 +77,7 @@ class ParpolPaslonPilkada extends CI_Controller
 
             $this->ParpolPaslonPilkadaModel->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('parpolpaslonpilkada'));
+            redirect(site_url('ParpolPaslonPilkada'));
         }
     }
     
@@ -110,7 +88,7 @@ class ParpolPaslonPilkada extends CI_Controller
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('parpolpaslonpilkada/update_action'),
+                'action' => site_url('ParpolPaslonPilkada/update_action'),
 		'id_parpol_paslon_pilkada' => set_value('id_parpol_paslon_pilkada', $row->id_parpol_paslon_pilkada),
 		'id_paslon' => set_value('id_paslon', $row->id_paslon),
 		'id_parpol' => set_value('id_parpol', $row->id_parpol),
@@ -118,7 +96,7 @@ class ParpolPaslonPilkada extends CI_Controller
             $this->load->view('parpolpaslonpilkada/parpol_paslon_pilkada_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('parpolpaslonpilkada'));
+            redirect(site_url('ParpolPaslonPilkada'));
         }
     }
     
@@ -136,7 +114,7 @@ class ParpolPaslonPilkada extends CI_Controller
 
             $this->ParpolPaslonPilkadaModel->update($this->input->post('id_parpol_paslon_pilkada', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('parpolpaslonpilkada'));
+            redirect(site_url('ParpolPaslonPilkada'));
         }
     }
     
@@ -147,10 +125,10 @@ class ParpolPaslonPilkada extends CI_Controller
         if ($row) {
             $this->ParpolPaslonPilkadaModel->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('paslonpilkada/read/'.$id_paslon));
+            redirect(site_url('PaslonPilkada/read/'.$id_paslon));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('paslonpilkada/read/'.$id_paslon));
+            redirect(site_url('PaslonPilkada/read/'.$id_paslon));
         }
     }
 
@@ -164,9 +142,3 @@ class ParpolPaslonPilkada extends CI_Controller
     }
 
 }
-
-/* End of file ParpolPaslonPilkada.php */
-/* Location: ./application/controllers/ParpolPaslonPilkada.php */
-/* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2020-04-11 05:57:47 */
-/* http://harviacode.com */

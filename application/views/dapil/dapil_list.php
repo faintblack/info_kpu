@@ -41,10 +41,10 @@
                                 <tbody>
                                 <!-- Ambil dari generator -->
                                 <?php
-                                    foreach ($dapil_data as $dapil){
+                                    foreach ($dapil_data as $no => $dapil){
                                 ?>
                                     <tr>
-                                        <td width="80px"><?php echo ++$start ?></td>
+                                        <td width="80px"><?php echo $no+1 ?></td>
                                         <td><?php echo $dapil->nama_dapil ?></td>
                                         <td><?php echo $dapil->alokasi_kursi ?></td>
                                         <td style="text-align:center" width="200px">

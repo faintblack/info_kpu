@@ -1,7 +1,5 @@
 <?php
-
-if (!defined('BASEPATH'))
-	exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class PaslonPilkada extends CI_Controller{
 
@@ -18,40 +16,15 @@ class PaslonPilkada extends CI_Controller{
 		$this->load->library('form_validation');
 	}
 
-	public function index()
-	{
-		$q = urldecode($this->input->get('q', TRUE));
-		$start = intval($this->input->get('start'));
-		
-		if ($q <> '') {
-			$config['base_url'] = base_url() . 'paslonpilkada/index.html?q=' . urlencode($q);
-			$config['first_url'] = base_url() . 'paslonpilkada/index.html?q=' . urlencode($q);
-		} else {
-			$config['base_url'] = base_url() . 'paslonpilkada/index.html';
-			$config['first_url'] = base_url() . 'paslonpilkada/index.html';
-		}
-
-		$config['per_page'] = 10;
-		$config['page_query_string'] = TRUE;
-		$config['total_rows'] = $this->PaslonPilkadaModel->total_rows($q);
-		$paslonpilkada = $this->PaslonPilkadaModel->get_limit_data($config['per_page'], $start, $q);
-
-		$this->load->library('pagination');
-		$this->pagination->initialize($config);
-
-		$paslonpilkada2 = $this->PaslonPilkadaModel->get_all();
+	public function index(){
+		$paslonpilkada = $this->PaslonPilkadaModel->get_all();
 
 		$data = array(
 			'main_menu' => $this->main_menu,
 			'content' => 'paslonpilkada/paslon_pilkada_list',
-			'paslonpilkada_data' => $paslonpilkada2,
-			'q' => $q,
-			'pagination' => $this->pagination->create_links(),
-			'total_rows' => $config['total_rows'],
-			'start' => $start,
+			'paslonpilkada_data' => $paslonpilkada,
 		);
 		$this->load->view('layout/static', $data);
-//        $this->load->view('paslonpilkada/paslon_pilkada_list', $data);
 	}
 
 	public function read($id) 
@@ -85,7 +58,7 @@ class PaslonPilkada extends CI_Controller{
 			//$this->load->view('paslonpilkada/paslon_pilkada_read', $data);
 		} else {
 			$this->session->set_flashdata('message', 'Record Not Found');
-			redirect(site_url('paslonpilkada'));
+			redirect(site_url('PaslonPilkada'));
 		}
 	}
 
@@ -99,7 +72,7 @@ class PaslonPilkada extends CI_Controller{
             'calon_pilkada' => $calon_pilkada,
             'content' => 'paslonpilkada/paslon_pilkada_form',
 			'button' => 'Create',
-			'action' => site_url('paslonpilkada/create_action'),
+			'action' => site_url('PaslonPilkada/create_action'),
 			'id_paslon' => set_value('id_paslon'),
 			'jenis_pemilihan' => set_value('jenis_pemilihan'),
 			'nomor_urut' => set_value('nomor_urut'),
@@ -111,7 +84,6 @@ class PaslonPilkada extends CI_Controller{
 			'tahun' => set_value('tahun'),
         );
         $this->load->view('layout/static', $data);
-//		$this->load->view('paslonpilkada/paslon_pilkada_form', $data);
 	}
 	
 	public function create_action(){
@@ -133,7 +105,7 @@ class PaslonPilkada extends CI_Controller{
 
 			$this->PaslonPilkadaModel->insert($data);
 			$this->session->set_flashdata('message', 'Create Record Success');
-			redirect(site_url('paslonpilkada'));
+			redirect(site_url('PaslonPilkada'));
 		}
 	}
 	
@@ -151,7 +123,7 @@ class PaslonPilkada extends CI_Controller{
                 'calon_pilkada' => $calon_pilkada,
                 'content' => 'paslonpilkada/paslon_pilkada_form',
 				'button' => 'Update',
-				'action' => site_url('paslonpilkada/update_action'),
+				'action' => site_url('PaslonPilkada/update_action'),
 				'id_paslon' => set_value('id_paslon', $row->id_paslon),
 				'jenis_pemilihan' => set_value('jenis_pemilihan', $row->jenis_pemilihan),
 				'nomor_urut' => set_value('nomor_urut', $row->nomor_urut),
@@ -163,10 +135,9 @@ class PaslonPilkada extends CI_Controller{
 				'tahun' => set_value('tahun', $row->tahun),
             );
             $this->load->view('layout/static', $data);
-//			$this->load->view('paslonpilkada/paslon_pilkada_form', $data);
 		} else {
 			$this->session->set_flashdata('message', 'Record Not Found');
-			redirect(site_url('paslonpilkada'));
+			redirect(site_url('PaslonPilkada'));
 		}
 	}
 	
@@ -190,7 +161,7 @@ class PaslonPilkada extends CI_Controller{
 
 			$this->PaslonPilkadaModel->update($this->input->post('id_paslon', TRUE), $data);
 			$this->session->set_flashdata('message', 'Update Record Success');
-			redirect(site_url('paslonpilkada'));
+			redirect(site_url('PaslonPilkada'));
 		}
 	}
 	
@@ -201,10 +172,10 @@ class PaslonPilkada extends CI_Controller{
 		if ($row) {
 			$this->PaslonPilkadaModel->delete($id);
 			$this->session->set_flashdata('message', 'Delete Record Success');
-			redirect(site_url('paslonpilkada'));
+			redirect(site_url('PaslonPilkada'));
 		} else {
 			$this->session->set_flashdata('message', 'Record Not Found');
-			redirect(site_url('paslonpilkada'));
+			redirect(site_url('PaslonPilkada'));
 		}
 	}
 
@@ -232,9 +203,3 @@ class PaslonPilkada extends CI_Controller{
     }
 
 }
-
-/* End of file PaslonPilkada.php */
-/* Location: ./application/controllers/PaslonPilkada.php */
-/* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2020-04-11 04:17:56 */
-/* http://harviacode.com */

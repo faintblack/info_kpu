@@ -1,7 +1,5 @@
-    <?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class PaslonPilpres extends CI_Controller{
 
@@ -21,38 +19,14 @@ class PaslonPilpres extends CI_Controller{
     }
 
     public function index(){
-        $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->input->get('start'));
-        
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'paslonpilpres/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'paslonpilpres/index.html?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'paslonpilpres/index.html';
-            $config['first_url'] = base_url() . 'paslonpilpres/index.html';
-        }
-
-        $config['per_page'] = 10;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->PaslonPilpresModel->total_rows($q);
-        $paslonpilpres = $this->PaslonPilpresModel->get_limit_data($config['per_page'], $start, $q);
-
-        $this->load->library('pagination');
-        $this->pagination->initialize($config);
-
-        $paslonpilpres2 = $this->PaslonPilpresModel->get_all();
+        $paslonpilpres = $this->PaslonPilpresModel->get_all();
 
         $data = array(
             'main_menu' => $this->main_menu,
             'content' => 'paslonpilpres/paslon_pilpres_list',
-            'paslonpilpres_data' => $paslonpilpres2,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
-            'total_rows' => $config['total_rows'],
-            'start' => $start,
+            'paslonpilpres_data' => $paslonpilpres,
         );
         $this->load->view('layout/static', $data);
-        //$this->load->view('paslonpilpres/paslon_pilpres_list', $data);
     }
 
     public function read($id) 
@@ -77,10 +51,9 @@ class PaslonPilpres extends CI_Controller{
                 'tahun' => $row->tahun
             );
             $this->load->view('layout/static', $data);
-//            $this->load->view('paslonpilpres/paslon_pilpres_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('paslonpilpres'));
+            redirect(site_url('PaslonPilpres'));
         }
     }
 
@@ -95,7 +68,7 @@ class PaslonPilpres extends CI_Controller{
             'calon_pilpres' => $calon_pilpres,
             'content' => 'paslonpilpres/paslon_pilpres_form',
             'button' => 'Create',
-            'action' => site_url('paslonpilpres/create_action'),
+            'action' => site_url('PaslonPilpres/create_action'),
             'id_paslon_pilpres' => set_value('id_paslon_pilpres'),
             'nomor_urut' => set_value('nomor_urut'),
             'id_capres' => set_value('id_capres'),
@@ -103,7 +76,6 @@ class PaslonPilpres extends CI_Controller{
             'tahun' => set_value('tahun')
         );
         $this->load->view('layout/static', $data);
-//        $this->load->view('paslonpilpres/paslon_pilpres_form', $data);
     }
     
     public function create_action() 
@@ -137,7 +109,7 @@ class PaslonPilpres extends CI_Controller{
             
             
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('paslonpilpres'));
+            redirect(site_url('PaslonPilpres'));
         }
     }
     
@@ -154,7 +126,7 @@ class PaslonPilpres extends CI_Controller{
                 'calon_pilpres' => $calon_pilpres,
                 'content' => 'paslonpilpres/paslon_pilpres_form',
                 'button' => 'Update',
-                'action' => site_url('paslonpilpres/update_action'),
+                'action' => site_url('PaslonPilpres/update_action'),
                 'id_paslon_pilpres' => set_value('id_paslon_pilpres', $row->id_paslon_pilpres),
                 'nomor_urut' => set_value('nomor_urut', $row->nomor_urut),
                 'id_capres' => set_value('id_capres', $row->id_capres),
@@ -164,7 +136,7 @@ class PaslonPilpres extends CI_Controller{
             $this->load->view('layout/static', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('paslonpilpres'));
+            redirect(site_url('PaslonPilpres'));
         }
     }
     
@@ -189,7 +161,7 @@ class PaslonPilpres extends CI_Controller{
 
             $this->PaslonPilpresModel->update($this->input->post('id_paslon_pilpres', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('paslonpilpres'));
+            redirect(site_url('PaslonPilpres'));
         }
     }
     
@@ -200,10 +172,10 @@ class PaslonPilpres extends CI_Controller{
         if ($row) {
             $this->PaslonPilpresModel->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('paslonpilpres'));
+            redirect(site_url('PaslonPilpres'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('paslonpilpres'));
+            redirect(site_url('PaslonPilpres'));
         }
     }
 
@@ -230,9 +202,3 @@ class PaslonPilpres extends CI_Controller{
     }
 
 }
-
-/* End of file PaslonPilpres.php */
-/* Location: ./application/controllers/PaslonPilpres.php */
-/* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2020-03-20 11:15:32 */
-/* http://harviacode.com */

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2020 at 03:48 AM
+-- Generation Time: Apr 12, 2020 at 10:10 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -45,8 +45,9 @@ CREATE TABLE `berita` (
 INSERT INTO `berita` (`id_berita`, `username`, `jenis_berita`, `judul_berita`, `isi_berita`, `gambar_berita`, `waktu`) VALUES
 (5, 'bayusugara', 'PILPRES', '', 'saya adalah bayu sugara, mahasiswa uin suska riau jurusan teknik informatika semester 10 dan insyaallah saya akan wisuda disemster 10 ini. aamiin', '464_mp4_snapshot_02_03_2018_10_20_13_09_044.jpg', '2020-03-26 01:25:34'),
 (8, 'admin', 'PILPRES', '', 'Revert artinya mengembalikan. Perintah ini lebih aman daripada git reset, karena tidak akan menghapus catatan sejarah revisi.\r\nRevert akan akan mengambil kondisi file yang ada di masa lalu, kemudian menggabungkannya dengan commit terakhir.', '1.PNG', '2020-03-26 23:57:36'),
-(9, 'mhrdkk', 'PILPRES', '', 'Jokowi curang, pakai cit.', 'Screenshot_(144).png', '2020-03-31 02:27:44'),
-(10, 'mhrdkk', 'PILEG', '', 'sdfsdfsd', 'Screenshot_(3).png', '2020-03-31 05:53:22');
+(9, 'mhrdkk', 'PILPRES', 'Cebong', 'Jokowi curang, pakai cit.', 'Screenshot_(144).png', '2020-03-31 02:27:44'),
+(10, 'mhrdkk', 'PILEG', 'Tes Judul mas', 'sdfsdfsd', 'Screenshot_(3).png', '2020-03-31 05:53:22'),
+(12, 'mhrdkk', 'PILPRES', '01 pakai cheat!', 'Pihak 01 kedapatan membakar surat suara pemilih 02', 'Screenshot_(114).png', '2020-04-11 02:07:35');
 
 -- --------------------------------------------------------
 
@@ -243,6 +244,14 @@ CREATE TABLE `parpol_paslon_pilkada` (
   `id_parpol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `parpol_paslon_pilkada`
+--
+
+INSERT INTO `parpol_paslon_pilkada` (`id_parpol_paslon_pilkada`, `id_paslon`, `id_parpol`) VALUES
+(2, 1, 2),
+(5, 1, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -262,7 +271,8 @@ CREATE TABLE `parpol_paslon_pilpres` (
 INSERT INTO `parpol_paslon_pilpres` (`id_parpol_paslon_pilpres`, `id_paslon_pilpres`, `id_parpol`) VALUES
 (11, 2, 2),
 (13, 1, 3),
-(15, 2, 4);
+(15, 2, 4),
+(16, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -281,6 +291,13 @@ CREATE TABLE `paslon_pilkada` (
   `keterangan` text NOT NULL,
   `tahun` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `paslon_pilkada`
+--
+
+INSERT INTO `paslon_pilkada` (`id_paslon`, `jenis_pemilihan`, `nomor_urut`, `id_kepala_daerah`, `id_wakil_kepala_daerah`, `jenis_calon`, `status_penetapan`, `keterangan`, `tahun`) VALUES
+(1, 'Pemilihan Gubernur', 1, 1, 2, 'Parpol', 'TMS', '', '2017');
 
 -- --------------------------------------------------------
 
@@ -502,7 +519,7 @@ ALTER TABLE `tps`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `calon_pileg`
@@ -562,19 +579,19 @@ ALTER TABLE `parpol`
 -- AUTO_INCREMENT for table `parpol_paslon_pilkada`
 --
 ALTER TABLE `parpol_paslon_pilkada`
-  MODIFY `id_parpol_paslon_pilkada` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_parpol_paslon_pilkada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `parpol_paslon_pilpres`
 --
 ALTER TABLE `parpol_paslon_pilpres`
-  MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `paslon_pilkada`
 --
 ALTER TABLE `paslon_pilkada`
-  MODIFY `id_paslon` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_paslon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `paslon_pilpres`

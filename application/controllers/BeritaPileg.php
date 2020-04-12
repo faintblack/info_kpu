@@ -15,7 +15,7 @@ class BeritaPileg extends CI_Controller {
 	public function index(){
 
 		//konfigurasi pagination
-        $config['base_url'] = site_url('frontend/beritapileg'); //site url
+        $config['base_url'] = site_url('Frontend/BeritaPileg'); //site url
         $config['total_rows'] = $this->db->count_all('berita'); //total row
         $config['per_page'] = 5;  //show record per halaman
         $config["uri_segment"] = 3;  // uri parameter

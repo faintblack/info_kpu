@@ -4,21 +4,21 @@ class Login extends CI_Controller{
 
 	public function __construct(){ 
 		parent::__construct();		
-		$this->load->model('penggunamodel');
+		$this->load->model('PenggunaModel');
 	}
 
 	public function index(){ 
 		if ($this->session->userdata('level') == "admin") {
-			redirect('homecontroller');
+			redirect('HomeController');
 		}else{
-			$this->load->view('login');
+			$this->load->view('Login');
 		}
 	}
 
 	public function validasi(){ //
 		$where = array('username' => $this->input->post('username', TRUE),
 						'password' => md5($this->input->post('password', TRUE)));
-		$cek = $this->penggunamodel->validasi($where);
+		$cek = $this->PenggunaModel->validasi($where);
 		if($cek->num_rows() == 1){
 			foreach($cek->result() as $a ){
 
@@ -30,7 +30,7 @@ class Login extends CI_Controller{
 
 			}
 			if ($this->session->userdata('level') == 'admin') {
-				redirect('homecontroller');
+				redirect('HomeController');
 			}
 
 		}else{
@@ -40,6 +40,6 @@ class Login extends CI_Controller{
 
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('login');
+		redirect('Login');
 	}
 }

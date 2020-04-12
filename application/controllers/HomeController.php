@@ -7,7 +7,7 @@ class HomeController extends CI_Controller {
         parent:: __construct();
 
         if ($this->session->userdata('level') != "admin") {
-			redirect('login');
+			redirect('Login');
 		}
     }
 

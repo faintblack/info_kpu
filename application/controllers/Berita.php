@@ -7,15 +7,15 @@ class Berita extends CI_Controller {
 		parent:: __construct();
 
 		if ($this->session->userdata('level') != "admin") {
-			redirect('login');
+			redirect('Login');
 		}
-		$this->load->model('beritamodel');
+		$this->load->model('BeritaModel');
 	}
 
 	public function index()
 	{
 		$username = $this->session->userdata('username');
-		$berita = $this->beritamodel->find($username);
+		$berita = $this->BeritaModel->find($username);
 
 		$this->load->view('layout/static', ['content' => 'berita/index', 'berita' => $berita]);
 	}
@@ -55,15 +55,15 @@ class Berita extends CI_Controller {
 			//'waktu' => $waktu
 		);
 		//print_r($data1);exit();
-		$this->beritamodel->tambah($data, 'berita');
+		$this->BeritaModel->tambah($data, 'Berita');
 
-		redirect('berita');
+		redirect('Berita');
 	}
 
 	public function detail($id_berita)
 	{
 		$id = array('id_berita' => $id_berita);
-		$detail = $this->beritamodel->detail($id)->result();
+		$detail = $this->BeritaModel->detail($id)->result();
 
 		$this->load->view('layout/static', ['content' => 'berita/detailberita', 'detail' => $detail]);
 	}
@@ -71,7 +71,7 @@ class Berita extends CI_Controller {
 	public function edit($id_berita)
 	{
 		$id = array('id_berita' => $id_berita);
-		$edit = $this->beritamodel->detail($id)->result();
+		$edit = $this->BeritaModel->detail($id)->result();
 
 		$this->load->view('layout/static', ['content' => 'berita/editberita', 'edit' => $edit]);
 	}
@@ -88,14 +88,14 @@ class Berita extends CI_Controller {
 		$id = $this->input->post('id_berita');
 
 		if ( !$this->upload->do_upload('gambar') ){
-			$tmp = $this->beritamodel->detail(['id_berita' => $id])->result();
+			$tmp = $this->BeritaModel->detail(['id_berita' => $id])->result();
 			$gambar = $tmp[0]->gambar_berita;
 		}else{
 			$file1 = array('upload_data' => $this->upload->data());
 			$gambar= $file1['upload_data']['file_name'];
 
 			// Jika update data gambar, hapus data gambar sebelumnya
-			$tmp = $this->beritamodel->detail(['id_berita' => $id])->result();
+			$tmp = $this->BeritaModel->detail(['id_berita' => $id])->result();
 			$old_gambar = $tmp[0]->gambar_berita;
 			unlink($config['upload_path'].$old_gambar);
 		}
@@ -107,25 +107,25 @@ class Berita extends CI_Controller {
 
 		$where = array('id_berita' => $id);
 
-		$this->beritamodel->edit($where, $data);
+		$this->BeritaModel->edit($where, $data);
 
-		redirect('berita');
+		redirect('Berita');
 	}
 
 	public function hapus($id_berita)
 	{
 		$id = array('id_berita' => $id_berita);
-		$this->beritamodel->hapus($id, 'berita');
+		$this->BeritaModel->hapus($id, 'Berita');
 
-		redirect('berita');
+		redirect('Berita');
 	}
 
 	public function komentar($id_berita)
 	{
 		$id = $id_berita;
-		$komentar = $this->beritamodel->komentar($id)->result();
+		$komentar = $this->BeritaModel->komentar($id)->result();
 		$id = array('id_berita' => $id_berita);
-		$berita = $this->beritamodel->detail($id)->result();
+		$berita = $this->BeritaModel->detail($id)->result();
 
 		$this->load->view('layout/static', ['content' => 'berita/komentar', 'komentar' => $komentar, 'berita' => $berita]);
 	}
@@ -133,13 +133,13 @@ class Berita extends CI_Controller {
 	public function hapuskomentar($id_komentar)
 	{
 		$idberita = $id_komentar;
-		$row = $this->beritamodel->cari_berita_id($idberita)->row();
+		$row = $this->BeritaModel->cari_berita_id($idberita)->row();
 		$ide = $row->id_berita;
 
 		$id = array('id_komentar' => $id_komentar);
-		$this->beritamodel->hapus($id, 'komentar');
+		$this->BeritaModel->hapus($id, 'komentar');
 
-		redirect(site_url('berita/komentar/'.$ide));
+		redirect(site_url('Berita/komentar/'.$ide));
 	}
 
 }

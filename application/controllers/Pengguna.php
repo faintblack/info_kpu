@@ -1,7 +1,5 @@
-    <?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pengguna extends CI_Controller
 {
@@ -20,35 +18,13 @@ class Pengguna extends CI_Controller
 
     public function index()
     {
-        $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->input->get('start'));
-        
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'pengguna/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'pengguna/index.html?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'pengguna/index.html';
-            $config['first_url'] = base_url() . 'pengguna/index.html';
-        }
 
-        $config['per_page'] = 10;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->PenggunaModel->total_rows($q);
-        $pengguna = $this->PenggunaModel->get_limit_data($config['per_page'], $start, $q);
-
-        $this->load->library('pagination');
-        $this->pagination->initialize($config);
+        $pengguna = $this->PenggunaModel->get_all();
 
         $data = array(
             'content' => 'pengguna/pengguna_list',
             'pengguna_data' => $pengguna,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
-            'total_rows' => $config['total_rows'],
-            'start' => $start,
         );
-        //$this->load->view('pengguna/pengguna_list', $data);
-        // #this
         $this->load->view('layout/static', $data);
     }
 
@@ -59,18 +35,16 @@ class Pengguna extends CI_Controller
             $data = array(
                 'main_menu' => $this->main_menu,
                 'content' => 'pengguna/pengguna_read',
-		'username' => $row->username,
-		'password' => $row->password,
-		'nama_pengguna' => $row->nama_pengguna,
-		'hak_akses' => $row->hak_akses,
-		'email' => $row->email,
-	    );
-            //$this->load->view('pengguna/pengguna_read', $data);
-            // #this
+                'username' => $row->username,
+                'password' => $row->password,
+                'nama_pengguna' => $row->nama_pengguna,
+                'hak_akses' => $row->hak_akses,
+                'email' => $row->email,
+            );
             $this->load->view('layout/static', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('pengguna'));
+            redirect(site_url('Pengguna'));
         }
     }
 
@@ -80,7 +54,7 @@ class Pengguna extends CI_Controller
             'main_menu' => $this->main_menu,
             'content' => 'pengguna/pengguna_form',
             'button' => 'Create',
-            'action' => site_url('pengguna/create_action'),
+            'action' => site_url('Pengguna/create_action'),
 	    'username' => set_value('username'),
 	    'password' => set_value('password'),
 	    'nama_pengguna' => set_value('nama_pengguna'),
@@ -109,7 +83,7 @@ class Pengguna extends CI_Controller
 
             $this->PenggunaModel->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('pengguna'));
+            redirect(site_url('Pengguna'));
         }
     }
     
@@ -122,7 +96,7 @@ class Pengguna extends CI_Controller
                 'main_menu' => $this->main_menu,
                 'content' => 'pengguna/pengguna_form',
                 'button' => 'Update',
-                'action' => site_url('pengguna/update_action'),
+                'action' => site_url('Pengguna/update_action'),
                 'username' => set_value('username', $row->username),
                 'password' => set_value('password', $row->password),
                 'nama_pengguna' => set_value('nama_pengguna', $row->nama_pengguna),
@@ -134,7 +108,7 @@ class Pengguna extends CI_Controller
             $this->load->view('layout/static', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('pengguna'));
+            redirect(site_url('Pengguna'));
         }
     }
     
@@ -154,7 +128,7 @@ class Pengguna extends CI_Controller
             );
             $this->PenggunaModel->update($this->input->post('username'), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('pengguna'));
+            redirect(site_url('Pengguna'));
         }
     }
     
@@ -165,10 +139,10 @@ class Pengguna extends CI_Controller
         if ($row) {
             $this->PenggunaModel->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('pengguna'));
+            redirect(site_url('Pengguna'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('pengguna'));
+            redirect(site_url('Pengguna'));
         }
     }
 
@@ -181,9 +155,3 @@ class Pengguna extends CI_Controller
     }
 
 }
-
-/* End of file Pengguna.php */
-/* Location: ./application/controllers/Pengguna.php */
-/* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2020-03-19 16:36:04 */
-/* http://harviacode.com */
