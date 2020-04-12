@@ -69,7 +69,6 @@ class SuaraCalonPileg extends CI_Controller{
             'tahun' => set_value('tahun'),
         );
         $this->load->view('layout/static', $data);
-//        $this->load->view('suaracalonpileg/suara_calon_pileg_form', $data);
     }
     
     public function create_action(){
@@ -109,7 +108,6 @@ class SuaraCalonPileg extends CI_Controller{
                 'tahun' => set_value('tahun', $row->tahun),
             );
             $this->load->view('layout/static', $data);
-//            $this->load->view('suaracalonpileg/suara_calon_pileg_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('SuaraCalonPileg'));
