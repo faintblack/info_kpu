@@ -62,7 +62,7 @@
                             <input type="number" min="2015" max="2020"  class="form-control" name="tahun" id="tahun" placeholder="Tahun" value="<?php echo $tahun; ?>" />
                         </div>
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-                        <a href="<?php echo site_url('paslonpilpres') ?>" class="btn btn-default">Cancel</a>
+                        <a href="<?php echo site_url('PaslonPilpres') ?>" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
             </div>

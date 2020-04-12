@@ -43,7 +43,7 @@
                         </div>
                         <input type="hidden" name="id_kecamatan" value="<?php echo $id_kecamatan; ?>" /> 
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-                        <a href="<?php echo site_url('kecamatan') ?>" class="btn btn-default">Cancel</a>
+                        <a href="<?php echo site_url('Kecamatan') ?>" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
             </div>

@@ -32,7 +32,7 @@ $bulan = [
 					<div class="row" style="margin-bottom: 10px">
 						<div class="col-md-4">
 							<!-- Ambil dari generator -->
-							<?php echo anchor(site_url('calonpilkada/create'),'Create', 'class="btn btn-primary"'); ?>
+							<?php echo anchor(site_url('CalonPilkada/create'),'Create', 'class="btn btn-primary"'); ?>
 						</div>
 						<div class="col-md-4 text-center">
 							<div style="margin-top: 8px" id="message">
@@ -70,11 +70,11 @@ $bulan = [
 											<td><?php echo $calonpilkada->alamat ?></td>
 											<td style="text-align:center" width="200px">
 												<?php 
-												echo anchor(site_url('calonpilkada/read/'.$calonpilkada->id_calon_pilkada),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
+												echo anchor(site_url('CalonPilkada/read/'.$calonpilkada->id_calon_pilkada),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
 												echo ' '; 
-												echo anchor(site_url('calonpilkada/update/'.$calonpilkada->id_calon_pilkada),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
+												echo anchor(site_url('CalonPilkada/update/'.$calonpilkada->id_calon_pilkada),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
 												echo ' '; 
-												echo anchor(site_url('calonpilkada/delete/'.$calonpilkada->id_calon_pilkada),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+												echo anchor(site_url('CalonPilkada/delete/'.$calonpilkada->id_calon_pilkada),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
 												?>
 											</td>
 										</tr>

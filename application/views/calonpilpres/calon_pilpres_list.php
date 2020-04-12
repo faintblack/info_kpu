@@ -16,7 +16,7 @@
                     <div class="row" style="margin-bottom: 10px">
                         <div class="col-md-4">
                             <!-- Ambil dari generator -->
-                            <?php echo anchor(site_url('calonpilpres/create'),'Create', 'class="btn btn-primary"'); ?>
+                            <?php echo anchor(site_url('CalonPilpres/create'),'Create', 'class="btn btn-primary"'); ?>
                         </div>
                         <div class="col-md-4 text-center">
                             <div style="margin-top: 8px" id="message">
@@ -49,11 +49,11 @@
                                         <td><?php echo $calonpilpres->gender ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
-                                            echo anchor(site_url('calonpilpres/read/'.$calonpilpres->id_calon_pilpres),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
+                                            echo anchor(site_url('CalonPilpres/read/'.$calonpilpres->id_calon_pilpres),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' '; 
-                                            echo anchor(site_url('calonpilpres/update/'.$calonpilpres->id_calon_pilpres),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
+                                            echo anchor(site_url('CalonPilpres/update/'.$calonpilpres->id_calon_pilpres),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
                                             echo ' '; 
-                                            echo anchor(site_url('calonpilpres/delete/'.$calonpilpres->id_calon_pilpres),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                            echo anchor(site_url('CalonPilpres/delete/'.$calonpilpres->id_calon_pilpres),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                                             ?>
                                         </td>
                                     </tr>

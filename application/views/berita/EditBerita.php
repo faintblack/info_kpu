@@ -16,7 +16,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<?php foreach ($edit as $k) { ?>
-								<form class="form-horizontal group-border-dashed" enctype="multipart/form-data" method="post" action="<?=base_url('berita/editberita');?>">
+								<form class="form-horizontal group-border-dashed" enctype="multipart/form-data" method="post" action="<?=base_url('Berita/editberita');?>">
 									
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Jenis Berita</label>
@@ -52,7 +52,7 @@
 											<button type="submit" class="btn btn-primary">
 												Simpan
 											</button>
-											<a href="<?=base_url('berita/detail/'.$k->id_berita);?>" class="btn btn-default m-l-5">
+											<a href="<?=base_url('Berita/detail/'.$k->id_berita);?>" class="btn btn-default m-l-5">
 												Kembali
 											</a>
 										</div>

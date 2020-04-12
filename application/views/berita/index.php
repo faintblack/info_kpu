@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-box table-responsive">
-                            <p><a href="<?=base_url('berita/tambah');?>" class="btn btn-primary waves-effect waves-light">Create</a></p>
+                            <p><a href="<?=base_url('Berita/tambah');?>" class="btn btn-primary waves-effect waves-light">Create</a></p>
                 	<table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -36,7 +36,7 @@
                                 <td><?=$b->judul_berita;?></td>
                                 <td><?=$b->jenis_berita;?></td>
                                 <td><?=$b->waktu;?></td>
-                                <td style="text-align: center;"><a href="<?=base_url('berita/detail/'.$b->id_berita);?>" class="btn btn-info btn-custom waves-effect waves-light">Lihat Berita</a></td>
+                                <td style="text-align: center;"><a href="<?=base_url('Berita/detail/'.$b->id_berita);?>" class="btn btn-info btn-custom waves-effect waves-light">Lihat Berita</a></td>
                             </tr>
                             <?php } ?>
                         </tbody>

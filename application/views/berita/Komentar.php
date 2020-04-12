@@ -23,7 +23,7 @@
                                             <a href="#" title=""><?=$k->nama_pengguna;?></a><span><?=$k->waktu;?></span>
                                         </div>
                                         <?=$k->isi_komentar;?>
-                                        <a style="float: right;" href="<?=base_url('berita/hapuskomentar/'.$k->id_komentar);?>" class="waves-effect waves-light glyphicon glyphicon-trash" onclick="return confirm('Anda yakin ingin menghapus komentar ?')"></a>
+                                        <a style="float: right;" href="<?=base_url('Berita/hapuskomentar/'.$k->id_komentar);?>" class="waves-effect waves-light glyphicon glyphicon-trash" onclick="return confirm('Anda yakin ingin menghapus komentar ?')"></a>
                                     </div>
                                     <div class="comment-footer">
                                         
@@ -33,7 +33,7 @@
                             <?php } ?>
                             <?php foreach ($berita as $k) { ?>
                             <div class="comment" style="text-align: right;">
-                                <a href="<?=base_url('berita/detail/'.$k->id_berita);?>" class="btn btn-primary btn-custom waves-effect waves-light">Kembali</a>
+                                <a href="<?=base_url('Berita/detail/'.$k->id_berita);?>" class="btn btn-primary btn-custom waves-effect waves-light">Kembali</a>
                             </div>
                             <?php } ?>
                         </div>

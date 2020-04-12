@@ -65,7 +65,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>INFO KPU PKU</span></a>
+                        <a href="<?= base_url() ?>" class="logo"><i class="icon-magnet icon-c-logo"></i><span>INFO KPU PKU</span></a>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
                                     <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><?=$this->session->userdata('nama');?> </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="javascript:void(0)"><i class="ti-user m-r-10 text-custom"></i> Update Profile</a></li>
-                                        <li><a href="<?=base_url('login/logout');?>"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
+                                        <li><a href="<?=base_url('Login/logout');?>"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
                                     </ul>
                                 </li>
                             </ul>

@@ -50,7 +50,7 @@ foreach ($data_kecamatan as $key => $value) {
                         </div>
                         <input type="hidden" name="id_suara_calon_pileg" value="<?php echo $id_suara_calon_pileg; ?>" /> 
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-                        <a href="<?php echo site_url('suaracalonpileg') ?>" class="btn btn-default">Cancel</a>
+                        <a href="<?php echo site_url('SuaraCalonPileg') ?>" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
             </div>

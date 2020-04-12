@@ -23,7 +23,7 @@
                         </div>
                         <input type="hidden" name="id_dapil" value="<?php echo $id_dapil; ?>" /> 
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-                        <a href="<?php echo site_url('dapil') ?>" class="btn btn-default">Cancel</a>
+                        <a href="<?php echo site_url('Dapil') ?>" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
             </div>

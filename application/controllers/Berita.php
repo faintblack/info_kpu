@@ -54,7 +54,6 @@ class Berita extends CI_Controller {
 			'gambar_berita' => $gambar, 
 			//'waktu' => $waktu
 		);
-		//print_r($data1);exit();
 		$this->BeritaModel->tambah($data, 'Berita');
 
 		redirect('Berita');

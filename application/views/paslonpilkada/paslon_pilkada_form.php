@@ -83,7 +83,7 @@
                         </div>
                         <input type="hidden" name="id_paslon" value="<?php echo $id_paslon; ?>" /> 
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-                        <a href="<?php echo site_url('paslonpilkada') ?>" class="btn btn-default">Cancel</a>
+                        <a href="<?php echo site_url('PaslonPilkada') ?>" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
             </div>

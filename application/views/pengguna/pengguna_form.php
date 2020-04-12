@@ -59,7 +59,7 @@
                                         <button type="submit" class="btn btn-primary">
                                             <?php echo $button ?>
                                         </button>
-                                        <a href="<?php echo site_url('pengguna') ?>" class="btn btn-default m-l-5">
+                                        <a href="<?php echo site_url('Pengguna') ?>" class="btn btn-default m-l-5">
                                             Kembali
                                         </a>
                                     </div>

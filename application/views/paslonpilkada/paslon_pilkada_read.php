@@ -23,7 +23,7 @@
                         <tr><td>Status Penetapan</td><td><?php echo $status_penetapan; ?></td></tr>
                         <tr><td>Keterangan</td><td><?php echo $keterangan; ?></td></tr>
                         <tr><td>Tahun</td><td><?php echo $tahun; ?></td></tr>
-                        <tr><td></td><td><a href="<?php echo site_url('paslonpilkada') ?>" class="btn btn-default">Cancel</a></td></tr>
+                        <tr><td></td><td><a href="<?php echo site_url('PaslonPilkada') ?>" class="btn btn-default">Cancel</a></td></tr>
                     </table>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                             <td><?php echo $parpol->nama_parpol ?></td>
                             <td style="text-align:center" width="200px">
                             <?php 
-                                echo anchor(site_url('parpolpaslonpilkada/delete/'.$parpol->id_parpol_paslon_pilkada.'/'.$id_paslon),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                echo anchor(site_url('ParpolPaslonPilkada/delete/'.$parpol->id_parpol_paslon_pilkada.'/'.$id_paslon),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                                 ?>
                             </td>
                         </tr>
@@ -85,7 +85,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
                         <h4 class="modal-title">Tambah Partai Pendukung</h4> 
                     </div>
-                    <?= form_open('parpolpaslonpilkada/add/'.$id_paslon) ?>
+                    <?= form_open('ParpolPaslonPilkada/add/'.$id_paslon) ?>
                     <div class="modal-body"> 
                         <div class="row"> 
                             <div class="col-md-12"> 

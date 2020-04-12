@@ -36,7 +36,7 @@ $convert_date = $split_birthday[2].' '.$bulan[$split_birthday[1]].' '.$split_bir
 						<tr><td>Gender</td><td><?php echo $gender; ?></td></tr>
 						<tr><td>Tgl Lahir</td><td><?php echo $convert_date; ?></td></tr>
 						<tr><td>Alamat</td><td><?php echo $alamat; ?></td></tr>
-						<tr><td></td><td><a href="<?php echo site_url('calonpilkada') ?>" class="btn btn-default">Cancel</a></td></tr>
+						<tr><td></td><td><a href="<?php echo site_url('CalonPilkada') ?>" class="btn btn-default">Cancel</a></td></tr>
 					</table>
 				</div>
 			</div>

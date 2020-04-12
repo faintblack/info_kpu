@@ -16,7 +16,7 @@
                     <table class="table">
                         <tr><td>Nama Calon</td><td><?php echo $nama_calon; ?></td></tr>
                         <tr><td>Gender</td><td><?php echo $gender; ?></td></tr>
-                        <tr><td></td><td><a href="<?php echo site_url('calonpilpres') ?>" class="btn btn-default">Cancel</a></td></tr>
+                        <tr><td></td><td><a href="<?php echo site_url('CalonPilpres') ?>" class="btn btn-default">Cancel</a></td></tr>
                     </table>
                 </div>
             </div>

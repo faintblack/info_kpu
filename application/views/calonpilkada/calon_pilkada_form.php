@@ -39,7 +39,7 @@
 						</div>
 						<input type="hidden" name="id_calon_pilkada" value="<?php echo $id_calon_pilkada; ?>" /> 
 						<button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-						<a href="<?php echo site_url('calonpilkada') ?>" class="btn btn-default">Cancel</a>
+						<a href="<?php echo site_url('CalonPilkada') ?>" class="btn btn-default">Cancel</a>
 					</form>
 				</div>
 			</div>

@@ -5,7 +5,7 @@
             <ul>
 
                 <li>
-                    <a href="<?= site_url('homecontroller') ?>" class="waves-effect"><i class="ti-home"></i> <span> Home </span> </a>
+                    <a href="<?= site_url('HomeController') ?>" class="waves-effect"><i class="ti-home"></i> <span> Home </span> </a>
                 </li>
                 <li>
                     <a href="<?= site_url('Berita') ?>" class="waves-effect"><i class="ti-book"></i> <span> Berita </span> </a>

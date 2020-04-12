@@ -19,7 +19,7 @@
 						<tr><td>No Urut</td><td><?php echo $no_urut; ?></td></tr>
 						<tr><td>Nama Calon</td><td><?php echo $nama_calon; ?></td></tr>
 						<tr><td>Gender</td><td><?php echo $gender; ?></td></tr>
-						<tr><td></td><td><a href="<?php echo site_url('calonpileg') ?>" class="btn btn-default">Cancel</a></td></tr>
+						<tr><td></td><td><a href="<?php echo site_url('CalonPileg') ?>" class="btn btn-default">Cancel</a></td></tr>
 					</table>
 				</div>
 			</div>

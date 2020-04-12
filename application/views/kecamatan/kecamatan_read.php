@@ -19,7 +19,7 @@
                         <tr><td>Jumlah Penduduk</td><td><?php echo $jumlah_penduduk; ?></td></tr>
                         <tr><td>Jumlah Dpt Lk</td><td><?php echo $jumlah_dpt_lk; ?></td></tr>
                         <tr><td>Jumlah Dpt Pr</td><td><?php echo $jumlah_dpt_pr; ?></td></tr>
-                        <tr><td></td><td><a href="<?php echo site_url('kecamatan') ?>" class="btn btn-default">Cancel</a></td></tr>
+                        <tr><td></td><td><a href="<?php echo site_url('Kecamatan') ?>" class="btn btn-default">Cancel</a></td></tr>
                     </table>
                 </div>
             </div>
