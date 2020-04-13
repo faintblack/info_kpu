@@ -15,6 +15,7 @@ class CalonPileg extends CI_Controller{
 		$this->load->model('CalonPilegModel');
 		$this->load->model('DapilModel');
 		$this->load->model('ParpolModel');
+		$this->load->model('KecamatanModel');
 		$this->load->library('form_validation');
 	}
 
@@ -153,6 +154,16 @@ class CalonPileg extends CI_Controller{
 		} else {
 			$this->session->set_flashdata('message', 'Record Not Found');
 			redirect(site_url('CalonPileg'));
+		}
+	}
+
+	public function getJson($id = ''){
+		if ($id == '') {
+			echo json_encode([]);
+		} else {
+			$data_calon_pileg = $this->CalonPilegModel->get_by_id($id);
+			$data_kecamatan = $this->KecamatanModel->get_where(['id_dapil' => $data_calon_pileg->id_dapil]);
+			echo json_encode($data_kecamatan);
 		}
 	}
 

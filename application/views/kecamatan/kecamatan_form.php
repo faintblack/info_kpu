@@ -31,15 +31,15 @@
                         </div>
                         <div class="form-group">
                             <label for="int">Jumlah Penduduk <?php echo form_error('jumlah_penduduk') ?></label>
-                            <input type="text" class="form-control" name="jumlah_penduduk" id="jumlah_penduduk" placeholder="Jumlah Penduduk" value="<?php echo $jumlah_penduduk; ?>" />
+                            <input type="number" min="0" class="form-control" name="jumlah_penduduk" id="jumlah_penduduk" placeholder="Jumlah Penduduk" value="<?php echo $jumlah_penduduk; ?>" />
                         </div>
                         <div class="form-group">
                             <label for="int">Jumlah Dpt Lk <?php echo form_error('jumlah_dpt_lk') ?></label>
-                            <input type="text" class="form-control" name="jumlah_dpt_lk" id="jumlah_dpt_lk" placeholder="Jumlah Dpt Lk" value="<?php echo $jumlah_dpt_lk; ?>" />
+                            <input type="number" min="0" class="form-control" name="jumlah_dpt_lk" id="jumlah_dpt_lk" placeholder="Jumlah Dpt Lk" value="<?php echo $jumlah_dpt_lk; ?>" />
                         </div>
                         <div class="form-group">
                             <label for="int">Jumlah Dpt Pr <?php echo form_error('jumlah_dpt_pr') ?></label>
-                            <input type="text" class="form-control" name="jumlah_dpt_pr" id="jumlah_dpt_pr" placeholder="Jumlah Dpt Pr" value="<?php echo $jumlah_dpt_pr; ?>" />
+                            <input type="number" min="0" class="form-control" name="jumlah_dpt_pr" id="jumlah_dpt_pr" placeholder="Jumlah Dpt Pr" value="<?php echo $jumlah_dpt_pr; ?>" />
                         </div>
                         <input type="hidden" name="id_kecamatan" value="<?php echo $id_kecamatan; ?>" /> 
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 

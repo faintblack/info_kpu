@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<!-- Judul halaman -->
-				<h4 class="page-title" style="margin-bottom: 10px">Calon Pilkada<?php echo $button ?> </h4>
+				<h4 class="page-title" style="margin-bottom: 10px">Calon Pilkada <?php echo $button ?> </h4>
 			</div>
 		</div>
 		

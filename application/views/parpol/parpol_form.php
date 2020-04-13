@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label for="nama_parpol">Nama Parpol <?php echo form_error('nama_parpol') ?></label>
-                            <textarea class="form-control" rows="3" name="nama_parpol" id="nama_parpol" placeholder="Nama Parpol"><?php echo $nama_parpol; ?></textarea>
+                            <input type="text" class="form-control" rows="3" name="nama_parpol" id="nama_parpol" value="<?php echo $nama_parpol; ?>" placeholder="Nama Parpol"/>
                         </div>
                         <input type="hidden" name="id_parpol" value="<?php echo $id_parpol; ?>" /> 
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 

@@ -33,11 +33,11 @@
 									<!-- Ambil dari generator -->
 									<tr>
 										<th>No</th>
+										<th>Nama Calon</th>
+										<th>No Urut</th>
+										<th>Gender</th>
 										<th>Dapil</th>
 										<th>Parpol</th>
-										<th>No Urut</th>
-										<th>Nama Calon</th>
-										<th>Gender</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -48,11 +48,11 @@
 										?>
 										<tr>
 											<td width="80px"><?php echo $no+1 ?></td>
+											<td><?php echo $calonpileg->nama_calon ?></td>
+											<td><?php echo $calonpileg->no_urut ?></td>
+											<td><?php echo $calonpileg->gender ?></td>
 											<td><?php echo $calonpileg->nama_dapil ?></td>
 											<td><?php echo $calonpileg->nama_parpol ?></td>
-											<td><?php echo $calonpileg->no_urut ?></td>
-											<td><?php echo $calonpileg->nama_calon ?></td>
-											<td><?php echo $calonpileg->gender ?></td>
 											<td style="display:table-cell; text-align:center;" width="200px">
 												<?php 
 												echo anchor(site_url('CalonPileg/read/'.$calonpileg->id_calon_pileg),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 

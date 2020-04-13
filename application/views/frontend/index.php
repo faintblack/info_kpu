@@ -167,7 +167,7 @@ function limit_words($string, $word_limit){
                 </div>
                 <div class="row pb-3">
                     <div class="col-5 align-self-center">
-                        <img src="<?= base_url('libraries/frontend/') ?>images/download (1).jpg" alt="img" class="fh5co_most_trading"/>
+                        <img src="<?= base_url('libraries/frontend/') ?>images/download(1).jpg" alt="img" class="fh5co_most_trading"/>
                     </div>
                     <div class="col-7 paddding">
                         <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
@@ -185,7 +185,7 @@ function limit_words($string, $word_limit){
                 </div>
                 <div class="row pb-3">
                     <div class="col-5 align-self-center">
-                        <img src="<?= base_url('libraries/frontend/') ?>images/download (2).jpg" alt="img" class="fh5co_most_trading"/>
+                        <img src="<?= base_url('libraries/frontend/') ?>images/download(2).jpg" alt="img" class="fh5co_most_trading"/>
                     </div>
                     <div class="col-7 paddding">
                         <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
@@ -257,12 +257,12 @@ function limit_words($string, $word_limit){
                 <div class="footer_main_title py-3"> Last Modified Posts</div>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/allef-vinicius-108153.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/32-450x260.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download (1).jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download(1).jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/science-578x362.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/vil-son-35490.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/zack-minor-15104.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download (2).jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download(2).jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/ryan-moreno-98837.jpg" alt="img"/></a>
             </div>
         </div>

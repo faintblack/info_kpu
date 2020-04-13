@@ -51,7 +51,7 @@
                             <?= form_dropdown('parpol_pilpres[]', $map_data_parpol, '', [
                                 'class' => 'select2 select2-multiple',
                                 'multiple' => 'multiple',
-                                'data-placeholder' => 'Choose parpol pendukung'
+                                'data-placeholder' => 'Pilih partai pendukung'
                             ]) ?>
                         </div> 
                         <?php

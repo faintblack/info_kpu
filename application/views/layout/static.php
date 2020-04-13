@@ -36,6 +36,8 @@
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/pages.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+        <link href="<?= base_url('libraries/custom/') ?>css/style.css" rel="stylesheet" type="text/css" />
         
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/modernizr.min.js"></script>
 
@@ -177,14 +179,37 @@
                 $('.modal').on('shown.bs.modal', function() {
 					$(this).find('[autofocus]').focus();
 				});
-                //$('#tahun').datepicker({dateFormat: 'yy'});
-                /*$('.yearpicker').yearpicker({
-                    
-                    show:null,
-                    hide:null,
-                    pick:null
 
-                });*/
+                // Dynamic dropdown for list kecamatan in suara calon pileg
+                $('#select-id_calon_pileg').change(function(){
+                    var id_calon_pileg = $(this).val();
+
+                    var html = `
+                    <label for="int">Kecamatan <?php echo form_error('id_kecamatan') ?></label>
+                    <select name="id_kecamatan" class="form-control" id="kecamatan_khusus">
+                        <option value="" selected="selected">Pilih Kecamatan</option>
+                    `;
+
+                    $.ajax({
+                        type:"ajax",
+                        url: "<?= base_url('CalonPileg/getJson') ?>/" + id_calon_pileg,
+                        dataType:'JSON',
+                        success: function(data_kecamatan){
+                            //console.log(result);
+                            for(var [index, kecamatan] of data_kecamatan.entries()){
+                                var id_kecamatan = kecamatan['id_kecamatan'];
+                                var nama_kecamatan = kecamatan['nama_kecamatan'];
+
+                                html += `
+                                    <option value="${id_kecamatan}">${nama_kecamatan}</option>
+                                `;
+                            }
+                            html += '</select>';
+                            document.querySelector('#testes').innerHTML = html;
+                        }
+                    });
+                });
+
             });
             TableManageButtons.init();
         </script>

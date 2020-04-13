@@ -44,7 +44,7 @@ foreach ($data_parpol as $key => $value) {
 						</div>
 						<div class="form-group">
 							<label for="nama_calon">Nama Calon <?php echo form_error('nama_calon') ?></label>
-							<textarea class="form-control" rows="3" name="nama_calon" id="nama_calon" placeholder="Nama Calon"><?php echo $nama_calon; ?></textarea>
+							<input type="text" class="form-control" rows="3" name="nama_calon" id="nama_calon" placeholder="Nama Calon" value="<?php echo $nama_calon; ?>" />
 						</div>
 						<div class="form-group">
 							<label for="enum">Gender <?php echo form_error('gender') ?></label>

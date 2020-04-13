@@ -1,3 +1,6 @@
+<?php
+//print_r($berita_selengkapnya);exit();
+?>
 <!DOCTYPE html>
 <!--
 	24 News by FreeHTML5.co
@@ -22,7 +25,7 @@
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('libraries/frontend/') ?>css/style_1.css" rel="stylesheet" type="text/css"/>
     <!-- Modernizr JS -->
-    <script src="js<?= base_url('libraries/frontend/') ?>js/modernizr-3.5.0.min.js"></script>
+    <script src="<?= base_url('libraries/frontend/') ?>js/modernizr-3.5.0.min.js"></script>
 </head>
 
 <body class="single">
@@ -94,7 +97,7 @@
 <div class="container-fluid fh5co_footer_bg pb-3">
     <div class="container animate-box">
         <div class="row">
-            <div class="col-12 spdp_right py-5"><img src="images/white_logo.png" alt="img" class="footer_logo"/></div>
+            <div class="col-12 spdp_right py-5"><img src="<?= base_url('libraries/frontend/images') ?>/white_logo.png" alt="img" class="footer_logo"/></div>
             <div class="clearfix"></div>
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="footer_main_title py-3"> About</div>
@@ -138,19 +141,19 @@
                 <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
                 <div class="footer_makes_sub_font"> Dec 31, 2016</div>
                 <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
-                <div class="footer_position_absolute"><img src="images/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div>
+                <div class="footer_position_absolute"><img src="<?= base_url('libraries/frontend/images') ?>/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 ">
                 <div class="footer_main_title py-3"> Last Modified Posts</div>
-                <a href="#" class="footer_img_post_6"><img src="images/allef-vinicius-108153.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/32-450x260.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/download (1).jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/science-578x362.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/vil-son-35490.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/zack-minor-15104.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/download.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/download (2).jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/ryan-moreno-98837.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/allef-vinicius-108153.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/32-450x260.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/download(1).jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/science-578x362.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/vil-son-35490.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/zack-minor-15104.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/download.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/download(2).jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/images') ?>/ryan-moreno-98837.jpg" alt="img"/></a>
             </div>
         </div>
       
@@ -173,21 +176,25 @@
     <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
 </div>
 
+<script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.min.js"></script>
+
+
+<script src="<?= base_url('libraries/frontend/') ?>js/owl.carousel.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js<?= base_url('libraries/frontend/') ?>js/owl.carousel.min.js"></script>
-<!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
         crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>-->
+
 <!-- Waypoints -->
-<script src="js<?= base_url('libraries/frontend/') ?>js/jquery.waypoints.min.js"></script>
+<script src="<?= base_url('libraries/frontend/') ?>js/jquery.waypoints.min.js"></script>
 <!-- Parallax -->
-<script src="js<?= base_url('libraries/frontend/') ?>js/jquery.stellar.min.js"></script>
+<script src="<?= base_url('libraries/frontend/') ?>js/jquery.stellar.min.js"></script>
 <!-- Main -->
-<script src="js<?= base_url('libraries/frontend/') ?>js/main.js"></script>
+<script src="<?= base_url('libraries/frontend/') ?>js/main.js"></script>
 <script>if (!navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i)){$(window).stellar();}</script>
 
 </body>

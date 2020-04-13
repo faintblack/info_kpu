@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                             <label for="int">Alokasi Kursi <?php echo form_error('alokasi_kursi') ?></label>
-                            <input type="text" class="form-control" name="alokasi_kursi" id="alokasi_kursi" placeholder="Alokasi Kursi" value="<?php echo $alokasi_kursi; ?>" />
+                            <input type="number" min="0" class="form-control" name="alokasi_kursi" id="alokasi_kursi" placeholder="Alokasi Kursi" value="<?php echo $alokasi_kursi; ?>" />
                         </div>
                         <input type="hidden" name="id_dapil" value="<?php echo $id_dapil; ?>" /> 
                         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 

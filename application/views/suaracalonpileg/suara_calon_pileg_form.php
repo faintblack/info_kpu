@@ -34,15 +34,19 @@ foreach ($data_kecamatan as $key => $value) {
                     <form action="<?php echo $action; ?>" method="post">
                         <div class="form-group">
                             <label for="int">Calon Pileg <?php echo form_error('id_calon_pileg') ?></label>
-                            <?= form_dropdown('id_calon_pileg', $map_calon_pileg, $id_calon_pileg, ['class' => 'form-control']) ?>
+                            <?= form_dropdown('id_calon_pileg', $map_calon_pileg, '', ['class' => 'form-control', 'id' => 'select-id_calon_pileg']) ?>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="testes">
                             <label for="int">Kecamatan <?php echo form_error('id_kecamatan') ?></label>
-                            <?= form_dropdown('id_kecamatan', $map_kecamatan, $id_kecamatan, ['class' => 'form-control']) ?>
+                            <select name="id_kecamatan" class="form-control" id="kecamatan_khusus">
+                                <option value="" selected="selected">Pilih Kecamatan</option>
+                            </select>
+                            <!--
+                            <?= form_dropdown('id_kecamatan', $map_kecamatan, $id_kecamatan, ['class' => 'form-control']) ?>-->
                         </div>
                         <div class="form-group">
                             <label for="int">Jumlah Suara <?php echo form_error('jumlah_suara') ?></label>
-                            <input type="text" class="form-control" name="jumlah_suara" id="jumlah_suara" placeholder="Jumlah Suara" value="<?php echo $jumlah_suara; ?>" />
+                            <input type="number" min="0" class="form-control" name="jumlah_suara" id="jumlah_suara" placeholder="Jumlah Suara" value="<?php echo $jumlah_suara; ?>" />
                         </div>
                         <div class="form-group">
                             <label for="varchar">Tahun <?php echo form_error('tahun') ?></label>
@@ -59,3 +63,6 @@ foreach ($data_kecamatan as $key => $value) {
     </div> 
                 
 </div>
+<script type="text/javascript">
+
+</script>
