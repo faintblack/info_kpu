@@ -159,10 +159,8 @@
         <script src="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
         <script src="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
 
-        <script type="text/javascript" src="<?= base_url('libraries/ubold/');?>assets/plugins/autocomplete/jquery.mockjax.js"></script>
         <script type="text/javascript" src="<?= base_url('libraries/ubold/');?>assets/plugins/autocomplete/jquery.autocomplete.min.js"></script>
         <script type="text/javascript" src="<?= base_url('libraries/ubold/');?>assets/plugins/autocomplete/countries.js"></script>
-        <script type="text/javascript" src="<?= base_url('libraries/ubold/');?>assets/pages/autocomplete.js"></script>
 
         <script type="text/javascript" src="<?= base_url('libraries/ubold/');?>assets/pages/jquery.form-advanced.init.js"></script>
 
@@ -175,7 +173,10 @@
             var resizefunc = [];
             $(document).ready(function () {
                 $('#datatable-responsive').DataTable();
-                 $('#datatable').dataTable();
+                $('#datatable').dataTable();
+                $('.modal').on('shown.bs.modal', function() {
+					$(this).find('[autofocus]').focus();
+				});
                 //$('#tahun').datepicker({dateFormat: 'yy'});
                 /*$('.yearpicker').yearpicker({
                     

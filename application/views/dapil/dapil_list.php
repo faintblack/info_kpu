@@ -28,7 +28,7 @@
                     <!-- Data -->
                     <div class="row">
                         <div class="col-sm-12">
-                            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
+                            <table id="datatable-responsive" class="table table-striped table-bordered nowrap data-list" cellspacing="0" width="100%">
                                 <thead>
                                     <!-- Ambil dari generator -->
                                     <tr>
@@ -47,7 +47,7 @@
                                         <td width="80px"><?php echo $no+1 ?></td>
                                         <td><?php echo $dapil->nama_dapil ?></td>
                                         <td><?php echo $dapil->alokasi_kursi ?></td>
-                                        <td style="text-align:center" width="200px">
+                                        <td style="display:table-cell; text-align:center" width="200px">
                                             <?php 
                                             echo anchor(site_url('Dapil/read/'.$dapil->id_dapil),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' '; 

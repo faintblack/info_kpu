@@ -52,7 +52,7 @@
                 <li>
                     <a href="<?= site_url('Pengguna') ?>" class="waves-effect <?= isset($main_menu)&&$main_menu=='Pengguna' ? 'active' : '' ?>"><i class="ti-user"></i> <span> Pengguna </span> </a>
                 </li>
-                <!--
+                
                 <li>
                     <a href="<?= site_url('harviacode') ?>" class="waves-effect"><i class="ti-home"></i> <span> CRUD GENERATOR </span> </a>
                 </li>
@@ -61,7 +61,7 @@
                 </li>
                 <li>
                     <a href="<?= site_url('user_guide') ?>" class="waves-effect"><i class="ti-home"></i> <span> CI Documentation </span> </a>
-                </li>-->
+                </li>
                 
 
             </ul>

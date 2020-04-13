@@ -27,7 +27,7 @@
                     <!-- Div 2 -->
                     <div class="row">
                         <div class="col-sm-12">
-                            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
+                            <table id="datatable-responsive" class="table table-striped table-bordered nowrap data-list" cellspacing="0" width="100%">
                                 <thead>
                                     <!-- Ambil dari generator -->
                                     <tr>
@@ -46,7 +46,7 @@
                                         <td width="80px"><?php echo $no+1 ?></td>
                                         <td><?php echo $parpol->no_urut_parpol ?></td>
                                         <td><?php echo $parpol->nama_parpol ?></td>
-                                        <td style="text-align:center" width="200px">
+                                        <td style="display:table-cell; text-align:center" width="200px">
                                             <?php 
                                             echo anchor(site_url('Parpol/read/'.$parpol->id_parpol),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' '; 

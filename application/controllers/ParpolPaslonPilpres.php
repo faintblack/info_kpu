@@ -35,7 +35,7 @@ class ParpolPaslonPilpres extends CI_Controller
             $this->ParpolPaslonPilpresModel->insert($data);
         }
         $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('PaslonPilpres/read/'.$id_paslon));
+        redirect(site_url('PaslonPilpres/read/'.$id_paslon));
     }
 
     public function read($id) 

@@ -43,7 +43,7 @@ $bulan = [
 					<!-- Div 2 -->
 					<div class="row">
 						<div class="col-sm-12">
-							<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
+							<table id="datatable-responsive" class="table table-striped table-bordered nowrap data-list" cellspacing="0" width="100%">
 								<thead>
 									<!-- Ambil dari generator -->
 									<tr>
@@ -68,7 +68,7 @@ $bulan = [
 											<td><?php echo $calonpilkada->gender ?></td>
 											<td><?php echo $convert_date ?></td>
 											<td><?php echo $calonpilkada->alamat ?></td>
-											<td style="text-align:center" width="200px">
+											<td style="display:table-cell;text-align:center" width="200px">
 												<?php 
 												echo anchor(site_url('CalonPilkada/read/'.$calonpilkada->id_calon_pilkada),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
 												echo ' '; 

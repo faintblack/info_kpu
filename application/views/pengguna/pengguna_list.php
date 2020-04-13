@@ -19,16 +19,15 @@
                         </div>
                         <div class="col-md-4 text-center">
                             <div style="margin-top: 8px" id="message">
-                                    <!-- Ambil dari generator -->
-                                    <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
-                                                           
+                                <!-- Ambil dari generator -->
+                                <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>    
                             </div>
                         </div>
                     </div>
                     <!-- Data -->
                     <div class="row">
                         <div class="col-sm-12">
-                            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
+                            <table id="datatable-responsive" class="table table-striped table-bordered nowrap data-list" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -50,7 +49,7 @@
                                         <td><?php echo $pengguna->nama_pengguna ?></td>
                                         <td><?php echo $pengguna->hak_akses ?></td>
                                         <td class="pinggir"><?php echo $pengguna->email ?></td>
-                                        <td style="text-align:center" width="200px">
+                                        <td style="display:table-cell; text-align:center" width="200px">
                                             <?php 
                                             echo anchor(site_url('Pengguna/read/'.$pengguna->username), ' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' ';

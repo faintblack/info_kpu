@@ -12,8 +12,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-box table-responsive">
-                            <p><a href="<?=base_url('Berita/tambah');?>" class="btn btn-primary waves-effect waves-light">Create</a></p>
-                	<table id="datatable" class="table table-striped table-bordered">
+                    <p><a href="<?=base_url('Berita/tambah');?>" class="btn btn-primary waves-effect waves-light">Create</a></p>
+                	<table id="datatable" class="table table-striped table-bordered data-list">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -25,8 +25,6 @@
                                 <th style="text-align: center;">Isi Berita</th>
                             </tr>
                         </thead>
-
-
                         <tbody>
                         	<?php $no = 1; foreach ($berita as $b) { ?>
                             <tr>

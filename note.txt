@@ -1,14 +1,12 @@
 1. Daftar Calon Pileg Terpilih diambil berdasarkan total kursi yang didapatkan masing2 partai, dimana total kursi didapatkan dari hasil pembagian 1,3,5, dst dari total jumlah suara sah setiap partai dalam masing2 dapil
 2. (Database) Edit paslon pilpres, isi tahun pemilihannya
 3. Jadikan semua data relasi sbg link, agar dapat diarahkan ke data detailnya masing-masing
-4. Ganti semua pemanggilan data list di function index menggunakan method model get_all()
-5. Hapus semua list pagination yang tidak diperlukan
-6. 
-7. 
-8. 
-
-8/4/2020
-1. Update database, penambahan kolom judul berita pada tabel berita
-2. Perbaikan edit gambar berita
-3. Ganti icon crud
-4. Penambahan menu calon pilkada
+4. (DONE) Ganti semua pemanggilan data list di function index menggunakan method model get_all()
+5. (DONE) Hapus semua list pagination yang tidak diperlukan 
+6. Dynamic form dropdown paslon pilkada
+7. Dynamic form dropdown suara calon pileg, berdasarkan calon, muncul dropdown kecamatan
+8. Buat form crud TPS masing2 kecamatan
+9. Apakah jumlah penduduk pada setiap kecamatan adalah jumlah dpt lk + pr ? Jika iya buatkan js untuk isi angka dpt otomatis untuk lk dan pr
+10. Ganti semua text area yang tidak perlu menjadi input text
+11. Hapus baris password pada detail pengguna
+12. 

@@ -27,7 +27,7 @@
                     <!-- Div 2 -->
                     <div class="row">
                         <div class="col-sm-12">
-                            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
+                            <table id="datatable-responsive" class="table table-striped table-bordered nowrap data-list" cellspacing="0" width="100%">
                                 <thead>
                                     <!-- Ambil dari generator -->
                                     <tr>
@@ -50,7 +50,7 @@
                                         <td><?php echo $suaracalonpileg->nama_kecamatan ?></td>
                                         <td><?php echo $suaracalonpileg->jumlah_suara ?></td>
                                         <td><?php echo $suaracalonpileg->tahun ?></td>
-                                        <td style="text-align:center" width="200px">
+                                        <td style="display:table-cell; text-align:center" width="200px">
                                             <?php 
                                             echo anchor(site_url('SuaraCalonPileg/read/'.$suaracalonpileg->id_suara_calon_pileg),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
                                             echo ' '; 

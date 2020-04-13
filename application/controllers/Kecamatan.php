@@ -15,6 +15,7 @@ class Kecamatan extends CI_Controller
         }
         $this->load->model('KecamatanModel');
         $this->load->model('DapilModel');
+        $this->load->model('TpsModel');
         $this->load->library('form_validation');
     }
 
@@ -32,6 +33,7 @@ class Kecamatan extends CI_Controller
     {
         $row = $this->KecamatanModel->get_by_id($id);
         if ($row) {
+            $data_tps = $this->TpsModel->get_where(['id_kecamatan' => $id]);
             $data = array(
                 'main_menu' => $this->main_menu,
                 'sub_menu' => $this->sub_menu,
@@ -43,6 +45,7 @@ class Kecamatan extends CI_Controller
                 'jumlah_penduduk' => $row->jumlah_penduduk,
                 'jumlah_dpt_lk' => $row->jumlah_dpt_lk,
                 'jumlah_dpt_pr' => $row->jumlah_dpt_pr,
+                'data_tps' => $data_tps
             );
             $this->load->view('layout/static', $data);
         } else {
