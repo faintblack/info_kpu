@@ -5,6 +5,21 @@ function limit_words($string, $word_limit){
     return implode(" ",array_splice($words,0,$word_limit));
 }
 
+$nama_bulan = [
+    '01' => 'Januari',
+    '02' => 'Februari',
+    '03' => 'Maret',
+    '04' => 'April',
+    '05' => 'Mei',
+    '06' => 'Juni',
+    '07' => 'Juli',
+    '08' => 'Agustus',
+    '09' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'Desember'
+];
+
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +44,7 @@ function limit_words($string, $word_limit){
     <script src="<?= base_url('libraries/frontend/') ?>js/modernizr-3.5.0.min.js"></script>
 </head>
 <body>
+<!-- HEADER -->
 <div class="container-fluid" style="background-image: url('<?= base_url('libraries/frontend/') ?>images/headbg.jpg'); size: 100%;">
     <div class="container" >
         <div class="row">
@@ -116,14 +132,33 @@ function limit_words($string, $word_limit){
                 <?php foreach ($data->result() as $row) {?>
                 <div class="row pb-4">
                     <div class="col-md-5">
-                        <div class="fh5co_hover_news_img">
-                            <div class="fh5co_news_img"><img src="<?= base_url('libraries/ubold/assets/') ?>images/<?php echo $row->gambar_berita; ?>" alt=""/></div>
-                            <div></div>
-                        </div>
+                        <a href="<?= site_url('Frontend/beritaSelengkapnya/'.$row->id_berita); ?>">
+                            <div class="fh5co_hover_news_img">
+                                <div class="fh5co_news_img">
+                                    <img src="<?= base_url('libraries/ubold/assets/') ?>images/<?php echo $row->gambar_berita; ?>" alt=""/>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="col-md-7 animate-box">
-                        <p class="fh5co_magna py-2"> <i class="fa fa-clock-o"></i> <?php echo date('d-m-Y', strtotime($row->waktu)); ?> </p> 
-                        <p class="fh5co_mini_time py-2"> <b><?php echo $row->jenis_berita; ?></b> </p>
+                        <!-- Tanggal -->
+                        <p class="fh5co_magna py-2"> <i class="fa fa-clock-o"></i> 
+                        <?php
+                        $tahun = substr($row->waktu, 0, 4);
+                        $bulan = substr($row->waktu, 5, 2);
+                        $tanggal = substr($row->waktu, 8, 2);
+
+                        $new_date = "{$tanggal} {$nama_bulan[$bulan]} {$tahun}";
+                        echo $new_date;
+                        ?> 
+                        </p>
+                        <!-- Judul -->
+                        <p class="fh5co_mini_time py-2 judul_berita"> 
+                            <b> 
+                                <a href="<?= site_url('Frontend/beritaSelengkapnya/'.$row->id_berita); ?>" style="color: black; text-decoration:none;"><?php echo $row->judul_berita; ?></a> 
+                            </b> 
+                        </p>
+                        <!-- Selengkapnya -->
                         <div class="fh5co_consectetur"> 
                             <?php
                             $long_string = $row->isi_berita;
@@ -167,7 +202,7 @@ function limit_words($string, $word_limit){
                 </div>
                 <div class="row pb-3">
                     <div class="col-5 align-self-center">
-                        <img src="<?= base_url('libraries/frontend/') ?>images/download(1).jpg" alt="img" class="fh5co_most_trading"/>
+                        <img src="<?= base_url('libraries/frontend/') ?>images/download_(1).PNG" alt="img" class="fh5co_most_trading"/>
                     </div>
                     <div class="col-7 paddding">
                         <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
@@ -257,7 +292,7 @@ function limit_words($string, $word_limit){
                 <div class="footer_main_title py-3"> Last Modified Posts</div>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/allef-vinicius-108153.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/32-450x260.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download(1).jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/download_(1).PNG" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/science-578x362.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/vil-son-35490.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="<?= base_url('libraries/frontend/') ?>images/zack-minor-15104.jpg" alt="img"/></a>

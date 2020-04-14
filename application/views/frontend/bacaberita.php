@@ -29,6 +29,7 @@
 </head>
 
 <body class="single">
+<!-- HEADER -->
 <div class="container-fluid" style="background-image: url('<?= base_url('libraries/frontend/') ?>images/headbg.jpg'); size: 100%;">
     <div class="container" >
         <div class="row">
@@ -51,7 +52,7 @@
 
 <!--Fetch data dari database-->
 <?php foreach ($berita_selengkapnya as $row) {?>
-<div id="fh5co-title-box" style="background-image: url(<?= base_url('libraries/ubold/assets/') ?>images/<?php echo $row->gambar_berita; ?>); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
+<div id="fh5co-title-box" style="background-image: url('<?= base_url('libraries/ubold/assets/') ?>images/<?php echo $row->gambar_berita; ?>'); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="page-title">
         <img src="<?= base_url('libraries/ubold/assets/') ?>images/<?php echo $row->gambar_berita; ?>" alt="Free HTML5 by FreeHTMl5.co">
