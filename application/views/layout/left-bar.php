@@ -37,6 +37,11 @@
                                 <li class="<?= isset($detail_menu) && $detail_menu == 'Paslon Pilpres' ? 'active' : '' ?>"><a href="<?= site_url('PaslonPilpres') ?>"><span>Data Paslon</span></a></li>
                             </ul>
                         </li>
+                        <!-- Jadwal Kampanye -->
+                        <li class="<?= isset($sub_menu)&&$sub_menu=='Jadwal Kampanye' ? 'active' : '' ?>"><a href="<?= site_url('JadwalKampanye') ?>">Jadwal Kampanye</a></li>
+                        <!-- Lokasi Kampanye -->
+                        <li class="<?= isset($sub_menu)&&$sub_menu=='Lokasi Kampanye' ? 'active' : '' ?>"><a href="<?= site_url('LokasiKampanye') ?>">Lokasi Kampanye</a></li>
+
                     </ul>
                 </li>
                 <li class="has_sub">

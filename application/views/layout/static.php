@@ -30,6 +30,13 @@
         <link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
         <link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
 
+        <!-- Date -->
+        <link href="<?= base_url('libraries/ubold/');?>assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+		<link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+		<link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+		<link href="<?= base_url('libraries/ubold/');?>assets/plugins/clockpicker/css/bootstrap-clockpicker.min.css" rel="stylesheet">
+		<link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
 		<link href="<?= base_url('libraries/ubold/') ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -167,9 +174,18 @@
         <script type="text/javascript" src="<?= base_url('libraries/ubold/');?>assets/pages/jquery.form-advanced.init.js"></script>
 
         <script type="text/javascript" src="<?= base_url('libraries/ubold/');?>assets/plugins/parsleyjs/parsley.min.js"></script>
+        
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/moment/moment.js"></script>
+     	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/timepicker/bootstrap-timepicker.js"></script>
+     	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+     	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+     	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/clockpicker/js/bootstrap-clockpicker.min.js"></script>
+     	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
 
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.core.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.app.js"></script>
+
+        <script src="<?= base_url('libraries/ubold/') ?>assets/pages/jquery.form-pickers.init.js"></script>
 
         <script type="text/javascript">
             var resizefunc = [];
