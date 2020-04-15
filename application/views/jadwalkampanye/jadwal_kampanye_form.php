@@ -1,11 +1,5 @@
 <?php
-$map_kecamatan[''] = 'Pilih Kecamatan';
 $map_paslon_pilpres[''] = 'Pilih Paslon';
-
-foreach ($kecamatan as $key => $value) {
-    $id = $value->id_kecamatan;
-    $map_kecamatan[$id] = $value->nama_kecamatan;
-}
 foreach ($paslon_pilpres as $key => $value) {
     $id = $value->id_paslon_pilpres;
     $map_paslon_pilpres[$id] = "{$value->nomor_urut} - {$value->id_capres} & {$value->id_cawapres}";
@@ -27,10 +21,6 @@ foreach ($paslon_pilpres as $key => $value) {
                 <div class="card-box table-responsive">
                     <!-- Isi content -->
                     <form action="<?php echo $action; ?>" method="post">
-                        <div class="form-group">
-                            <label for="int">Kecamatan <?php echo form_error('id_kecamatan') ?></label>
-                            <?= form_dropdown('id_kecamatan', $map_kecamatan, $id_kecamatan, ['class' => 'form-control', 'required' => 'required']) ?>
-                        </div>
                         <div class="form-group">
                             <label for="date">Tanggal <?php echo form_error('tanggal') ?></label>
                             <div class="input-group">

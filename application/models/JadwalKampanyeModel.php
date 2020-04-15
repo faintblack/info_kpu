@@ -17,11 +17,10 @@ class JadwalKampanyeModel extends CI_Model
 
     // get all
     function get_all(){
-        $this->db->join('kecamatan', 'jadwal_kampanye.id_kecamatan = kecamatan.id_kecamatan');
         $this->db->join('paslon_pilpres a', 'jadwal_kampanye.id_paslon_pilpres = a.id_paslon_pilpres');
         $this->db->join('calon_pilpres b', 'a.id_capres = b.id_calon_pilpres');
         $this->db->join('calon_pilpres c', 'a.id_cawapres = c.id_calon_pilpres');
-        $this->db->select('id_jadwal_kampanye, kecamatan.id_kecamatan, kecamatan.nama_kecamatan, tanggal, a.id_paslon_pilpres, nomor_urut, tahun, b.nama_calon AS nama_capres, c.nama_calon AS nama_cawapres');
+        $this->db->select('id_jadwal_kampanye, tanggal, a.id_paslon_pilpres, nomor_urut, tahun, b.nama_calon AS nama_capres, c.nama_calon AS nama_cawapres');
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->get($this->table)->result();
     }
@@ -29,11 +28,10 @@ class JadwalKampanyeModel extends CI_Model
     // get data by id
     function get_by_id($id){
         $this->db->where($this->id, $id);
-        $this->db->join('kecamatan', 'jadwal_kampanye.id_kecamatan = kecamatan.id_kecamatan');
         $this->db->join('paslon_pilpres a', 'jadwal_kampanye.id_paslon_pilpres = a.id_paslon_pilpres');
         $this->db->join('calon_pilpres b', 'a.id_capres = b.id_calon_pilpres');
         $this->db->join('calon_pilpres c', 'a.id_cawapres = c.id_calon_pilpres');
-        $this->db->select('id_jadwal_kampanye, kecamatan.id_kecamatan, kecamatan.nama_kecamatan, tanggal, a.id_paslon_pilpres, nomor_urut, tahun, b.nama_calon AS nama_capres, c.nama_calon AS nama_cawapres');
+        $this->db->select('id_jadwal_kampanye, tanggal, a.id_paslon_pilpres, nomor_urut, tahun, b.nama_calon AS nama_capres, c.nama_calon AS nama_cawapres');
         return $this->db->get($this->table)->row();
     }
     

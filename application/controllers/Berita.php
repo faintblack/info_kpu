@@ -114,7 +114,7 @@ class Berita extends CI_Controller {
 	public function hapus($id_berita)
 	{
 		$id = array('id_berita' => $id_berita);
-		$this->BeritaModel->hapus($id, 'Berita');
+		$this->BeritaModel->hapus($id, 'berita');
 
 		redirect('Berita');
 	}

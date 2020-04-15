@@ -49,7 +49,6 @@ $thn = substr($tanggal, 0, 4);
                     <table class="table">
                         <tr><td>Paslon Pilpres</td><td><?php echo "{$nama_capres} & {$nama_cawapres}"; ?></td></tr>
                         <tr><td>Nomor Urut</td><td><?php echo $nomor_urut; ?></td></tr>
-                        <tr><td>Kecamatan</td><td><?php echo $nama_kecamatan; ?></td></tr>
                         <tr><td>Tanggal</td><td><?php echo "{$nama_hari[$hr]}, {$tgl} {$nama_bulan[$bln]} {$thn}"; ?></td></tr>
                         <tr><td></td><td><a href="<?php echo site_url('JadwalKampanye') ?>" class="btn btn-default">Cancel</a></td></tr>
                     </table>

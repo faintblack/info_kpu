@@ -77,7 +77,7 @@ class BeritaModel extends CI_Model {
     //ambil data berita pilkada dari database
     public function get_berita_pilkada(){
         $this->db->select('*');
-        $this->db->from('berita ');
+        $this->db->from('berita');
         $this->db->where('jenis_berita', 'PILKADA');
         
         return $this->db->get();
@@ -86,7 +86,7 @@ class BeritaModel extends CI_Model {
     //ambil data berita pileg dari database
     public function get_berita_pileg(){
         $this->db->select('*');
-        $this->db->from('berita ');
+        $this->db->from('berita');
         $this->db->where('jenis_berita', 'PILEG');
         
         return $this->db->get();
@@ -95,7 +95,7 @@ class BeritaModel extends CI_Model {
     //ambil data berita pilpres dari database
     public function get_berita_pilpres(){
         $this->db->select('*');
-        $this->db->from('berita ');
+        $this->db->from('berita');
         $this->db->where('jenis_berita', 'PIlPRES');
         
         return $this->db->get();

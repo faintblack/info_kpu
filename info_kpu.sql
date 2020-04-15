@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Apr 2020 pada 13.18
+-- Waktu pembuatan: 15 Apr 2020 pada 18.54
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -43,8 +43,8 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `username`, `jenis_berita`, `judul_berita`, `isi_berita`, `gambar_berita`, `waktu`) VALUES
-(5, 'bayusugara', 'PILPRES', '', 'saya adalah bayu sugara, mahasiswa uin suska riau jurusan teknik informatika semester 10 dan insyaallah saya akan wisuda disemster 10 ini. aamiin', '464_mp4_snapshot_02_03_2018_10_20_13_09_044.jpg', '2020-03-26 01:25:34'),
-(8, 'admin', 'PILPRES', '', 'Revert artinya mengembalikan. Perintah ini lebih aman daripada git reset, karena tidak akan menghapus catatan sejarah revisi.\r\nRevert akan akan mengambil kondisi file yang ada di masa lalu, kemudian menggabungkannya dengan commit terakhir.', '1.PNG', '2020-03-26 23:57:36'),
+(5, 'bayusugara', 'PILPRES', 'Nama saya bayu', 'saya adalah bayu sugara, mahasiswa uin suska riau jurusan teknik informatika semester 10 dan insyaallah saya akan wisuda disemster 10 ini. aamiin', '464_mp4_snapshot_02_03_2018_10_20_13_09_044.jpg', '2020-03-26 01:25:34'),
+(8, 'admin', 'PILPRES', 'tes bos', 'Revert artinya mengembalikan. Perintah ini lebih aman daripada git reset, karena tidak akan menghapus catatan sejarah revisi.\r\nRevert akan akan mengambil kondisi file yang ada di masa lalu, kemudian menggabungkannya dengan commit terakhir.', '1.PNG', '2020-03-26 23:57:36'),
 (9, 'mhrdkk', 'PILPRES', 'Cebong', 'Jokowi curang, pakai cit.', 'Screenshot (144).PNG', '2020-03-31 02:27:44'),
 (10, 'mhrdkk', 'PILEG', 'Tes Judul mas', 'sdfsdfsd', 'Screenshot_(3).png', '2020-03-31 05:53:22'),
 (12, 'mhrdkk', 'PILPRES', '01 pakai cheat!', 'Pihak 01 kedapatan membakar surat suara pemilih 02', 'Screenshot_(114).png', '2020-04-11 02:07:35'),
@@ -146,7 +146,6 @@ INSERT INTO `dapil` (`id_dapil`, `nama_dapil`, `alokasi_kursi`) VALUES
 
 CREATE TABLE `jadwal_kampanye` (
   `id_jadwal_kampanye` int(11) NOT NULL,
-  `id_kecamatan` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `id_paslon_pilpres` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -155,21 +154,23 @@ CREATE TABLE `jadwal_kampanye` (
 -- Dumping data untuk tabel `jadwal_kampanye`
 --
 
-INSERT INTO `jadwal_kampanye` (`id_jadwal_kampanye`, `id_kecamatan`, `tanggal`, `id_paslon_pilpres`) VALUES
-(13, 3, '2020-04-13', 2),
-(14, 3, '2020-04-14', 2),
-(15, 3, '2020-04-17', 2),
-(16, 3, '2020-04-18', 2),
-(17, 3, '2020-04-21', 2),
-(18, 3, '2020-04-22', 2),
-(19, 3, '2020-04-25', 2),
-(20, 3, '2020-04-26', 2),
-(21, 2, '2020-04-15', 1),
-(22, 2, '2020-04-16', 1),
-(23, 2, '2020-04-19', 1),
-(24, 2, '2020-04-20', 1),
-(25, 2, '2020-04-23', 1),
-(26, 2, '2020-04-24', 1);
+INSERT INTO `jadwal_kampanye` (`id_jadwal_kampanye`, `tanggal`, `id_paslon_pilpres`) VALUES
+(13, '2020-04-13', 2),
+(14, '2020-04-14', 2),
+(15, '2020-04-17', 2),
+(16, '2020-04-18', 2),
+(17, '2020-04-21', 2),
+(18, '2020-04-22', 2),
+(19, '2020-04-25', 2),
+(20, '2020-04-26', 2),
+(21, '2020-04-15', 1),
+(22, '2020-04-16', 1),
+(23, '2020-04-19', 1),
+(24, '2020-04-20', 1),
+(25, '2020-04-23', 1),
+(26, '2020-04-24', 1),
+(27, '2020-04-11', 2),
+(28, '2020-04-12', 2);
 
 -- --------------------------------------------------------
 
@@ -468,7 +469,6 @@ ALTER TABLE `dapil`
 --
 ALTER TABLE `jadwal_kampanye`
   ADD PRIMARY KEY (`id_jadwal_kampanye`),
-  ADD KEY `id_kecamatan` (`id_kecamatan`),
   ADD KEY `jadwal_kampanye_pemilu_ibfk_2` (`id_paslon_pilpres`);
 
 --
@@ -592,7 +592,7 @@ ALTER TABLE `dapil`
 -- AUTO_INCREMENT untuk tabel `jadwal_kampanye`
 --
 ALTER TABLE `jadwal_kampanye`
-  MODIFY `id_jadwal_kampanye` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_jadwal_kampanye` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `kecamatan`
@@ -675,7 +675,6 @@ ALTER TABLE `calon_pileg`
 -- Ketidakleluasaan untuk tabel `jadwal_kampanye`
 --
 ALTER TABLE `jadwal_kampanye`
-  ADD CONSTRAINT `jadwal_kampanye_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `jadwal_kampanye_ibfk_2` FOREIGN KEY (`id_paslon_pilpres`) REFERENCES `paslon_pilpres` (`id_paslon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

@@ -35,13 +35,11 @@ class JadwalKampanye extends CI_Controller{
                 'sub_menu' => $this->sub_menu,
                 'content' => 'jadwalkampanye/jadwal_kampanye_read',
                 'id_jadwal_kampanye' => $row->id_jadwal_kampanye,
-                'id_kecamatan' => $row->id_kecamatan,
                 'tanggal' => $row->tanggal,
                 'id_paslon_pilpres' => $row->id_paslon_pilpres,
                 'nomor_urut' => $row->nomor_urut,
                 'nama_capres' => $row->nama_capres,
                 'nama_cawapres' => $row->nama_cawapres,
-                'nama_kecamatan' => $row->nama_kecamatan,
             );
             $this->load->view('layout/static', $data);
         } else {
@@ -63,7 +61,6 @@ class JadwalKampanye extends CI_Controller{
             'button' => 'Create',
             'action' => site_url('JadwalKampanye/create_action'),
             'id_jadwal_kampanye' => set_value('id_jadwal_kampanye'),
-            'id_kecamatan' => set_value('id_kecamatan'),
             'tanggal' => set_value('tanggal'),
             'id_paslon_pilpres' => set_value('id_paslon_pilpres'),
         );
@@ -76,7 +73,6 @@ class JadwalKampanye extends CI_Controller{
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
-            $id_kecamatan = $this->input->post('id_kecamatan',TRUE);
             $tanggal = $this->input->post('tanggal',TRUE);
             $id_paslon_pilpres = $this->input->post('id_paslon_pilpres',TRUE);
 
@@ -91,7 +87,6 @@ class JadwalKampanye extends CI_Controller{
                 $tgl_fix = "{$tahun}-{$bulan}-{$tgl}";
 
                 $data[$key] = [
-                    'id_kecamatan' => $id_kecamatan,
                     'tanggal' => $tgl_fix,
                     'id_paslon_pilpres' => $id_paslon_pilpres
                 ];
@@ -119,7 +114,6 @@ class JadwalKampanye extends CI_Controller{
                 'button' => 'Update',
                 'action' => site_url('JadwalKampanye/update_action'),
                 'id_jadwal_kampanye' => set_value('id_jadwal_kampanye', $row->id_jadwal_kampanye),
-                'id_kecamatan' => set_value('id_kecamatan', $row->id_kecamatan),
                 'tanggal' => set_value('tanggal', $row->tanggal),
                 'id_paslon_pilpres' => set_value('id_paslon_pilpres', $row->id_paslon_pilpres),
             );
@@ -138,7 +132,6 @@ class JadwalKampanye extends CI_Controller{
             $this->update($this->input->post('id_jadwal_kampanye', TRUE));
         } else {
             $data = array(
-		'id_kecamatan' => $this->input->post('id_kecamatan',TRUE),
 		'tanggal' => $this->input->post('tanggal',TRUE),
 		'id_paslon_pilpres' => $this->input->post('id_paslon_pilpres',TRUE),
 	    );
@@ -164,7 +157,6 @@ class JadwalKampanye extends CI_Controller{
     }
 
     public function _rules(){
-        $this->form_validation->set_rules('id_kecamatan', 'kecamatan', 'trim|required');
         $this->form_validation->set_rules('tanggal', 'tanggal', 'required');
         $this->form_validation->set_rules('id_paslon_pilpres', 'paslon pilpres', 'trim|required');
 

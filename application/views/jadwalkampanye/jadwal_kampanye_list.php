@@ -52,14 +52,13 @@ $nama_bulan = [
                     <!-- Div 2 -->
                     <div class="row">
                         <div class="col-sm-12">
-                            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
+                            <table id="datatable-responsive" class="table table-striped table-bordered nowrap data-list" cellspacing="0" width="100%">
                                 <thead>
                                     <!-- Ambil dari generator -->
                                     <tr>
                                         <th>No</th>
                                         <th>Hari / Tanggal</th>
                                         <th>Paslon Pilpres</th>
-                                        <th>Kecamatan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -77,7 +76,6 @@ $nama_bulan = [
                                         <td width="80px"><?php echo $no+1 ?></td>
                                         <td><?php echo "{$nama_hari[$hr]}, {$tgl} {$nama_bulan[$bln]} {$thn}" ?></td>
                                         <td><?php echo "{$jadwalkampanye->nomor_urut} - {$jadwalkampanye->nama_capres} & {$jadwalkampanye->nama_cawapres}" ?></td>
-                                        <td><?php echo $jadwalkampanye->nama_kecamatan ?></td>
                                         <td style="text-align:center" width="200px">
                                             <?php 
                                             echo anchor(site_url('JadwalKampanye/read/'.$jadwalkampanye->id_jadwal_kampanye),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
