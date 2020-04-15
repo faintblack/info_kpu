@@ -39,7 +39,7 @@ foreach ($data_parpol as $key => $value) {
                                 <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
                             </div>
 
-                            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap data-list" cellspacing="0" width="100%">
+                            <table id="datatable-responsive" class="table table-striped table-bordered nowrap data-list" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>

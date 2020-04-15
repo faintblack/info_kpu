@@ -94,7 +94,7 @@ class JadwalKampanye extends CI_Controller{
 
             $this->JadwalKampanyeModel->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('jadwalkampanye'));
+            redirect(site_url('JadwalKampanye'));
         }
     }
     

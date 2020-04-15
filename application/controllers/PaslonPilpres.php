@@ -29,8 +29,7 @@ class PaslonPilpres extends CI_Controller{
         $this->load->view('layout/static', $data);
     }
 
-    public function read($id) 
-    {
+    public function read($id){
         $row = $this->PaslonPilpresModel->get_by_id($id);
         
         if ($row) {
