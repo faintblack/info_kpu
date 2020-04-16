@@ -117,7 +117,6 @@ foreach ($data_parpol as $key => $value) {
                 </div>
             </div>
         </div>-->
-
     </div> 
                 
 </div>
