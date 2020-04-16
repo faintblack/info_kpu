@@ -33,6 +33,7 @@ class KecamatanModel extends CI_Model
 
     function get_where($condition){
         $this->db->where($condition);
+        $this->db->join('dapil', 'dapil.id_dapil = kecamatan.id_dapil');
         return $this->db->get($this->table)->result();
     }
     

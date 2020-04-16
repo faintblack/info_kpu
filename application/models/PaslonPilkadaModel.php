@@ -34,6 +34,14 @@ class PaslonPilkadaModel extends CI_Model
         $this->db->select('*, a.nama_calon AS nama_kepala_daerah, b.nama_calon AS nama_wakil_kepala_daerah');
         return $this->db->get($this->table)->row();
     }
+
+    function get_where($condition){
+        $this->db->where($condition);
+        $this->db->join('calon_pilkada a', 'paslon_pilkada.id_kepala_daerah = a.id_calon_pilkada');
+        $this->db->join('calon_pilkada b', 'paslon_pilkada.id_wakil_kepala_daerah = b.id_calon_pilkada');
+        $this->db->select('id_paslon,jenis_pemilihan, nomor_urut, a.nama_calon AS id_kepala_daerah, b.nama_calon AS id_wakil_kepala_daerah, jenis_calon, status_penetapan, keterangan, tahun');
+        return $this->db->get($this->table)->result();
+    }
     
     // get total rows
     function total_rows($q = NULL) {

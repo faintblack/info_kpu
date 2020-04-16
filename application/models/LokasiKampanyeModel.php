@@ -28,6 +28,12 @@ class LokasiKampanyeModel extends CI_Model
         $this->db->join('kecamatan', 'lokasi_kampanye.id_kecamatan = kecamatan.id_kecamatan');
         return $this->db->get($this->table)->row();
     }
+
+    function get_where($condition){
+        $this->db->where($condition);
+        $this->db->join('kecamatan', 'lokasi_kampanye.id_kecamatan = kecamatan.id_kecamatan');
+        return $this->db->get($this->table)->result();
+    }
     
     // get total rows
     function total_rows($q = NULL) {

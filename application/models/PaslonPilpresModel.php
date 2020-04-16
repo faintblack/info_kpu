@@ -39,6 +39,14 @@ class PaslonPilpresModel extends CI_Model
         $this->db->select('*, a.nama_calon AS nama_capres, b.nama_calon AS nama_cawapres');
         return $this->db->get($this->table)->row();
     }
+
+    function get_where($condition){
+        $this->db->where($condition);
+        $this->db->join('calon_pilpres a', 'paslon_pilpres.id_capres = a.id_calon_pilpres');
+        $this->db->join('calon_pilpres b', 'paslon_pilpres.id_cawapres = b.id_calon_pilpres');
+        $this->db->select('id_paslon_pilpres, nomor_urut, a.nama_calon AS id_capres, b.nama_calon AS id_cawapres, tahun');
+        return $this->db->get($this->table)->result();
+    }
     
     // get total rows
     function total_rows($q = NULL) {

@@ -25,6 +25,12 @@ class BeritaModel extends CI_Model {
         return $this->db->get()->result();
     }
 
+    function get_where($condition){
+        $this->db->where($condition);
+        $this->db->join('pengguna b','a.username = b.username', 'left');
+        return $this->db->get($this->table)->result();
+    }
+
     public function tambah($data, $tabel){
 		$this->db->insert($tabel, $data);
 	}

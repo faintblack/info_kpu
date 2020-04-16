@@ -156,6 +156,19 @@ class JadwalKampanye extends CI_Controller{
         }
     }
 
+    public function getJson(){
+        $data_jadwal_kampanye = $this->JadwalKampanyeModel->get_all();
+        foreach ($data_jadwal_kampanye as $key => $value) {
+            $data[] = [
+                'title' => 'Paslon '.$value->nomor_urut,
+                'paslon' => "{$value->nama_capres} & {$value->nama_cawapres}",
+                'start' => $value->tanggal,
+                'allDay' => true,
+            ];
+        }
+        echo json_encode($data);
+	}
+
     public function _rules(){
         $this->form_validation->set_rules('tanggal', 'tanggal', 'required');
         $this->form_validation->set_rules('id_paslon_pilpres', 'paslon pilpres', 'trim|required');

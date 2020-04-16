@@ -35,7 +35,10 @@
 		<link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
 		<link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 		<link href="<?= base_url('libraries/ubold/');?>assets/plugins/clockpicker/css/bootstrap-clockpicker.min.css" rel="stylesheet">
-		<link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+        <link href="<?= base_url('libraries/ubold/');?>assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+        
+        <!--calendar css-->
+        <link href="<?= base_url('libraries/ubold/') ?>assets/plugins/fullcalendar/css/fullcalendar.min.css" rel="stylesheet" />
 
 		<link href="<?= base_url('libraries/ubold/') ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('libraries/ubold/') ?>assets/css/core.css" rel="stylesheet" type="text/css" />
@@ -180,7 +183,9 @@
      	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
      	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
      	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/clockpicker/js/bootstrap-clockpicker.min.js"></script>
-     	<script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src='<?= base_url('libraries/ubold/') ?>assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
+        <script src="<?= base_url('libraries/ubold/') ?>assets/pages/jquery.fullcalendar.js"></script>
 
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.core.js"></script>
         <script src="<?= base_url('libraries/ubold/') ?>assets/js/jquery.app.js"></script>
@@ -188,7 +193,14 @@
         <script src="<?= base_url('libraries/ubold/') ?>assets/pages/jquery.form-pickers.init.js"></script>
 
         <script type="text/javascript">
-            var resizefunc = [];
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+
+        var resizefunc = [];
+
             $(document).ready(function () {
                 $('#datatable-responsive').DataTable();
                 $('#datatable').dataTable();
@@ -196,6 +208,28 @@
 					$(this).find('[autofocus]').focus();
 				});
 
+                // Get jadwal kampanye
+                $('#calendar2').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay,listWeek'
+                    },
+                    defaultDate: today,
+                    navLinks: true,
+                    eventLimit: true,
+                    events: "<?= base_url('JadwalKampanye/getJson') ?>",
+                    eventRender: function (eventObj, $el) {
+                        $el.popover({
+                            title: eventObj.title,
+                            content: eventObj.paslon,
+                            trigger: 'hover',
+                            placement: 'top',
+                            container: 'body'
+                        });
+                    },
+                });
+                
                 // Dynamic dropdown for list kecamatan in suara calon pileg
                 $('#select-id_calon_pileg').change(function(){
                     var id_calon_pileg = $(this).val();
@@ -228,11 +262,6 @@
 
             });
             TableManageButtons.init();
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('form').parsley();
-            });
         </script>
 	</body>
 </html>

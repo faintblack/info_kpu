@@ -29,6 +29,7 @@ foreach ($data_parpol as $key => $value) {
                             <tr><td></td><td><a href="<?php echo site_url('PaslonPilpres') ?>" class="btn btn-default">Cancel</a></td></tr>
                         </table>
                     </div>
+                    <!-- Parpol Pendukung -->
                     <div class="row">
                         <div class="col-sm-12">
                             <h4 class="page-title" style="margin-bottom: 10px">Daftar Parpol Pendukung</h4>
@@ -69,6 +70,7 @@ foreach ($data_parpol as $key => $value) {
                             </table>
                         </div>
                     </div>
+                    
                     <!-- Modal Tambah Parpol Pendukung -->
                     <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                         <div class="modal-dialog"> 
@@ -104,7 +106,17 @@ foreach ($data_parpol as $key => $value) {
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+        <!-- Jadwal Kampanye -->
+        <!--
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card-box">
+                <h4 class="page-title" style="margin-bottom: 10px">Jadwal Kampanye</h4>
+                    <div id="calendar2"></div>
+                </div>
+            </div>
+        </div>-->
 
     </div> 
                 

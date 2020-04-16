@@ -39,7 +39,6 @@ class ParpolModel extends CI_Model
 
     function get_where($condition){
         $this->db->where($condition);
-        $this->db->select('*');
         return $this->db->get($this->table)->result();
     }
     

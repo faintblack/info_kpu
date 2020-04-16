@@ -31,8 +31,6 @@ class ParpolPaslonPilkadaModel extends CI_Model
     }
 
     function get_where($condition){
-        //$this->db->where($condition);
-        
         $this->db->join('parpol a', 'parpol_paslon_pilkada.id_parpol = a.id_parpol');
         $this->db->order_by('a.nama_parpol', 'ASC');
         return $this->db->get_where($this->table, $condition)->result();

@@ -34,6 +34,15 @@ class JadwalKampanyeModel extends CI_Model
         $this->db->select('id_jadwal_kampanye, tanggal, a.id_paslon_pilpres, nomor_urut, tahun, b.nama_calon AS nama_capres, c.nama_calon AS nama_cawapres');
         return $this->db->get($this->table)->row();
     }
+
+    function get_where($condition){
+        $this->db->where($condition);
+        $this->db->join('paslon_pilpres a', 'jadwal_kampanye.id_paslon_pilpres = a.id_paslon_pilpres');
+        $this->db->join('calon_pilpres b', 'a.id_capres = b.id_calon_pilpres');
+        $this->db->join('calon_pilpres c', 'a.id_cawapres = c.id_calon_pilpres');
+        $this->db->select('id_jadwal_kampanye, tanggal, a.id_paslon_pilpres, nomor_urut, tahun, b.nama_calon AS nama_capres, c.nama_calon AS nama_cawapres');
+        return $this->db->get($this->table)->result();
+    }
     
     // get total rows
     function total_rows($q = NULL) {

@@ -32,6 +32,13 @@ class CalonPilegModel extends CI_Model
 		$this->db->join('parpol', 'parpol.id_parpol = calon_pileg.id_parpol');
 		return $this->db->get($this->table)->row();
 	}
+
+	function get_where($condition){
+        $this->db->where($condition);
+        $this->db->join('dapil', 'dapil.id_dapil = calon_pileg.id_dapil');
+		$this->db->join('parpol', 'parpol.id_parpol = calon_pileg.id_parpol');
+        return $this->db->get($this->table)->result();
+    }
 	
     // get total rows
 	function total_rows($q = NULL) {
