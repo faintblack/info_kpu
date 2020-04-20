@@ -1,4 +1,4 @@
-<?php
+    <?php
 $nama_hari = [
     'Sun' => 'Minggu',
     'Mon' => 'Senin',
