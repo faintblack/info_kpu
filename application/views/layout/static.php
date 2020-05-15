@@ -49,8 +49,14 @@
 
         <link href="<?= base_url('libraries/custom/') ?>css/style.css" rel="stylesheet" type="text/css" />
         
-        <script src="<?= base_url('libraries/ubold/') ?>assets/js/modernizr.min.js"></script>
+        <link href="<?= base_url('libraries/leaflet/') ?>leaflet.css" rel="stylesheet" type="text/css" />
+        <script src="<?= base_url('libraries/leaflet/') ?>leaflet.js"></script>
 
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+
+        <script src="<?= base_url('libraries/ubold/') ?>assets/js/modernizr.min.js"></script>
+        
         <!--  -->
         <style type="text/css">
             #sidebar-menu{
@@ -61,6 +67,9 @@
             }
             .data-list .pinggir{
                 text-align: left;
+            }
+            #mapid {
+                height: 200px;
             }
         </style>
 
@@ -193,15 +202,16 @@
         <script src="<?= base_url('libraries/ubold/') ?>assets/pages/jquery.form-pickers.init.js"></script>
 
         <script type="text/javascript">
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        today = yyyy + '-' + mm + '-' + dd;
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
 
-        var resizefunc = [];
+            var resizefunc = [];
 
             $(document).ready(function () {
+                
                 $('#datatable-responsive').DataTable();
                 $('#datatable').dataTable();
                 $('.modal').on('shown.bs.modal', function() {
@@ -259,6 +269,24 @@
                         }
                     });
                 });
+
+                var mymap = L.map('map').setView([0.506566, 101.437790], 10);
+
+                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1,
+                    accessToken: 'pk.eyJ1IjoibWhyZGtrIiwiYSI6ImNrYThiM3liYjBkdmEyem1yZHFjZXFiYzQifQ.-HSSet2KQSmW2hGh03UBYA'
+                }).addTo(mymap);
+
+                $.getJSON('<?= base_url() ?>' + 'libraries/leaflet/data_kecamatan/rumbai.geojson', function(data){
+                    console.log(data);
+                    
+                    geoLayer = L.geoJSON(data).addTo(mymap);
+                    
+                }); 
 
             });
             TableManageButtons.init();

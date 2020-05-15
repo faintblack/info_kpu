@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Apr 2020 pada 18.54
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.1
+-- Generation Time: Apr 20, 2020 at 03:47 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `berita`
 --
 
 CREATE TABLE `berita` (
@@ -39,7 +39,7 @@ CREATE TABLE `berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `berita`
+-- Dumping data for table `berita`
 --
 
 INSERT INTO `berita` (`id_berita`, `username`, `jenis_berita`, `judul_berita`, `isi_berita`, `gambar_berita`, `waktu`) VALUES
@@ -47,13 +47,13 @@ INSERT INTO `berita` (`id_berita`, `username`, `jenis_berita`, `judul_berita`, `
 (8, 'admin', 'PILPRES', 'tes bos', 'Revert artinya mengembalikan. Perintah ini lebih aman daripada git reset, karena tidak akan menghapus catatan sejarah revisi.\r\nRevert akan akan mengambil kondisi file yang ada di masa lalu, kemudian menggabungkannya dengan commit terakhir.', '1.PNG', '2020-03-26 23:57:36'),
 (9, 'mhrdkk', 'PILPRES', 'Cebong', 'Jokowi curang, pakai cit.', 'Screenshot (144).PNG', '2020-03-31 02:27:44'),
 (10, 'mhrdkk', 'PILEG', 'Tes Judul mas', 'sdfsdfsd', 'Screenshot_(3).png', '2020-03-31 05:53:22'),
-(12, 'mhrdkk', 'PILPRES', '01 pakai cheat!', 'Pihak 01 kedapatan membakar surat suara pemilih 02', 'Screenshot_(114).png', '2020-04-11 02:07:35'),
+(12, 'mhrdkk', 'PILPRES', 'Kecurangan dimana-mana', 'Pihak 01 kedapatan membakar surat suara pemilih 02', 'Screenshot_(114).png', '2020-04-11 02:07:35'),
 (13, 'mhrdkk', 'PILPRES', 'Kevin mencalonkan diri sebagai Capres pada pemilu tahun 2019!', 'Sebagaimana kita ketahui, kevin merupakan salah satu selebram tanah air yang terkenal melalui gerakan dance nya yang mantap jiwa.', '1487776555228.jpg', '2020-04-12 09:06:01');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `calon_pileg`
+-- Table structure for table `calon_pileg`
 --
 
 CREATE TABLE `calon_pileg` (
@@ -66,17 +66,18 @@ CREATE TABLE `calon_pileg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `calon_pileg`
+-- Dumping data for table `calon_pileg`
 --
 
 INSERT INTO `calon_pileg` (`id_calon_pileg`, `id_dapil`, `id_parpol`, `no_urut`, `nama_calon`, `gender`) VALUES
 (1, 4, 3, 1, 'Abu Janda', 'Perempuan'),
-(2, 3, 2, 1, 'Beno Saputra', 'Laki-laki');
+(2, 3, 2, 1, 'Beno Saputra', 'Laki-laki'),
+(3, 3, 6, 3, 'Tono', 'Laki-laki');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `calon_pilkada`
+-- Table structure for table `calon_pilkada`
 --
 
 CREATE TABLE `calon_pilkada` (
@@ -88,7 +89,7 @@ CREATE TABLE `calon_pilkada` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `calon_pilkada`
+-- Dumping data for table `calon_pilkada`
 --
 
 INSERT INTO `calon_pilkada` (`id_calon_pilkada`, `nama_calon`, `gender`, `tgl_lahir`, `alamat`) VALUES
@@ -99,7 +100,7 @@ INSERT INTO `calon_pilkada` (`id_calon_pilkada`, `nama_calon`, `gender`, `tgl_la
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `calon_pilpres`
+-- Table structure for table `calon_pilpres`
 --
 
 CREATE TABLE `calon_pilpres` (
@@ -109,7 +110,7 @@ CREATE TABLE `calon_pilpres` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `calon_pilpres`
+-- Dumping data for table `calon_pilpres`
 --
 
 INSERT INTO `calon_pilpres` (`id_calon_pilpres`, `nama_calon`, `gender`) VALUES
@@ -121,7 +122,7 @@ INSERT INTO `calon_pilpres` (`id_calon_pilpres`, `nama_calon`, `gender`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dapil`
+-- Table structure for table `dapil`
 --
 
 CREATE TABLE `dapil` (
@@ -131,7 +132,7 @@ CREATE TABLE `dapil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `dapil`
+-- Dumping data for table `dapil`
 --
 
 INSERT INTO `dapil` (`id_dapil`, `nama_dapil`, `alokasi_kursi`) VALUES
@@ -141,7 +142,7 @@ INSERT INTO `dapil` (`id_dapil`, `nama_dapil`, `alokasi_kursi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal_kampanye`
+-- Table structure for table `jadwal_kampanye`
 --
 
 CREATE TABLE `jadwal_kampanye` (
@@ -151,7 +152,7 @@ CREATE TABLE `jadwal_kampanye` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `jadwal_kampanye`
+-- Dumping data for table `jadwal_kampanye`
 --
 
 INSERT INTO `jadwal_kampanye` (`id_jadwal_kampanye`, `tanggal`, `id_paslon_pilpres`) VALUES
@@ -175,7 +176,7 @@ INSERT INTO `jadwal_kampanye` (`id_jadwal_kampanye`, `tanggal`, `id_paslon_pilpr
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kecamatan`
+-- Table structure for table `kecamatan`
 --
 
 CREATE TABLE `kecamatan` (
@@ -188,7 +189,7 @@ CREATE TABLE `kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `kecamatan`
+-- Dumping data for table `kecamatan`
 --
 
 INSERT INTO `kecamatan` (`id_kecamatan`, `nama_kecamatan`, `id_dapil`, `jumlah_penduduk`, `jumlah_dpt_lk`, `jumlah_dpt_pr`) VALUES
@@ -199,7 +200,7 @@ INSERT INTO `kecamatan` (`id_kecamatan`, `nama_kecamatan`, `id_dapil`, `jumlah_p
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komentar`
+-- Table structure for table `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -211,7 +212,7 @@ CREATE TABLE `komentar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `komentar`
+-- Dumping data for table `komentar`
 --
 
 INSERT INTO `komentar` (`id_komentar`, `id_berita`, `username`, `isi_komentar`, `waktu`) VALUES
@@ -222,7 +223,7 @@ INSERT INTO `komentar` (`id_komentar`, `id_berita`, `username`, `isi_komentar`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lokasi_kampanye`
+-- Table structure for table `lokasi_kampanye`
 --
 
 CREATE TABLE `lokasi_kampanye` (
@@ -232,7 +233,7 @@ CREATE TABLE `lokasi_kampanye` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `lokasi_kampanye`
+-- Dumping data for table `lokasi_kampanye`
 --
 
 INSERT INTO `lokasi_kampanye` (`id_lokasi_kampanye`, `id_kecamatan`, `nama_lokasi`) VALUES
@@ -245,7 +246,7 @@ INSERT INTO `lokasi_kampanye` (`id_lokasi_kampanye`, `id_kecamatan`, `nama_lokas
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `parpol`
+-- Table structure for table `parpol`
 --
 
 CREATE TABLE `parpol` (
@@ -255,7 +256,7 @@ CREATE TABLE `parpol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `parpol`
+-- Dumping data for table `parpol`
 --
 
 INSERT INTO `parpol` (`id_parpol`, `no_urut_parpol`, `nama_parpol`) VALUES
@@ -267,7 +268,7 @@ INSERT INTO `parpol` (`id_parpol`, `no_urut_parpol`, `nama_parpol`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `parpol_paslon_pilkada`
+-- Table structure for table `parpol_paslon_pilkada`
 --
 
 CREATE TABLE `parpol_paslon_pilkada` (
@@ -277,7 +278,7 @@ CREATE TABLE `parpol_paslon_pilkada` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `parpol_paslon_pilkada`
+-- Dumping data for table `parpol_paslon_pilkada`
 --
 
 INSERT INTO `parpol_paslon_pilkada` (`id_parpol_paslon_pilkada`, `id_paslon`, `id_parpol`) VALUES
@@ -288,7 +289,7 @@ INSERT INTO `parpol_paslon_pilkada` (`id_parpol_paslon_pilkada`, `id_paslon`, `i
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `parpol_paslon_pilpres`
+-- Table structure for table `parpol_paslon_pilpres`
 --
 
 CREATE TABLE `parpol_paslon_pilpres` (
@@ -298,7 +299,7 @@ CREATE TABLE `parpol_paslon_pilpres` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `parpol_paslon_pilpres`
+-- Dumping data for table `parpol_paslon_pilpres`
 --
 
 INSERT INTO `parpol_paslon_pilpres` (`id_parpol_paslon_pilpres`, `id_paslon_pilpres`, `id_parpol`) VALUES
@@ -311,7 +312,7 @@ INSERT INTO `parpol_paslon_pilpres` (`id_parpol_paslon_pilpres`, `id_paslon_pilp
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `paslon_pilkada`
+-- Table structure for table `paslon_pilkada`
 --
 
 CREATE TABLE `paslon_pilkada` (
@@ -327,7 +328,7 @@ CREATE TABLE `paslon_pilkada` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `paslon_pilkada`
+-- Dumping data for table `paslon_pilkada`
 --
 
 INSERT INTO `paslon_pilkada` (`id_paslon`, `jenis_pemilihan`, `nomor_urut`, `id_kepala_daerah`, `id_wakil_kepala_daerah`, `jenis_calon`, `status_penetapan`, `keterangan`, `tahun`) VALUES
@@ -337,7 +338,7 @@ INSERT INTO `paslon_pilkada` (`id_paslon`, `jenis_pemilihan`, `nomor_urut`, `id_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `paslon_pilpres`
+-- Table structure for table `paslon_pilpres`
 --
 
 CREATE TABLE `paslon_pilpres` (
@@ -349,7 +350,7 @@ CREATE TABLE `paslon_pilpres` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `paslon_pilpres`
+-- Dumping data for table `paslon_pilpres`
 --
 
 INSERT INTO `paslon_pilpres` (`id_paslon_pilpres`, `nomor_urut`, `id_capres`, `id_cawapres`, `tahun`) VALUES
@@ -359,7 +360,7 @@ INSERT INTO `paslon_pilpres` (`id_paslon_pilpres`, `nomor_urut`, `id_capres`, `i
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengguna`
+-- Table structure for table `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -371,7 +372,7 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `pengguna`
+-- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`username`, `password`, `nama_pengguna`, `hak_akses`, `email`) VALUES
@@ -384,7 +385,7 @@ INSERT INTO `pengguna` (`username`, `password`, `nama_pengguna`, `hak_akses`, `e
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `suara_calon_pileg`
+-- Table structure for table `suara_calon_pileg`
 --
 
 CREATE TABLE `suara_calon_pileg` (
@@ -396,7 +397,7 @@ CREATE TABLE `suara_calon_pileg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `suara_calon_pileg`
+-- Dumping data for table `suara_calon_pileg`
 --
 
 INSERT INTO `suara_calon_pileg` (`id_suara_calon_pileg`, `id_calon_pileg`, `id_kecamatan`, `jumlah_suara`, `tahun`) VALUES
@@ -407,7 +408,7 @@ INSERT INTO `suara_calon_pileg` (`id_suara_calon_pileg`, `id_calon_pileg`, `id_k
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tps`
+-- Table structure for table `tps`
 --
 
 CREATE TABLE `tps` (
@@ -419,7 +420,7 @@ CREATE TABLE `tps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tps`
+-- Dumping data for table `tps`
 --
 
 INSERT INTO `tps` (`id_tps`, `id_kecamatan`, `nama_tps`, `lat`, `long`) VALUES
@@ -432,14 +433,14 @@ INSERT INTO `tps` (`id_tps`, `id_kecamatan`, `nama_tps`, `lat`, `long`) VALUES
 --
 
 --
--- Indeks untuk tabel `berita`
+-- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`),
   ADD KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `calon_pileg`
+-- Indexes for table `calon_pileg`
 --
 ALTER TABLE `calon_pileg`
   ADD PRIMARY KEY (`id_calon_pileg`),
@@ -447,39 +448,39 @@ ALTER TABLE `calon_pileg`
   ADD KEY `id_parpol` (`id_parpol`);
 
 --
--- Indeks untuk tabel `calon_pilkada`
+-- Indexes for table `calon_pilkada`
 --
 ALTER TABLE `calon_pilkada`
   ADD PRIMARY KEY (`id_calon_pilkada`);
 
 --
--- Indeks untuk tabel `calon_pilpres`
+-- Indexes for table `calon_pilpres`
 --
 ALTER TABLE `calon_pilpres`
   ADD PRIMARY KEY (`id_calon_pilpres`);
 
 --
--- Indeks untuk tabel `dapil`
+-- Indexes for table `dapil`
 --
 ALTER TABLE `dapil`
   ADD PRIMARY KEY (`id_dapil`);
 
 --
--- Indeks untuk tabel `jadwal_kampanye`
+-- Indexes for table `jadwal_kampanye`
 --
 ALTER TABLE `jadwal_kampanye`
   ADD PRIMARY KEY (`id_jadwal_kampanye`),
   ADD KEY `jadwal_kampanye_pemilu_ibfk_2` (`id_paslon_pilpres`);
 
 --
--- Indeks untuk tabel `kecamatan`
+-- Indexes for table `kecamatan`
 --
 ALTER TABLE `kecamatan`
   ADD PRIMARY KEY (`id_kecamatan`),
   ADD KEY `id_dapil` (`id_dapil`);
 
 --
--- Indeks untuk tabel `komentar`
+-- Indexes for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`id_komentar`),
@@ -487,21 +488,21 @@ ALTER TABLE `komentar`
   ADD KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `lokasi_kampanye`
+-- Indexes for table `lokasi_kampanye`
 --
 ALTER TABLE `lokasi_kampanye`
   ADD PRIMARY KEY (`id_lokasi_kampanye`),
   ADD KEY `id_kecamatan` (`id_kecamatan`);
 
 --
--- Indeks untuk tabel `parpol`
+-- Indexes for table `parpol`
 --
 ALTER TABLE `parpol`
   ADD PRIMARY KEY (`id_parpol`),
   ADD UNIQUE KEY `no_urut_parpol` (`no_urut_parpol`);
 
 --
--- Indeks untuk tabel `parpol_paslon_pilkada`
+-- Indexes for table `parpol_paslon_pilkada`
 --
 ALTER TABLE `parpol_paslon_pilkada`
   ADD PRIMARY KEY (`id_parpol_paslon_pilkada`),
@@ -509,7 +510,7 @@ ALTER TABLE `parpol_paslon_pilkada`
   ADD KEY `id_parpol` (`id_parpol`);
 
 --
--- Indeks untuk tabel `parpol_paslon_pilpres`
+-- Indexes for table `parpol_paslon_pilpres`
 --
 ALTER TABLE `parpol_paslon_pilpres`
   ADD PRIMARY KEY (`id_parpol_paslon_pilpres`),
@@ -517,7 +518,7 @@ ALTER TABLE `parpol_paslon_pilpres`
   ADD KEY `id_parpol` (`id_parpol`);
 
 --
--- Indeks untuk tabel `paslon_pilkada`
+-- Indexes for table `paslon_pilkada`
 --
 ALTER TABLE `paslon_pilkada`
   ADD PRIMARY KEY (`id_paslon`),
@@ -525,7 +526,7 @@ ALTER TABLE `paslon_pilkada`
   ADD KEY `id_wakil_kepala_daerah` (`id_wakil_kepala_daerah`);
 
 --
--- Indeks untuk tabel `paslon_pilpres`
+-- Indexes for table `paslon_pilpres`
 --
 ALTER TABLE `paslon_pilpres`
   ADD PRIMARY KEY (`id_paslon_pilpres`),
@@ -534,13 +535,13 @@ ALTER TABLE `paslon_pilpres`
   ADD KEY `id_cawapres` (`id_cawapres`);
 
 --
--- Indeks untuk tabel `pengguna`
+-- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indeks untuk tabel `suara_calon_pileg`
+-- Indexes for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
   ADD PRIMARY KEY (`id_suara_calon_pileg`),
@@ -548,191 +549,191 @@ ALTER TABLE `suara_calon_pileg`
   ADD KEY `id_data_calon_dprd` (`id_calon_pileg`);
 
 --
--- Indeks untuk tabel `tps`
+-- Indexes for table `tps`
 --
 ALTER TABLE `tps`
   ADD PRIMARY KEY (`id_tps`),
   ADD KEY `id_kecamatan` (`id_kecamatan`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `berita`
+-- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `calon_pileg`
+-- AUTO_INCREMENT for table `calon_pileg`
 --
 ALTER TABLE `calon_pileg`
-  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `calon_pilkada`
+-- AUTO_INCREMENT for table `calon_pilkada`
 --
 ALTER TABLE `calon_pilkada`
   MODIFY `id_calon_pilkada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `calon_pilpres`
+-- AUTO_INCREMENT for table `calon_pilpres`
 --
 ALTER TABLE `calon_pilpres`
   MODIFY `id_calon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `dapil`
+-- AUTO_INCREMENT for table `dapil`
 --
 ALTER TABLE `dapil`
   MODIFY `id_dapil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `jadwal_kampanye`
+-- AUTO_INCREMENT for table `jadwal_kampanye`
 --
 ALTER TABLE `jadwal_kampanye`
   MODIFY `id_jadwal_kampanye` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT untuk tabel `kecamatan`
+-- AUTO_INCREMENT for table `kecamatan`
 --
 ALTER TABLE `kecamatan`
   MODIFY `id_kecamatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `komentar`
+-- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
   MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT untuk tabel `lokasi_kampanye`
+-- AUTO_INCREMENT for table `lokasi_kampanye`
 --
 ALTER TABLE `lokasi_kampanye`
   MODIFY `id_lokasi_kampanye` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `parpol`
+-- AUTO_INCREMENT for table `parpol`
 --
 ALTER TABLE `parpol`
   MODIFY `id_parpol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `parpol_paslon_pilkada`
+-- AUTO_INCREMENT for table `parpol_paslon_pilkada`
 --
 ALTER TABLE `parpol_paslon_pilkada`
   MODIFY `id_parpol_paslon_pilkada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `parpol_paslon_pilpres`
+-- AUTO_INCREMENT for table `parpol_paslon_pilpres`
 --
 ALTER TABLE `parpol_paslon_pilpres`
   MODIFY `id_parpol_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `paslon_pilkada`
+-- AUTO_INCREMENT for table `paslon_pilkada`
 --
 ALTER TABLE `paslon_pilkada`
   MODIFY `id_paslon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `paslon_pilpres`
+-- AUTO_INCREMENT for table `paslon_pilpres`
 --
 ALTER TABLE `paslon_pilpres`
   MODIFY `id_paslon_pilpres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `suara_calon_pileg`
+-- AUTO_INCREMENT for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
   MODIFY `id_suara_calon_pileg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tps`
+-- AUTO_INCREMENT for table `tps`
 --
 ALTER TABLE `tps`
   MODIFY `id_tps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `berita`
+-- Constraints for table `berita`
 --
 ALTER TABLE `berita`
   ADD CONSTRAINT `berita_ibfk_1` FOREIGN KEY (`username`) REFERENCES `pengguna` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `calon_pileg`
+-- Constraints for table `calon_pileg`
 --
 ALTER TABLE `calon_pileg`
   ADD CONSTRAINT `calon_pileg_ibfk_1` FOREIGN KEY (`id_dapil`) REFERENCES `dapil` (`id_dapil`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `calon_pileg_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `jadwal_kampanye`
+-- Constraints for table `jadwal_kampanye`
 --
 ALTER TABLE `jadwal_kampanye`
   ADD CONSTRAINT `jadwal_kampanye_ibfk_2` FOREIGN KEY (`id_paslon_pilpres`) REFERENCES `paslon_pilpres` (`id_paslon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `kecamatan`
+-- Constraints for table `kecamatan`
 --
 ALTER TABLE `kecamatan`
   ADD CONSTRAINT `kecamatan_ibfk_1` FOREIGN KEY (`id_dapil`) REFERENCES `dapil` (`id_dapil`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `komentar`
+-- Constraints for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD CONSTRAINT `komentar_ibfk_1` FOREIGN KEY (`id_berita`) REFERENCES `berita` (`id_berita`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `komentar_ibfk_2` FOREIGN KEY (`username`) REFERENCES `pengguna` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `lokasi_kampanye`
+-- Constraints for table `lokasi_kampanye`
 --
 ALTER TABLE `lokasi_kampanye`
   ADD CONSTRAINT `lokasi_kampanye_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `parpol_paslon_pilkada`
+-- Constraints for table `parpol_paslon_pilkada`
 --
 ALTER TABLE `parpol_paslon_pilkada`
   ADD CONSTRAINT `parpol_paslon_pilkada_ibfk_1` FOREIGN KEY (`id_paslon`) REFERENCES `paslon_pilkada` (`id_paslon`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `parpol_paslon_pilkada_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `parpol_paslon_pilpres`
+-- Constraints for table `parpol_paslon_pilpres`
 --
 ALTER TABLE `parpol_paslon_pilpres`
   ADD CONSTRAINT `parpol_paslon_pilpres_ibfk_1` FOREIGN KEY (`id_paslon_pilpres`) REFERENCES `paslon_pilpres` (`id_paslon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `parpol_paslon_pilpres_ibfk_2` FOREIGN KEY (`id_parpol`) REFERENCES `parpol` (`id_parpol`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `paslon_pilkada`
+-- Constraints for table `paslon_pilkada`
 --
 ALTER TABLE `paslon_pilkada`
   ADD CONSTRAINT `paslon_pilkada_ibfk_1` FOREIGN KEY (`id_kepala_daerah`) REFERENCES `calon_pilkada` (`id_calon_pilkada`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `paslon_pilkada_ibfk_2` FOREIGN KEY (`id_wakil_kepala_daerah`) REFERENCES `calon_pilkada` (`id_calon_pilkada`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `paslon_pilpres`
+-- Constraints for table `paslon_pilpres`
 --
 ALTER TABLE `paslon_pilpres`
   ADD CONSTRAINT `paslon_pilpres_ibfk_1` FOREIGN KEY (`id_capres`) REFERENCES `calon_pilpres` (`id_calon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `paslon_pilpres_ibfk_2` FOREIGN KEY (`id_cawapres`) REFERENCES `calon_pilpres` (`id_calon_pilpres`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `suara_calon_pileg`
+-- Constraints for table `suara_calon_pileg`
 --
 ALTER TABLE `suara_calon_pileg`
   ADD CONSTRAINT `suara_calon_pileg_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `suara_calon_pileg_ibfk_2` FOREIGN KEY (`id_calon_pileg`) REFERENCES `calon_pileg` (`id_calon_pileg`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tps`
+-- Constraints for table `tps`
 --
 ALTER TABLE `tps`
   ADD CONSTRAINT `tps_ibfk_1` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE;
