@@ -63,32 +63,32 @@ $nama_bulan = [
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <!-- Ambil dari generator -->
-                                <?php
+                                    <!-- Ambil dari generator -->
+                                    <?php
                                     foreach ($jadwalkampanye_data as $no => $jadwalkampanye){
                                         $timestamp = strtotime($jadwalkampanye->tanggal);
                                         $hr = date('D', $timestamp);
                                         $tgl = substr($jadwalkampanye->tanggal, 8, 2);
                                         $bln = substr($jadwalkampanye->tanggal, 5, 2);
                                         $thn = substr($jadwalkampanye->tanggal, 0, 4);
-                                ?>
-                                    <tr>
-                                        <td width="80px"><?php echo $no+1 ?></td>
-                                        <td><?php echo "{$nama_hari[$hr]}, {$tgl} {$nama_bulan[$bln]} {$thn}" ?></td>
-                                        <td><?php echo "{$jadwalkampanye->nomor_urut} - {$jadwalkampanye->nama_capres} & {$jadwalkampanye->nama_cawapres}" ?></td>
-                                        <td style="text-align:center" width="200px">
-                                            <?php 
-                                            echo anchor(site_url('JadwalKampanye/read/'.$jadwalkampanye->id_jadwal_kampanye),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
-                                            echo ' '; 
-                                            echo anchor(site_url('JadwalKampanye/update/'.$jadwalkampanye->id_jadwal_kampanye),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
-                                            echo ' '; 
-                                            echo anchor(site_url('JadwalKampanye/delete/'.$jadwalkampanye->id_jadwal_kampanye),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
-                                            ?>
-                                        </td>
-                                    </tr>
-                                <?php
+                                        ?>
+                                        <tr>
+                                            <td width="80px"><?php echo $no+1 ?></td>
+                                            <td><?php echo "{$nama_hari[$hr]}, {$tgl} {$nama_bulan[$bln]} {$thn}" ?></td>
+                                            <td><?php echo "{$jadwalkampanye->nomor_urut} - {$jadwalkampanye->nama_capres} & {$jadwalkampanye->nama_cawapres}" ?></td>
+                                            <td style="text-align:center" width="200px">
+                                                <?php 
+                                                echo anchor(site_url('JadwalKampanye/read/'.$jadwalkampanye->id_jadwal_kampanye),' ', 'class="btn btn-info waves-effect waves-light glyphicon glyphicon-eye-open"'); 
+                                                echo ' '; 
+                                                echo anchor(site_url('JadwalKampanye/update/'.$jadwalkampanye->id_jadwal_kampanye),' ', 'class="btn btn-warning waves-effect waves-light glyphicon glyphicon-pencil"'); 
+                                                echo ' '; 
+                                                echo anchor(site_url('JadwalKampanye/delete/'.$jadwalkampanye->id_jadwal_kampanye),' ','class="btn btn-danger waves-effect waves-light glyphicon glyphicon-trash" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <?php
                                     }
-                                ?>
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -97,8 +97,17 @@ $nama_bulan = [
             </div>
         </div>
         
+        <!-- Jadwal Kampanye -->
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card-box">
+                <h4 class="page-title" style="margin-bottom: 10px">Jadwal Kampanye</h4>
+                    <div id="calendar2"></div>
+                </div>
+            </div>
+        </div>
 
     </div> 
-                
+    
 </div>
 

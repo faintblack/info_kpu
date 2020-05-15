@@ -41,5 +41,5 @@ foreach ($paslon_pilpres as $key => $value) {
         </div>        
 
     </div> 
-                
+    
 </div>

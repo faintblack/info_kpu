@@ -132,9 +132,9 @@ class JadwalKampanye extends CI_Controller{
             $this->update($this->input->post('id_jadwal_kampanye', TRUE));
         } else {
             $data = array(
-		'tanggal' => $this->input->post('tanggal',TRUE),
-		'id_paslon_pilpres' => $this->input->post('id_paslon_pilpres',TRUE),
-	    );
+              'tanggal' => $this->input->post('tanggal',TRUE),
+              'id_paslon_pilpres' => $this->input->post('id_paslon_pilpres',TRUE),
+          );
 
             $this->JadwalKampanyeModel->update($this->input->post('id_jadwal_kampanye', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -167,7 +167,7 @@ class JadwalKampanye extends CI_Controller{
             ];
         }
         echo json_encode($data);
-	}
+    }
 
     public function _rules(){
         $this->form_validation->set_rules('tanggal', 'tanggal', 'required');

@@ -47,10 +47,10 @@ class JadwalKampanyeModel extends CI_Model
     // get total rows
     function total_rows($q = NULL) {
         $this->db->like('id_jadwal_kampanye', $q);
-	$this->db->or_like('id_kecamatan', $q);
-	$this->db->or_like('tanggal', $q);
-	$this->db->or_like('id_paslon_pilpres', $q);
-	$this->db->from($this->table);
+        $this->db->or_like('id_kecamatan', $q);
+        $this->db->or_like('tanggal', $q);
+        $this->db->or_like('id_paslon_pilpres', $q);
+        $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
@@ -58,10 +58,10 @@ class JadwalKampanyeModel extends CI_Model
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id_jadwal_kampanye', $q);
-	$this->db->or_like('id_kecamatan', $q);
-	$this->db->or_like('tanggal', $q);
-	$this->db->or_like('id_paslon_pilpres', $q);
-	$this->db->limit($limit, $start);
+        $this->db->or_like('id_kecamatan', $q);
+        $this->db->or_like('tanggal', $q);
+        $this->db->or_like('id_paslon_pilpres', $q);
+        $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
 
