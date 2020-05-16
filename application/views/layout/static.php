@@ -270,52 +270,100 @@
                     });
                 });
 
-                var mymap = L.map('map').setView([0.506566, 101.437790], 11);
+                // Set map kecamatan
+                    var mymap = L.map('map').setView([0.506566, 101.437790], 11);
 
-                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'pk.eyJ1IjoibWhyZGtrIiwiYSI6ImNrYThiM3liYjBkdmEyem1yZHFjZXFiYzQifQ.-HSSet2KQSmW2hGh03UBYA'
-                }).addTo(mymap);
-
-                $.getJSON('<?= base_url() ?>' + 'libraries/leaflet/data_kecamatan/dpt.geojson', function(data){
-                    //console.log(data);
-                    
-                    geoLayer = L.geoJSON(data, {
-                        style: function(feature){
-                            var bg_color = feature.properties.fill;
-                            //console.log(feature);
-                            return {
-                                color: bg_color
-                            };
-                        },
-                        onEachFeature: function(feature, layer){
-                            var nama_kecamatan = feature.properties.name;
-                            var jumlah_penduduk = feature.properties.jumlah_penduduk;
-                            var jumlah_dpt = feature.properties.jumlah_dpt;
-
-                            var info_kecamatan = `
-                                <h5>Kecamatan = ${nama_kecamatan}</h5>
-                                <h5>Jumlah Penduduk = ${jumlah_penduduk}</h5>
-                                <h5>Jumlah DPT = ${jumlah_dpt}</h5>
-                            `;
-                            
-                            layer.bindPopup(info_kecamatan, {
-                                maxWidth : 300,
-                                closeButton: true,
-                                offset: L.point(0, -20)
-                            });
-
-                            layer.on('click', function(){
-                                layer.openPopup();
-                            })
-                        }
+                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                        maxZoom: 18,
+                        id: 'mapbox/streets-v11',
+                        tileSize: 512,
+                        zoomOffset: -1,
+                        accessToken: 'pk.eyJ1IjoibWhyZGtrIiwiYSI6ImNrYThiM3liYjBkdmEyem1yZHFjZXFiYzQifQ.-HSSet2KQSmW2hGh03UBYA'
                     }).addTo(mymap);
                     
-                }); 
+                    $.getJSON('<?= base_url() ?>' + 'libraries/leaflet/data_kecamatan/kecamatan.geojson', function(data){
+                        //console.log(data);                    
+                        geoLayer = L.geoJSON(data, {
+                            style: function(feature){
+                                var bg_color = feature.properties.fill;
+                                //console.log(feature);
+                                return {
+                                    color: bg_color
+                                };
+                            },
+                            onEachFeature: function(feature, layer){
+                                var nama_kecamatan = feature.properties.name;
+                                var jumlah_penduduk = feature.properties.jumlah_penduduk;
+                                var jumlah_dpt = feature.properties.jumlah_dpt;
+
+                                var info_kecamatan = `
+                                    <h5>Kecamatan = ${nama_kecamatan}</h5>
+                                    <h5>Jumlah Penduduk = ${jumlah_penduduk}</h5>
+                                    <h5>Jumlah DPT = ${jumlah_dpt}</h5>
+                                `;
+                                
+                                layer.bindPopup(info_kecamatan, {
+                                    maxWidth : 300,
+                                    closeButton: true,
+                                    offset: L.point(0, -20)
+                                });
+
+                                layer.on('click', function(){
+                                    layer.openPopup();
+                                })
+                            }
+                        }).addTo(mymap);
+                    }); 
+
+                // Set map dapil
+                    var dapil_map = L.map('map_dapil').setView([0.506566, 101.437790], 11);
+
+                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                        maxZoom: 18,
+                        id: 'mapbox/streets-v11',
+                        tileSize: 512,
+                        zoomOffset: -1,
+                        accessToken: 'pk.eyJ1IjoibWhyZGtrIiwiYSI6ImNrYThiM3liYjBkdmEyem1yZHFjZXFiYzQifQ.-HSSet2KQSmW2hGh03UBYA'
+                    }).addTo(dapil_map);
+
+                    $.getJSON('<?= base_url() ?>' + 'libraries/leaflet/data_kecamatan/dapil.geojson', function(data){
+                        //console.log(data);                    
+                        geoLayer = L.geoJSON(data, {
+                            style: function(feature){
+                                var bg_color = feature.properties.fill;
+                                //console.log(feature);
+                                return {
+                                    color: bg_color
+                                };
+                            },
+                            onEachFeature: function(feature, layer){
+                                var nama_dapil = feature.properties.name;
+                                //var jumlah_penduduk = feature.properties.jumlah_penduduk;
+                                var jumlah_dpt = feature.properties.jumlah_dpt;
+                                var alokasi_kursi = feature.properties.alokasi_kursi;
+                                var kecamatan = feature.properties.kecamatan;
+
+                                var info_kecamatan = `
+                                    <h5>${nama_dapil}</h5>
+                                    <h5>Jumlah DPT = ${jumlah_dpt}</h5>
+                                    <h5>Alokasi Kursi = ${alokasi_kursi}</h5>
+                                    <h5>Kecamatan = ${kecamatan}</h5>
+                                `;
+                                
+                                layer.bindPopup(info_kecamatan, {
+                                    maxWidth : 300,
+                                    closeButton: true,
+                                    offset: L.point(0, -20)
+                                });
+
+                                layer.on('click', function(){
+                                    layer.openPopup();
+                                })
+                            }
+                        }).addTo(dapil_map);
+                    }); 
 
             });
             TableManageButtons.init();
