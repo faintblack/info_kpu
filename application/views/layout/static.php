@@ -270,7 +270,7 @@
                     });
                 });
 
-                var mymap = L.map('map').setView([0.506566, 101.437790], 10);
+                var mymap = L.map('map').setView([0.506566, 101.437790], 11);
 
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -281,10 +281,39 @@
                     accessToken: 'pk.eyJ1IjoibWhyZGtrIiwiYSI6ImNrYThiM3liYjBkdmEyem1yZHFjZXFiYzQifQ.-HSSet2KQSmW2hGh03UBYA'
                 }).addTo(mymap);
 
-                $.getJSON('<?= base_url() ?>' + 'libraries/leaflet/data_kecamatan/rumbai.geojson', function(data){
-                    console.log(data);
+                $.getJSON('<?= base_url() ?>' + 'libraries/leaflet/data_kecamatan/dpt.geojson', function(data){
+                    //console.log(data);
                     
-                    geoLayer = L.geoJSON(data).addTo(mymap);
+                    geoLayer = L.geoJSON(data, {
+                        style: function(feature){
+                            var bg_color = feature.properties.fill;
+                            //console.log(feature);
+                            return {
+                                color: bg_color
+                            };
+                        },
+                        onEachFeature: function(feature, layer){
+                            var nama_kecamatan = feature.properties.name;
+                            var jumlah_penduduk = feature.properties.jumlah_penduduk;
+                            var jumlah_dpt = feature.properties.jumlah_dpt;
+
+                            var info_kecamatan = `
+                                <h5>Kecamatan = ${nama_kecamatan}</h5>
+                                <h5>Jumlah Penduduk = ${jumlah_penduduk}</h5>
+                                <h5>Jumlah DPT = ${jumlah_dpt}</h5>
+                            `;
+                            
+                            layer.bindPopup(info_kecamatan, {
+                                maxWidth : 300,
+                                closeButton: true,
+                                offset: L.point(0, -20)
+                            });
+
+                            layer.on('click', function(){
+                                layer.openPopup();
+                            })
+                        }
+                    }).addTo(mymap);
                     
                 }); 
 
